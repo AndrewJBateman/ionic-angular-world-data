@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>country-list</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title text-center>WORLD COUNTRIES</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+<!--   <ion-card *ngFor="let country of countries">
+    <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{country.name}}</ion-card-title>
+  </ion-card> -->
 
-</ion-content>
+	<ion-list>
+		<ion-item *ngFor="let country of countries">
+			<ion-avatar item-start>
+				<img src="{{country.flag}}">
+			</ion-avatar>
+			<h2>{{country.name}}</h2>
+		</ion-item>
+	</ion-list>
+
+
+<ion-content>
