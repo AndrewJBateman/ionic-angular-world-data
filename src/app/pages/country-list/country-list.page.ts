@@ -22,4 +22,16 @@ export class CountryListPage implements OnInit {
 			});
 	}
 
+	goToCountryDetail() {
+
+	}
+
+
+	goToGoogleMaps() {
+
+	}
+
+	goToWorldBankInfo() {
+
+	}
 }

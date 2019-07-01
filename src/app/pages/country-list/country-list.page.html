@@ -1,22 +1,49 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title text-center>WORLD COUNTRIES</ion-title>
+		<ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Countries</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<!--   <ion-card *ngFor="let country of countries">
-    <ion-card-title text-wrap style="font-size: 1rem; color: #456f54;">{{country.name}}</ion-card-title>
-  </ion-card> -->
+	<ion-card class="country-card" *ngFor="let country of countries">
+		<ion-card-content>
+			<ion-item detail="false" lines="none" routerLink="">
+				<ion-avatar slot="start">
+					<img src="{{country.flag}}" alt="country flag picture">
+				</ion-avatar>
+					{{country.name}}
+			</ion-item>
+			<p class="para-text" ><span class="color-text">Capital: </span>{{country.capital}},
+			<span class="color-text">Region: </span>{{country.region}}</p>
+		</ion-card-content>
 
-	<ion-list>
-		<ion-item *ngFor="let country of countries">
-			<ion-avatar item-start>
-				<img src="{{country.flag}}">
-			</ion-avatar>
-			<h2>{{country.name}}</h2>
-		</ion-item>
-	</ion-list>
+		<ion-row class="ion-no-padding ion-justify-content-center">
+      <ion-col size="4" class="ion-text-left">
+        <ion-button fill="clear" size="small" color="primary" (click)="goToCountryDetail()">
+          <ion-icon name="information-circle" slot="start"></ion-icon>
+            More Info.
+        </ion-button>
+      </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-button fill="clear" size="small" color="primary" (click)="goToGoogleMaps()">
+            <ion-icon name="locate" slot="start"></ion-icon>
+              Map
+          </ion-button>
+        </ion-col>
+      <ion-col size="4" class="ion-text-right">
+        <ion-button fill="clear" size="small" color="primary" (click)="goToWorldBankInfo()">
+          <ion-icon name="analytics" slot="start"></ion-icon>
+            Analysis
+        </ion-button>
+      </ion-col>
+    </ion-row>
 
-
+					</ion-card>		
+		<!-- </ion-item-sliding>			 -->
+				<!-- </ion-col>
+			</ion-row>
+		</ion-grid> -->
 <ion-content>
