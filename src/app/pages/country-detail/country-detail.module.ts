@@ -8,19 +8,19 @@ import { IonicModule } from '@ionic/angular';
 import { CountryDetailPage } from './country-detail.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: CountryDetailPage
-  }
+	{
+		path: '',
+		component: CountryDetailPage
+	}
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [CountryDetailPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RouterModule.forChild(routes)
+	],
+	declarations: [CountryDetailPage]
 })
 export class CountryDetailPageModule {}

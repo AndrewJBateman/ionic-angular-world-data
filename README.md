@@ -57,9 +57,9 @@ tba
 
 ## Status & To-do list
 
-* Status: Working Country List page only.
+* Status: Working Country List page. Routes to detail page but data binding not working due to api get error.
 
-* To-do: add search, add detail page. Add tabs at bottom: home, contact, about tabs. Add top bar menu.
+* To-do: add search, fix detail page. Add cpountry categories? Add tabs at bottom: home, contact, about tabs. Add top bar menu.
 
 ## Inspiration
 

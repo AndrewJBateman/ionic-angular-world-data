@@ -1,9 +1,45 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-title>country-detail</ion-title>
+  <ion-toolbar color="primary">
+		<ion-buttons slot="start">
+      <ion-back-button defaultHref="/country-list"></ion-back-button>
+    </ion-buttons>
+		<ion-title>{{ country.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+	<ion-card>
+		<img [src]="country.flag">
+		<ion-card-content>
+			<p>Capital: {{ country.capital }}</p>
+			<p>Region: {{ country.region }}</p>
+			<p>Population: {{ country.population }}</p>
+			<p>Area: {{ country.area }}</p>
+			<p>Coordinates (lat / long): {{ country.latlng }}</p>
+			<p>Languages: {{ country.languages.name }}</p>
+			<p>Currencies: {{ country.currencies.name }}</p>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
+
+		<ion-row class="ion-no-padding ion-justify-content-center">
+      <ion-col size="4" class="ion-text-left">
+        <ion-button fill="clear" size="small" color="primary" (click)="goToCountryNews()">
+          <ion-icon name="information-circle" slot="start"></ion-icon>
+            More Info.
+        </ion-button>
+      </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-button fill="clear" size="small" color="primary" (click)="goToGoogleMaps()">
+            <ion-icon name="locate" slot="start"></ion-icon>
+              Map
+          </ion-button>
+        </ion-col>
+      <ion-col size="4" class="ion-text-right">
+        <ion-button fill="clear" size="small" color="primary" (click)="goToWorldBankInfo()">
+          <ion-icon name="analytics" slot="start"></ion-icon>
+            Analysis
+        </ion-button>
+      </ion-col>
+    </ion-row>

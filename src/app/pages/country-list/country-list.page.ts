@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestApiService } from '../../services/rest-api.service';
+import { RestApiService } from './../../services/rest-api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,29 +9,29 @@ import { Router } from '@angular/router';
 	providers: [RestApiService]
 })
 export class CountryListPage implements OnInit {
-	selectedCountry: any;
+
+	searchTerm: '';
 	countries: any;
+	country: any;
 
 	constructor(private restApiService: RestApiService, private router: Router) { }
 
 	ngOnInit() {
-		this.restApiService.getCountries()
+		this.restApiService
+			.getCountryData('all')
 			.subscribe(data => {
-				console.log(data);
-				this.countries  = data;
+				this.countries = data;
 			});
 	}
 
-	goToCountryDetail() {
-
+	showCountryDetail(country: any) {
+		this.restApiService
+			.getCountryData('name/' + country)
+			.subscribe(data => {
+				this.country = data;
+			});
+		console.log('item clicked');
+		this.router.navigate(['/country-detail']);
 	}
 
-
-	goToGoogleMaps() {
-
-	}
-
-	goToWorldBankInfo() {
-
-	}
 }
