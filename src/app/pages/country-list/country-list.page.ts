@@ -13,6 +13,7 @@ export class CountryListPage implements OnInit {
 	searchTerm: '';
 	countries: any;
 	country: any;
+	continent: string;
 
 	constructor(private restApiService: RestApiService, private router: Router) { }
 

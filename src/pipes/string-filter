@@ -1,0 +1,15 @@
+import { Pipe, PipeTransform } from @angular/core;
+
+@Pipe({
+	name: stringFilter,
+})
+
+export class StringFilterPipe implements PipeTransform {
+
+	transform(countries: Array<any>, conditions: { [field: string]: any }): Array<any> {
+		return item.filter(item => {
+			for (let )
+		})
+	}
+
+}
