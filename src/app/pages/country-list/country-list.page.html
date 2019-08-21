@@ -5,7 +5,12 @@
     </ion-buttons>
     <ion-title><ion-icon name="globe"></ion-icon> Countries</ion-title>
   </ion-toolbar>
+</ion-header>
 
+<ion-content no-padding>
+	<!-- <ion-searchbar [(ngModel)]="">
+
+	</ion-searchbar> -->
 	<!-- User can select option of all or a continent - needs a search bar -->
 	<ion-toolbar no border-bottom>
 		<ion-segment [(ngModel)]="continent" color="white">
@@ -13,20 +18,16 @@
 			<ion-segment-button value="Africa">Africa</ion-segment-button>
 			<ion-segment-button value="Americas">Americas</ion-segment-button>
 			<ion-segment-button value="Asia">Asia</ion-segment-button>
-			<ion-segment-button value="Aurope">Europe</ion-segment-button>
+			<ion-segment-button value="Europe">Europe</ion-segment-button>
 			<ion-segment-button value="Oceania">Oceania</ion-segment-button>
 		</ion-segment>
 	</ion-toolbar>
-</ion-header>
-
-<ion-content>
-
 	<div [ngSwitch]="continent">
 
 
 		<ion-list *ngSwitchCase="'All'">
-			<ion-card  class="country-card" *ngFor="let country of countries" (click)="showCountryDetail(country)">
-				<ion-card-content>
+			<ion-card  class="country-card" *ngFor="let country of countries" (click)="showCountryDetail(country)" no-padding>
+				<ion-card-content no-padding>
 					<ion-item detail="false" lines="none" routerLink="">
 						<ion-avatar slot="start">
 							<img src="{{ country.flag }}" alt="{{ country.title }} flag image">

@@ -5,22 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ContactPage } from './contact.page';
+import { FavouritesPage } from './favourites.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ContactPage
-  }
+	{
+		path: '',
+		component: FavouritesPage
+	}
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [ContactPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RouterModule.forChild(routes)
+	],
+	declarations: [FavouritesPage]
 })
-export class ContactPageModule {}
+export class FavouritesPageModule {}

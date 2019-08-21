@@ -59,7 +59,7 @@ tba
 
 * Status: Working Country List page. Ion segment used to allow user to select country_list by continent. Routes to detail page but data binding not working due to api get error.
 
-* To-do: Change ion-segment to ion-select-option and add search, fix detail page. Add filter to filter countries by select option chosen (ie Africa, urope etc) Add tabs at bottom: home, contact, about tabs. Add top bar menu.
+* To-do: Change ion-segment to ion-select-option or top bar menu sliding columns. Add search, fix detail page. Add filter to filter countries by select option chosen (ie Africa, Europe etc). Add to categories page/add extra pages with rankings data from World Bank etc. Add contact info to about page. Add scss color themes.
 
 ## Inspiration
 
