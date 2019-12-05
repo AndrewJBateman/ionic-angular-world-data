@@ -1,0 +1,44 @@
+{
+	"MENU": {
+		"title": "Menu",
+		"Nav-header": "Naviguer",
+		"Nav-settings": "Reglage",
+		"Label-language": "Langage",
+		"LangOption-English": "AN",
+		"LangOption-Spanish": "ES",
+		"LangOption-French": "FR",
+		"Label-darkMode": "mode-sombre"
+	},
+	"NEWS": {
+		"title": "Nouvelles",
+		"source": "source",
+		"cancel": "annuler"
+	},
+	"NEWS-DETAIL": {
+		"title": "Nouvelles de: ",
+		"visit": "Visiter site",
+		"add-favourite": "Ajouter Favori",
+		"remove-favourite": "Retirer Favori"
+	},
+	"FAVOURITES": {
+		"title": "Favoris",
+		"notice": "Il n'y a pas d'articles dans les Favoris"
+	},
+	"PROGRESS_BAR": {
+		"title": "Chargement des nouvelles..."
+	},
+	"ABOUT": {
+		"page-title": "À Propos de Cette App",
+		"card-title": "Nouvelles du Monde",
+		"para1-part1": "Cette application récupère les métadonnées JSON en direct de ",
+		"para1-part2": "une API HTTP REST contenant des articles d'environ 30 000 sources / blogs dans le monde entier.",
+		"para2": "Les articles peuvent être consultés dans les catégories suivantes: général, technologie, affaires, divertissement, santé, sciences et sports.",
+		"para3": "Chaque article comprend un lien vers la source de nouvelles originale qui s'ouvre dans une nouvelle fenêtre."
+	},
+	"TASK-BAR": {
+		"news": "Nouvelles",
+		"categories": "Catégories",
+		"favourites": "Favoris",
+		"about": "À Propos"
+	}
+}

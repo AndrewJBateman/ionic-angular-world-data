@@ -1,44 +1,75 @@
 <ion-app>
-  <ion-split-pane>
+  <ion-split-pane contentId="menu-content">
 
-    <ion-menu>
+		<!--Side menu-->
+    <ion-menu contentId="menu-content">
       <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu</ion-title>
+        <ion-toolbar color="primary">
+          <ion-title>{{ 'MENU.title' | translate }}</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-
+			
+			<ion-content>
         <ion-list>
           <ion-list-header>
-            Navigate
+            <ion-text class="small-text">{{ 'MENU.Nav-header' | translate }}</ion-text>
           </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url" routerLinkActive="active" routerDirection="root">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
+              <ion-icon slot="start" [name]="p.icon" [class]="p.menuIcon"></ion-icon>
+							<ion-label *ngIf="language==='en'">
+                {{ p.title }}
+							</ion-label>
+							<ion-label *ngIf="language==='fr'">
+                {{ p.titlefr }}
+							</ion-label>
+							<ion-label *ngIf="language==='sp'">
+                {{ p.titlesp }}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-        
-         <!-- <ion-list>
-          <ion-list-header>
-            Spare
-          </ion-list-header>
-          <ion-menu-toggle autoHide="false">
-            <ion-item button (click)="openSpare()">
-              <ion-icon slot="start" name="book"></ion-icon>
-              <ion-label>Spare</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list> -->
-      </ion-content>
-    </ion-menu>
+				
+				<ion-list>
+					<ion-list-header>
+						<ion-text class="small-text">{{ 'MENU.Nav-settings' | translate }}</ion-text>
+					</ion-list-header>
 
-    <ion-router-outlet main></ion-router-outlet>
+					<ion-item (click)="themeService.changeThemeMode()">
+						<ion-icon name="contrast" slot="start"></ion-icon>
+						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>
+            <ion-toggle
+              slot="end"
+              [(ngModel)]="darkMode">
+            </ion-toggle>
+					</ion-item>
 
+					<ion-item>
+						<ion-icon name="globe" slot="start" class="iconGlobe"></ion-icon>
+						<ion-label>{{ 'MENU.Label-language' | translate }}</ion-label>
+						<ion-select 
+						#Language	[(ngModel)]="language"
+						(ionChange)="languageChange()">
+							<ion-select-option option value="en" selected>{{ 'MENU.LangOption-English' | translate }}</ion-select-option>
+							<ion-select-option option value="sp">{{ 'MENU.LangOption-Spanish' | translate }}</ion-select-option>
+							<ion-select-option option value="fr">{{ 'MENU.LangOption-French' | translate }}</ion-select-option>
+						</ion-select>
+					</ion-item>
+				</ion-list>
+
+				<ion-card>
+					<img src="assets/imgs/sidemenu-image.jpg" alt="side menu image of a globe">
+					<ion-card-header>
+						<ion-card-subtitle class="ion-text-center">
+							<ion-icon name="camera" color="secondary"></ion-icon> Jonathan Pease on Unsplash
+						</ion-card-subtitle>
+					</ion-card-header>
+				</ion-card>
+			</ion-content>
+		</ion-menu>
+
+		<!-- the main content -->
+		<ion-router-outlet id="menu-content"></ion-router-outlet>
+		
   </ion-split-pane>
-
 </ion-app>
