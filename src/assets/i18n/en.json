@@ -10,9 +10,7 @@
 		"Label-darkMode": "Dark-mode",
 		"page-title": ""
 	},
-	"NEWS": {
-		"title": "News",
-		"source": "Source",
+	"COUNTRIES": {
 		"cancel": "Cancel"
 	},
 	"NEWS-DETAIL": {

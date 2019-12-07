@@ -19,7 +19,7 @@ App that displays details about countries using data from the [Rest Countries](h
 
 ## Screenshots
 
-![Ionic page](./img/list.png)
+![Ionic page](./img/country-list.png)
 
 ## Technologies
 
@@ -45,7 +45,7 @@ tba
 
 ## Features
 
-* Displays list of countries with country flag, title, capital and region.
+* Displays mat-card list of countries with country flag, title, capital and region.
 * (future) search bar to search for country from list.
 * (future) clicking on the More Info button will route to a detailed info page.
 * (future) clicking on the Map button will route to a (Google) Map view of the country.
@@ -61,21 +61,23 @@ tba
 
 ## Navigation/Pages
 
-* **Nav side-bar:** TODO: countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
+* **Nav side-bar:** countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
+* **TODO** add menu close function.
 
-* **Countries page** shows world headlines using an ion-card list. Uses *ngIf to only show card if it has an image to avoid having news items with empty spaces (API data is not perfect). Shows time as '... ago' using a date convert pipe that uses day.js to convert the API Coordinated Universal Time (UTC) date-time string to '...ago'.
+* **Countries page** Simple list of cards working for 'all' category.
+**TODO:** Include search bar at top. Link to Country Detail page - footer: link to map, link to Wikipedia? link to World Bank Data?
 
-* **Categories**
+* **Categories** Replace with quiz?
 
-* **Favourites**
+* **Favourites** Replace with..map? just a map you can zoom in?
 
-* **About**
+* **About** 
 
 ## Status & To-do list
 
 * Status: Working Country List page. Ion segment used to allow user to select country_list by continent. Routes to detail page but data binding not working due to api get error.
 
-* To-do: Change ion-segment to ion-select-option or top bar menu sliding columns. Add search, fix detail page. Add filter to filter countries by select option chosen (ie Africa, Europe etc). Add to categories page/add extra pages with rankings data from World Bank etc. Add contact info to about page. Add scss color themes.
+* To-do: Change ion-segment to ion-select-option or top bar menu sliding columns. Add search, fix detail page. Add filter to filter countries by select option chosen (ie Africa, Europe etc). Add to categories page/add extra pages with rankings data from World Bank etc. Add contact info to about page. Add scss color themes. Look at CIA Fact Book for info - API?
 
 ## Inspiration
 

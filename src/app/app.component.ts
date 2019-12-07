@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -16,6 +16,7 @@ import { ThemeService } from './services/theme.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+	@Output() sidenavClose = new EventEmitter();
 	darkMode: any;
 	public language: string = this.languageService.selected;
 	public appPages = [
@@ -65,7 +66,6 @@ export class AppComponent implements OnInit {
 		this.darkMode = this.themeService.darkMode;
 	}
 
-
 	ngOnInit() {
 	}
 
@@ -80,5 +80,9 @@ export class AppComponent implements OnInit {
 	languageChange() {
     this.languageService.setLanguage(this.language);
 	}
+
+	onSidenavClose = () => {
+    this.sidenavClose.emit();
+  }
 	
 }

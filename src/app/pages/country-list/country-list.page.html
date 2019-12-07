@@ -2,29 +2,46 @@
   <ion-toolbar color="primary">
 		<ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title><ion-icon name="globe"></ion-icon> Countries</ion-title>
+		</ion-buttons>
+		
+		<ion-item class="ion-no-padding source" color="primary">
+			<ion-title class="ion-text-center">
+				<ion-icon item-start class="icon" name="globe" size="large"></ion-icon>
+			</ion-title>
+
+			<!--drop-down list of country regions, select one to change the country category and reload list of country-->
+			<ion-select
+				interface="action-sheet"
+				placeholder="Select"
+				name="selected"
+				[(ngModel)]="continent"
+				(ionChange)="changeContinent($event)"
+				class="continent-label"
+				cancelText="{{ 'COUNTRIES.cancel' | translate }}">
+				<ion-select-option
+					*ngFor="let continent of continents"
+					value="{{continent}}">
+					{{ continent }}
+				</ion-select-option>
+			</ion-select>
+		</ion-item><!--end of drop-down menu-->
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content no-padding>
-	<!-- <ion-searchbar [(ngModel)]="">
+	<ion-grid class="ion-no-padding">
+		<ion-row>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 
-	</ion-searchbar> -->
-	<!-- User can select option of all or a continent - needs a search bar -->
-	<ion-toolbar no border-bottom>
-		<ion-segment [(ngModel)]="continent" color="white">
-			<ion-segment-button value="All">All</ion-segment-button>
-			<ion-segment-button value="Africa">Africa</ion-segment-button>
-			<ion-segment-button value="Americas">Americas</ion-segment-button>
-			<ion-segment-button value="Asia">Asia</ion-segment-button>
-			<ion-segment-button value="Europe">Europe</ion-segment-button>
-			<ion-segment-button value="Oceania">Oceania</ion-segment-button>
-		</ion-segment>
-	</ion-toolbar>
-	<div [ngSwitch]="continent">
+				<div 
+					*ngFor="let country of countries"
+					style="padding: 0;"
+					(click)="showCountryDetail(country)">
+					<app-country-item [country]="country"></app-country-item>
+				</div> 
 
-
+	<!-- <div [ngSwitch]="continent">
 		<ion-list *ngSwitchCase="'All'">
 			<ion-card  class="country-card" *ngFor="let country of countries" (click)="showCountryDetail(country)" no-padding>
 				<ion-card-content no-padding>
@@ -107,7 +124,9 @@
 		</ion-list>
 
 		
-	</div>
+	</div> -->
 
-	
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 <ion-content>

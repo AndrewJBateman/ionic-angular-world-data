@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RestApiService } from './../../services/rest-api.service';
 import { Router } from '@angular/router';
+
+import { Country } from '../../interfaces/interface';
+import { RestApiService } from './../../services/rest-api.service';
 
 @Component({
 	selector: 'app-country-list',
@@ -10,19 +12,30 @@ import { Router } from '@angular/router';
 })
 export class CountryListPage implements OnInit {
 
+	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceana'];
 	searchTerm: '';
-	countries: any;
+	countries: Country[] = [];
 	country: any;
 	continent: string;
 
 	constructor(private restApiService: RestApiService, private router: Router) { }
 
 	ngOnInit() {
-		this.restApiService
-			.getCountryData('all')
-			.subscribe(data => {
+		this.getCountryList('all');
+	}
+
+	getCountryList(url: string) {
+		return this.restApiService
+			.getCountryData(url)
+			.subscribe((data: Country[]) => {
 				this.countries = data;
 			});
+	}
+
+	changeContinent(event: any) {
+/* 		this.continent = '';
+		console.log('change continent to: ', event.detail.value);
+		this.getCountryList(event.detail.value); */
 	}
 
 	showCountryDetail(country: any) {

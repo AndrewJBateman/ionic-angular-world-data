@@ -1,0 +1,25 @@
+<ion-card>
+  <ion-row>
+  
+    <ion-col class="image-col" size-xs="3">
+      <ion-thumbnail>
+        <img [src]="country.flag" class="thumbnail" alt="{{ country.name }}">
+      </ion-thumbnail>
+    </ion-col>
+  
+    <ion-col class="text-col" size-xs="9">
+      <ion-label class="title-text">
+        {{ country.name | uppercase }}
+      </ion-label>
+      <br>
+      <span class="small-text">
+        Capital: 
+      </span>{{ country.capital }}
+      <br>
+      <span class="small-text">
+        Region: 
+      </span>{{ country.region }}
+    </ion-col>
+      
+  </ion-row>
+</ion-card>

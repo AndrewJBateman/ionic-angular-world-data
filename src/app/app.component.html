@@ -12,10 +12,14 @@
 			<ion-content>
         <ion-list>
           <ion-list-header>
-            <ion-text class="small-text">{{ 'MENU.Nav-header' | translate }}</ion-text>
+            <ion-text color="secondary">{{ 'MENU.Nav-header' | translate }}</ion-text>
           </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item [routerLink]="p.url" routerLinkActive="active" routerDirection="root">
+						<ion-item
+							[routerLink]="p.url"
+							routerLinkActive="active"
+							routerDirection="root"
+							(click)="onSidenavClose()">
               <ion-icon slot="start" [name]="p.icon" [class]="p.menuIcon"></ion-icon>
 							<ion-label *ngIf="language==='en'">
                 {{ p.title }}
@@ -26,13 +30,19 @@
 							<ion-label *ngIf="language==='sp'">
                 {{ p.titlesp }}
               </ion-label>
-            </ion-item>
+						</ion-item>
           </ion-menu-toggle>
-        </ion-list>
+				</ion-list>
+				<ion-list>
+					<ion-item>
+						<ion-icon slot="start" name="close" (click)="onSidenavClose()"></ion-icon>
+						<ion-label>Close</ion-label>
+					</ion-item>
+				</ion-list>
 				
 				<ion-list>
 					<ion-list-header>
-						<ion-text class="small-text">{{ 'MENU.Nav-settings' | translate }}</ion-text>
+						<ion-text color="primary">{{ 'MENU.Nav-settings' | translate }}</ion-text>
 					</ion-list-header>
 
 					<ion-item (click)="themeService.changeThemeMode()">

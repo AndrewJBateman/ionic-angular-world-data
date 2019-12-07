@@ -12,10 +12,11 @@ export class RestApiService {
 
 	constructor(private http: HttpClient) { }
 
-	getCountryData(url) {
-		console.log(url);
+	// fetch country list from API using url input
+	getCountryData(url: string) {
 		return this.http.get(`${apiUrl}/${url}`);
 	}
+	
 
 	// getCountry(country): Observable<string> {
 	// 	return this.http.get<string>(this.nameUrl + 'country');
