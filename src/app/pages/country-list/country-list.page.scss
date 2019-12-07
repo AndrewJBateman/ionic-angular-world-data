@@ -2,18 +2,6 @@
   background: #ededed;
 } */
 
-/* h4 {
-	margin: 0;
-} */
-
-.color-text {
-	color: #3880FF;
-}
-
-.para-text {
-	margin: 8px 0 0 16px;
-}
-
 ion-icon {
 	font-size: 1.5rem;
 }
@@ -34,4 +22,9 @@ ion-icon {
   flex: 1 1 auto;
 
   padding: 0;
+}
+
+.icon {
+	vertical-align: middle;
+	color: var(--ion-color-tertiary);
 }

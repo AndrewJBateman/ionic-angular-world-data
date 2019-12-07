@@ -16,26 +16,5 @@ export class RestApiService {
 	getCountryData(url: string) {
 		return this.http.get(`${apiUrl}/${url}`);
 	}
-	
 
-	// getCountry(country): Observable<string> {
-	// 	return this.http.get<string>(this.nameUrl + 'country');
-	// }
-
-	/* 	private extractData(res: Response) {
-		const body = res;
-		return body || {};
-	}
-
-	private handleError(error: Response | any) {
-		let errMsg: string;
-		if (error instanceof Response) {
-			const err = error || '';
-			errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-		} else {
-			errMsg = error.message ? error.message : error.toString();
-		}
-		console.error(errMsg);
-		return Observable.throwError(errMsg);
-	} */
 }

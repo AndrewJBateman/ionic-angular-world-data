@@ -12,7 +12,8 @@ import { RestApiService } from './../../services/rest-api.service';
 })
 export class CountryListPage implements OnInit {
 
-	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceana'];
+	continentChosen = false;
+	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 	searchTerm: '';
 	countries: Country[] = [];
 	country: any;
@@ -24,6 +25,7 @@ export class CountryListPage implements OnInit {
 		this.getCountryList('all');
 	}
 
+	// get country info for category 'all' where continent not selected
 	getCountryList(url: string) {
 		return this.restApiService
 			.getCountryData(url)
@@ -32,10 +34,14 @@ export class CountryListPage implements OnInit {
 			});
 	}
 
-	changeContinent(event: any) {
-/* 		this.continent = '';
+	// load country data for continent selected
+	getContinentData(event: any) {
+ 		// this.continent = '';
 		console.log('change continent to: ', event.detail.value);
-		this.getCountryList(event.detail.value); */
+		this.continentChosen = false;
+		event.detail.value = 'all' ? 
+			this.getCountryList('all') :
+			this.getCountryList('region/' + event.detail.value);
 	}
 
 	showCountryDetail(country: any) {

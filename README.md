@@ -50,24 +50,24 @@ tba
 * (future) clicking on the More Info button will route to a detailed info page.
 * (future) clicking on the Map button will route to a (Google) Map view of the country.
 * (future) clicking on Analysis will route to World Bank statistics - 2nd API.
-* **Typescript interface** (future) used to define the expected structures of the json objects returned from the IP and news APIs.
+* **Typescript interface** used to define the expected structures of the json objects returned from the IP and news APIs.
 * **Separate services** page with API http fetch functions.
 * **Dark mode** (future) switch on menu changes from light to dark mode.
-* **Offline Storage** (future) of favourite articles using Ionic Storage.
-* **Network** (future) status check in initialisation so latest news data is stored. Template data-binding always from stored data.
-* **Common Refresh Component** (future) dragging down will perform refresh function.
-* **Common Progess Bar Component** (future) ion-card shows while news loading on News, Categories and Favourites pages.
+* **Offline Storage** of favourite articles using Ionic Storage.
+* **Common Progess Bar Component** ion-card shows while news loading on News, Categories and Favourites pages.
 * **Localisation using i18n** so user can select between English (default), Spanish and French.
 
 ## Navigation/Pages
 
-* **Nav side-bar:** countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit.
+* **Nav side-bar:** countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Change color of tabs bar - add blue top border??
 * **TODO** add menu close function.
 
-* **Countries page** Simple list of cards working for 'all' category.
+* **Countries page:** Simple list of cards working for 'all' and all region categories.
 **TODO:** Include search bar at top. Link to Country Detail page - footer: link to map, link to Wikipedia? link to World Bank Data?
 
-* **Categories** Replace with quiz?
+* **Country Detail page:** TODO
+
+* **Categories** Replace with quiz? Change title to QUIZ. or news??
 
 * **Favourites** Replace with..map? just a map you can zoom in?
 
@@ -77,7 +77,7 @@ tba
 
 * Status: Working Country List page. Ion segment used to allow user to select country_list by continent. Routes to detail page but data binding not working due to api get error.
 
-* To-do: Change ion-segment to ion-select-option or top bar menu sliding columns. Add search, fix detail page. Add filter to filter countries by select option chosen (ie Africa, Europe etc). Add to categories page/add extra pages with rankings data from World Bank etc. Add contact info to about page. Add scss color themes. Look at CIA Fact Book for info - API?
+* To-do: Add to categories page/add extra pages with rankings data from World Bank etc. Add contact info to about page. Add scss color themes. Look at CIA Fact Book for info - API?
 
 ## Inspiration
 
