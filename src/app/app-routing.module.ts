@@ -3,9 +3,23 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-	{ path: 'app',
-		loadChildren: './pages/tabs/tabs.module#TabsPageModule'
+	{
+		path: '',
+		redirectTo: '/app/tabs/country-list',
+		pathMatch: 'full'
 	},
+	{
+		path: 'app',
+		loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+	},
+	// { 
+	// 	path: 'search',
+	// 	loadChildren: './pages/search/search.module#SearchPageModule'
+	// },
+	// { 
+	// 	path: 'country-detail/:',
+	// 	loadChildren: () => import('./pages/country-detail/country-detail.module').then(m => m.CountryDetailPageModule)
+	// }
 ];
 
 @NgModule({

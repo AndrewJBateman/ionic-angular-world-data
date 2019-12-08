@@ -12,16 +12,25 @@ const routes: Routes = [
 				children: [
 					{
 						path: '',
-						loadChildren: '../country-list/country-list.module#CountryListPageModule'
+						loadChildren: () => import('../country-list/country-list.module').then(m => m.CountryListPageModule)
 					}
 				]
 			},
+/* 			{
+				path: 'country-detail',
+				children: [
+					{
+						path: '',
+						loadChildren: () => import('../country-detail/country-detail.module').then(m => m.CountryDetailPageModule)
+					}
+				]
+			}, */
 			{
 				path: 'categories',
 				children: [
 					{
 						path: '',
-						loadChildren: '../categories/categories.module#CategoriesPageModule'
+						loadChildren: () => import('../categories/categories.module').then(m => m.CategoriesPageModule)
 					}
 				]
 			},
@@ -30,7 +39,7 @@ const routes: Routes = [
 				children: [
 					{
 						path: '',
-						loadChildren: '../favourites/favourites.module#FavouritesPageModule'
+						loadChildren: () => import('../favourites/favourites.module').then(m => m.FavouritesPageModule)
 					}
 				]
 			},
@@ -39,7 +48,7 @@ const routes: Routes = [
 				children: [
 					{
 						path: '',
-						loadChildren: '../about/about.module#AboutPageModule'
+						loadChildren: () => import('../about/about.module').then(m => m.AboutPageModule)
 					}
 				]
 			},
@@ -49,6 +58,11 @@ const routes: Routes = [
 				pathMatch: 'full'
 			}
 		]
+	},
+	{
+		path: '',
+		redirectTo: '/tabs/country-list',
+		pathMatch: 'full'
 	}
 ];
 

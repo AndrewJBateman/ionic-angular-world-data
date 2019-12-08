@@ -9,6 +9,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CountryListPage } from './country-list.page';
 import { ComponentsModule} from '../../components/components.module';
 
+import { PopoverPage } from '../country-popover/country-popover';
+
 const routes: Routes = [
 	{
 		path: '',
@@ -25,6 +27,10 @@ const routes: Routes = [
     TranslateModule,
     ComponentsModule
 	],
-	declarations: [CountryListPage]
+	declarations: [
+		CountryListPage,
+		PopoverPage
+	],
+	entryComponents: [PopoverPage],
 })
 export class CountryListPageModule {}

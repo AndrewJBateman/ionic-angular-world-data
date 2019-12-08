@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Country } from '../../interfaces/interface';
 import { RestApiService } from './../../services/rest-api.service';
+import { PopoverController } from '@ionic/angular';
+import { PopoverPage } from '../country-popover/country-popover';
 
 @Component({
 	selector: 'app-country-list',
@@ -12,46 +13,64 @@ import { RestApiService } from './../../services/rest-api.service';
 })
 export class CountryListPage implements OnInit {
 
-	continentChosen = false;
 	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 	searchTerm: '';
-	countries: Country[] = [];
+	countries: any;
 	country: any;
 	continent: string;
+	arrayLength: any;
 
-	constructor(private restApiService: RestApiService, private router: Router) { }
+	constructor(
+		private restApiService:	RestApiService,
+		private router: Router,
+		public popoverCtrl: PopoverController
+	) { }
 
+	// get country info for category 'all' with just the 4 fields needed.
 	ngOnInit() {
-		this.getCountryList('all');
+		this.getCountryList('all?fields=flag;name;capital;region');
 	}
 
-	// get country info for category 'all' where continent not selected
+	// get list of countries with API response limited to 4 fields
 	getCountryList(url: string) {
 		return this.restApiService
-			.getCountryData(url)
-			.subscribe((data: Country[]) => {
-				this.countries = data;
-			});
+		.getCountryListData(url)
+		.subscribe((data: any) => {
+			this.countries = data;
+		})
 	}
 
-	// load country data for continent selected
+	// load country data for continent selected with API response limited to 4 fields
+	// return the unchanged array of 'all' selected.
 	getContinentData(event: any) {
- 		// this.continent = '';
-		console.log('change continent to: ', event.detail.value);
-		this.continentChosen = false;
-		event.detail.value = 'all' ? 
-			this.getCountryList('all') :
-			this.getCountryList('region/' + event.detail.value);
+		return event.detail.value == 'all'?
+			this.countries : 
+			this.getCountryList('region/' + event.detail.value)
 	}
 
-	showCountryDetail(country: any) {
+	getCountryDetail(country: any) {
+		console.log('name', country.name);
 		this.restApiService
-			.getCountryData('name/' + country)
+			.getCountryDetailData('name/' + country.name)
 			.subscribe(data => {
 				this.country = data;
 			});
-		console.log('item clicked');
-		this.router.navigate(['/country-detail']);
-	}
 
+			
+		// this.router.navigate(["/country-detail", {
+		// 	queryParams: this.country.name,
+		// }]);
+
+	}
+	async presentPopover(event: Event) {
+
+    const popover = await this.popoverCtrl.create({
+			component: PopoverPage,
+			componentProps: {
+				country: this.country
+			},
+      event: event
+    });
+    await popover.present();
+  }
 }

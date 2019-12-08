@@ -1,26 +1,45 @@
-
 <ion-header>
   <ion-toolbar color="primary">
 		<ion-buttons slot="start">
-      <ion-back-button defaultHref="/country-list"></ion-back-button>
+      <ion-back-button defaultHref="/country-list" router-direction="back"></ion-back-button>
     </ion-buttons>
-		<ion-title>{{ country.title }}</ion-title>
+		<ion-title>{{ country.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-	<ion-card>
-		<img [src]="country.flag">
-		<ion-card-content>
-			<p>Capital: {{ country.capital }}</p>
-			<p>Region: {{ country.region }}</p>
-			<p>Population: {{ country.population }}</p>
-			<p>Area: {{ country.area }}</p>
-			<p>Coordinates (lat / long): {{ country.latlng }}</p>
-			<p>Languages: {{ country.languages.name }}</p>
-			<p>Currencies: {{ country.currencies.name }}</p>
-		</ion-card-content>
-	</ion-card>
+<ion-content class="ion-no-padding" [scrollEvents]="true">
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
+
+        <ion-card class="ion-no-padding ion-no-margin">
+          <ion-card-header>
+            <ion-img
+							[src]="country.flag">
+            </ion-img>
+            <h2>{{ country.name }}</h2>
+          </ion-card-header>
+          <ion-card-content class="ion-no-padding">
+              <ion-list>
+                <ion-list-header class="detail-header">Region</ion-list-header>
+                <ion-text>{{ country.region }}			
+                <br><span class="small-text"></span>
+                </ion-text>
+                </ion-list>
+            <!-- <p>Capital: {{ country.capital }}</p>
+            <p>Region: {{ country.region }}</p>
+            <p>Population: {{ country.population }}</p>
+            <p>Area: {{ country.area }}</p>
+            <p>Coordinates (lat / long): {{ country.latlng }}</p>
+            <p>Languages: {{ country.languages.name }}</p>
+            <p>Currencies: {{ country.currencies.name }}</p> -->
+          </ion-card-content>
+        </ion-card>
+  
+</ion-col>
+</ion-row>
+</ion-grid>
+
 </ion-content>
 
 		<ion-row class="ion-no-padding ion-justify-content-center">

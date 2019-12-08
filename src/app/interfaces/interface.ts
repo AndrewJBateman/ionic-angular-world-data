@@ -1,5 +1,12 @@
+// format of initial response with only 4 fields to be fetched from API
+export interface CountryListInterface {
+  name: string;
+  capital: string;
+  region: string;
+  flag: string;
+}
 // format of response from Rest Countries API
-export interface Country {
+export interface CountryDetailInterface {
   name: string;
   topLevelDomain: string[];
   alpha2Code: string;
