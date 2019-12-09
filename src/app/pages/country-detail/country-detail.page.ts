@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
-// import { Country } from '../../interfaces/interface';
+import { CountryDetailInterface } from '../../interfaces/interface';
 import { RestApiService } from './../../services/rest-api.service';
 
 
@@ -9,20 +9,44 @@ import { RestApiService } from './../../services/rest-api.service';
 	selector: 'app-country-detail',
 	templateUrl: './country-detail.page.html',
 	styleUrls: ['./country-detail.page.scss'],
+	providers: [RestApiService]
 })
 export class CountryDetailPage implements OnInit {
-	country: any;
+	// country: CountryDetailInterface;
+	public country: any;
+	name: string;
+	countryChosen: string;
 
 	constructor(
-		private activatedRoute: ActivatedRoute,
+		private route: ActivatedRoute,
+		private router: Router,
 		private restApiService: RestApiService
-	) {
-		// this.country = this.activatedRoute.snapshot.params.country;
-	}
+	) {	}
 
 	ngOnInit() {
-			// this.country = this.restApiService.currentCountry;
+		let countryChosen = this.route.snapshot.queryParamMap.get('country');
+		console.log('country chosen: ', countryChosen);
+		// this.getCountryDetail('name/' +countryChosen);
+		this.restApiService
+			.getSingleCountry(countryChosen)
+			.subscribe(
+				data => {
+					this.country = data[0];
+					console.log('this is data[0]', this.country);
+				},
+				error => {
+					console.log(error);
+				});
 	}
+
+	// getCountryDetail(url: string) {
+	// 	console.log('url', url);
+	// 	return this.restApiService
+	// 		.getCountryDetailData(url)
+	// 		.subscribe((data: any) => {
+	// 			this.country = data;
+	// 		});
+	// }
 
 	goToGoogleMaps() {
 
@@ -35,4 +59,17 @@ export class CountryDetailPage implements OnInit {
 	goToCountryNews() {
 
 	}
+
+	presentPopover($event) {
+
+	}
+
+	appendComa(content: any) {
+    try {
+      let result = content.concat(',');
+      return result;
+    } catch (err){
+      console.log(err);
+    }
+  }
 }

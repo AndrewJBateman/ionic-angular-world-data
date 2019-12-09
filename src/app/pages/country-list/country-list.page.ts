@@ -48,20 +48,6 @@ export class CountryListPage implements OnInit {
 			this.getCountryList('region/' + event.detail.value)
 	}
 
-	getCountryDetail(country: any) {
-		console.log('name', country.name);
-		this.restApiService
-			.getCountryDetailData('name/' + country.name)
-			.subscribe(data => {
-				this.country = data;
-			});
-
-			
-		// this.router.navigate(["/country-detail", {
-		// 	queryParams: this.country.name,
-		// }]);
-
-	}
 	async presentPopover(event: Event) {
 
     const popover = await this.popoverCtrl.create({
@@ -73,4 +59,19 @@ export class CountryListPage implements OnInit {
     });
     await popover.present();
   }
+
+	getCountryDetail(country: any) {
+		this.restApiService
+			.getCountryDetailData('name/' + country.name)
+			.subscribe(data => {
+				this.country = data;
+			});
+			
+		this.router.navigate(["/country-detail"],
+			{queryParams: {country: 'country.name'}
+		});
+
+	}
+	
+
 }

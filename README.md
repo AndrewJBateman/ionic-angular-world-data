@@ -24,12 +24,10 @@ App that displays details about countries using data from the [Rest Countries](h
 ## Technologies
 
 * [Ionic v5.0.0](https://ionicframework.com/)
-
 * [Angular v7.2.2](https://angular.io/)
-
 * [Ionic/angular v4.1.0](https://www.npmjs.com/package/@ionic/angular)
-
 * [Rest Countries API](https://restcountries.eu/)
+* [Ionic 4 open source Ionicons](https://ionicons.com/)
 
 ## Setup
 

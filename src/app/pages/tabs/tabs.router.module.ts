@@ -16,15 +16,15 @@ const routes: Routes = [
 					}
 				]
 			},
-/* 			{
-				path: 'country-detail',
+			{
+				path: 'country-list/:countryId',
 				children: [
 					{
 						path: '',
 						loadChildren: () => import('../country-detail/country-detail.module').then(m => m.CountryDetailPageModule)
 					}
 				]
-			}, */
+			},
 			{
 				path: 'categories',
 				children: [

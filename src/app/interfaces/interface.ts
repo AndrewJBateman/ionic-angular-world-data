@@ -5,6 +5,7 @@ export interface CountryListInterface {
   region: string;
   flag: string;
 }
+
 // format of response from Rest Countries API
 export interface CountryDetailInterface {
   name: string;

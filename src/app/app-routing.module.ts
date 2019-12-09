@@ -16,10 +16,10 @@ const routes: Routes = [
 	// 	path: 'search',
 	// 	loadChildren: './pages/search/search.module#SearchPageModule'
 	// },
-	// { 
-	// 	path: 'country-detail/:',
-	// 	loadChildren: () => import('./pages/country-detail/country-detail.module').then(m => m.CountryDetailPageModule)
-	// }
+	{ 
+		path: 'country-detail',
+		loadChildren: () => import('./pages/country-detail/country-detail.module').then(m => m.CountryDetailPageModule)
+	}
 ];
 
 @NgModule({
