@@ -1,20 +1,14 @@
-// ion-icon {
-// 	color: var(--ion-color-secondary);
-// }
+//header
+.toolbar-header {
+	color: var(--ion-color-tertiary);
+}
+
 ion-card-header {
 	padding-bottom: 0 !important;
 }
 
-.detail-header {
-	margin: 0 !important;
-}
-
-.icon {
-	vertical-align: middle;
-	color: var(--ion-color-tertiary);
-}
-// label
-ion-image {
+// ion-card/label
+ion-img {
 	width: 100%;
 }
 
@@ -45,10 +39,10 @@ h2 {
 	padding: 16px 0;
 }
 
-.small-text {
-	color: var(--ion-color-light);
-	font-size: 12px;
-}
+// .small-text {
+// 	color: var(--ion-color-light);
+// 	font-size: 12px;
+// }
 
 .footer-text {
 	font-size: 12px;

@@ -12,9 +12,7 @@ import { RestApiService } from './../../services/rest-api.service';
 	providers: [RestApiService]
 })
 export class CountryDetailPage implements OnInit {
-	// country: CountryDetailInterface;
-	public country: any;
-	name: string;
+	country: any;
 	countryChosen: string;
 
 	constructor(
@@ -26,9 +24,8 @@ export class CountryDetailPage implements OnInit {
 	ngOnInit() {
 		let countryChosen = this.route.snapshot.queryParamMap.get('country');
 		console.log('country chosen: ', countryChosen);
-		// this.getCountryDetail('name/' +countryChosen);
 		this.restApiService
-			.getSingleCountry(countryChosen)
+			.getCountryDetailData(countryChosen)
 			.subscribe(
 				data => {
 					this.country = data[0];
@@ -38,15 +35,6 @@ export class CountryDetailPage implements OnInit {
 					console.log(error);
 				});
 	}
-
-	// getCountryDetail(url: string) {
-	// 	console.log('url', url);
-	// 	return this.restApiService
-	// 		.getCountryDetailData(url)
-	// 		.subscribe((data: any) => {
-	// 			this.country = data;
-	// 		});
-	// }
 
 	goToGoogleMaps() {
 

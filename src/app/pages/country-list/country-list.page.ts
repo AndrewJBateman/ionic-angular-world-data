@@ -35,7 +35,7 @@ export class CountryListPage implements OnInit {
 	getCountryList(url: string) {
 		return this.restApiService
 		.getCountryListData(url)
-		.subscribe((data: any) => {
+		.subscribe(data => {
 			this.countries = data;
 		})
 	}
@@ -43,7 +43,7 @@ export class CountryListPage implements OnInit {
 	// load country data for continent selected with API response limited to 4 fields
 	// return the unchanged array of 'all' selected.
 	getContinentData(event: any) {
-		return event.detail.value == 'all'?
+		return event.detail.value === 'all'?
 			this.countries : 
 			this.getCountryList('region/' + event.detail.value)
 	}
@@ -70,8 +70,5 @@ export class CountryListPage implements OnInit {
 		this.router.navigate(["/country-detail"],
 			{queryParams: {country: 'country.name'}
 		});
-
-	}
-	
-
+	}	
 }
