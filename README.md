@@ -19,14 +19,16 @@ App that displays details about countries using data from the [Rest Countries](h
 
 ## Screenshots
 
-![Ionic page](./img/country-detail.png)
 ![Ionic page](./img/country-list.png)
+![Ionic page](./img/country-detail.png)
+![Ionic page](./img/about.png)
+
 ## Technologies
 
 * [Ionic v5.0.0](https://ionicframework.com/)
 * [Angular v7.2.2](https://angular.io/)
 * [Ionic/angular v4.1.0](https://www.npmjs.com/package/@ionic/angular)
-* [Rest Countries API](https://restcountries.eu/)
+* [Rest Countries API v2.0.5](https://restcountries.eu/)
 * [Ionic 4 open source Ionicons](https://ionicons.com/)
 
 ## Setup
@@ -43,32 +45,34 @@ tba
 
 ## Features
 
-* Displays mat-card list of countries with country flag, title, capital and region.
-* (future) search bar to search for country from list.
-* (future) clicking on the More Info button will route to a detailed info page.
-* (future) clicking on the Map button will route to a (Google) Map view of the country.
-* **Typescript interface** used to define the expected structures of the json objects returned from the IP and news APIs.
+* (future) integrated Google Maps API.
+* **Typescript interface** used to define the expected structures of the json objects returned from the API.
 * **Separate services** page with API http fetch functions.
+* **RxJS Observables** used to extract data asynchronously.
 * **Dark mode** (future) switch on menu changes from light to dark mode.
 * **Offline Storage** of favourite articles using Ionic Storage.
-* **Common Progess Bar Component** ion-card shows while news loading on News, Categories and Favourites pages.
+* **Common Progess Bar Component** ion-card shows while country info loading.
 * **Localisation using i18n** so user can select between English (default), Spanish and French.
+* **ion-grid** with fixed column size used so country data will display ok even on a PC.
 
 ## Navigation/Pages
 
 * **Nav side-bar:** countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Change color of tabs bar - add blue top border??
 * **TODO** add menu close function.
+* **TODO** search bar in header to search for country from list.
 
-* **Countries page:** Simple list of cards working for 'all' and all region categories.
+* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will route to a country detail page.
 **TODO:** Include search bar at top. footer: link to search??
 
 * **Country Detail page:** ion-list displays country details from API. Tab bar at bottom has links to more info, map and add to favourites.
+* **TODO** add code so Map button will route to a (Google) Map view of the country.
 
 * **Categories** Replace with search? 
 
 * **Favourites** Add code to store favourites.
 
-* **About** TODO
+* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with links to Author Website, Github Repo and a Contact Page. 
+**TODO:** add popover links, including contact page with thumbnail image.
 
 ## Status & To-do list
 
