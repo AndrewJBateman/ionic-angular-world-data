@@ -6,7 +6,7 @@
 
     <ion-item class="ion-text-center" color="primary">
       <ion-title>
-        <h4 class="toolbar-header">{{ country.name | uppercase }}</h4>
+        <h4 class="toolbar-header">{{ countryData.name | uppercase }}</h4>
       </ion-title>
     </ion-item>
 
@@ -33,7 +33,7 @@
         <ion-card>
 
           <div class="image-div">
-            <ion-img class="mat-card-image" [src]="country.flag" alt="{{ country.name }}"></ion-img>
+            <ion-img class="mat-card-image" [src]="countryData.flag" alt="{{ country.name }}"></ion-img>
             <div class="flag-text"><span class="small-text">Native name: </span>{{ country.nativeName }}</div>
           </div>
 
@@ -98,7 +98,10 @@
               </ion-avatar>
               <ion-label class="ion-text-wrap">
                 <h2>Timezone</h2>
-                <h3>{{ country.timezones }} {{ country.timezones[1]?.zone }} {{ country.timezones[2]?.zone }}</h3>
+                <h3>{{ country.timezones }}
+                  <!-- {{ country.timezones[1]?.zone }}
+                  {{ country.timezones[2]?.zone }} -->
+                </h3>
               </ion-label>
             </ion-item>
 

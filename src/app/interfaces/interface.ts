@@ -66,3 +66,10 @@ interface Currency {
   name: string;
   symbol: string;
 }
+
+export interface Country {
+  name: string;
+  capital: string;
+  region: string;
+  flag: string;
+}

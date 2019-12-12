@@ -67,7 +67,7 @@ tba
 * **Country Detail page:** ion-list displays country details from API. Tab bar at bottom has links to more info, map and add to favourites.
 * **TODO** add code so Map button will route to a (Google) Map view of the country.
 
-* **Categories** Replace with search? 
+* **Search** Header done.
 
 * **Favourites** Add code to store favourites.
 

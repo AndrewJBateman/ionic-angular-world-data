@@ -10,14 +10,14 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 import { AboutPageModule } from '../about/about.module';
 import { CountryListPageModule } from '../country-list/country-list.module';
 import { CountryDetailPageModule } from '../country-detail/country-detail.module';
-import { CategoriesPageModule } from '../categories/categories.module';
+import { SearchPageModule } from '../search/search.module';
 
 @NgModule({
 	imports: [
 		AboutPageModule,
 		CountryListPageModule,
 		CountryDetailPageModule,
-		CategoriesPageModule,
+		SearchPageModule,
 		FavouritesPageModule,
 		CommonModule,
 		FormsModule,

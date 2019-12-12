@@ -1,8 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as Rx from "rxjs/Rx";
+import { from, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
-import { CountryListInterface, CountryDetailInterface } from '../interfaces/interface';
-import { Observable } from 'rxjs';
+import { CountryListInterface, CountryDetailInterface, Country } from '../interfaces/interface';
 
 const apiUrl = 'https://restcountries.eu/rest/v2';
 
@@ -11,20 +13,52 @@ const apiUrl = 'https://restcountries.eu/rest/v2';
 })
 
 export class RestApiService {
-
 	constructor(
-		private http: HttpClient,
+		private httpClient: HttpClient,
 	) { }
 
-	// fetch country list from API using url input
-	getCountryListData(url: string): Observable<CountryListInterface>{
-		return this.http.get<CountryListInterface>(`${apiUrl}/${url}`);
+	fetchCountryListData(url: string) {
+    return this.httpClient.get(
+      `${apiUrl}/${url}`
+      ).pipe(
+        map((data: CountryListInterface[]) => {
+          return data;
+        }), catchError( error => {
+          return throwError( 'Countries not found' );
+        })
+      )
 	}
-
-	// fetch country detail from API using country name input
-	getCountryDetailData(country: string): Observable<CountryDetailInterface> {	
-		return this.http.get<CountryDetailInterface>(
-      `${apiUrl}/name/${country}?fullText=true`
-    );
+  fetchCountryDetailData(country: string) {
+    console.log('here is the API input', country);
+    return this.httpClient.get(`${apiUrl}/name/${country}?fullText=true`).pipe(
+        map((data: CountryDetailInterface[]) => {
+          console.log('data from single country API call', data)
+          return data;
+        }), catchError( error => {
+          return throwError( 'Country not found' );
+        })  
+      )
   }
+	// fetch country detail from API using country name input
+	// getCountryDetailData(country: string): Observable<CountryDetailInterface> {	
+	// 	return this.httpClient.get<CountryDetailInterface>(
+  //     `${apiUrl}/name/${country}?fullText=true`
+  //   );
+  // }
+
+  fetchCountryByName(name: string): Observable<Country[]>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Accept', 'application/json');
+    
+    return this.httpClient.get(
+      `https://restcountries.eu/rest/v2/name/${name}?fullText=true`, 
+       {headers: headers}
+      ).pipe(
+           map((data: Country[]) => {
+             return data;
+           }), catchError( error => {
+             return throwError( 'Capital not found!' );
+           })
+        )
+    }
 }

@@ -13,11 +13,11 @@ const routes: Routes = [
 					{
 						path: '',
 						loadChildren: () => import('../country-list/country-list.module').then(m => m.CountryListPageModule)
-					}
+					},
 				]
 			},
 			{
-				path: 'country-list/:countryId',
+				path: 'country-detail',
 				children: [
 					{
 						path: '',
@@ -26,11 +26,11 @@ const routes: Routes = [
 				]
 			},
 			{
-				path: 'categories',
+				path: 'search',
 				children: [
 					{
 						path: '',
-						loadChildren: () => import('../categories/categories.module').then(m => m.CategoriesPageModule)
+						loadChildren: () => import('../search/search.module').then(m => m.SearchPageModule)
 					}
 				]
 			},

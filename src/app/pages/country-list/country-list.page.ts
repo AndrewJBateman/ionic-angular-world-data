@@ -5,6 +5,8 @@ import { RestApiService } from './../../services/rest-api.service';
 import { PopoverController } from '@ionic/angular';
 import { PopoverPage } from '../country-popover/country-popover';
 
+import { CountryListInterface, CountryDetailInterface, Country } from '../../interfaces/interface';
+
 @Component({
 	selector: 'app-country-list',
 	templateUrl: './country-list.page.html',
@@ -33,23 +35,34 @@ export class CountryListPage implements OnInit {
 
 	// get list of countries with API response limited to 4 fields
 	getCountryList(url: string) {
-		return this.restApiService
-		.getCountryListData(url)
-		.subscribe(data => {
-			this.countries = data;
-		})
+		this.restApiService
+			.fetchCountryListData(url)
+			.subscribe((data: CountryListInterface[]) => {
+      	this.countries = data;
+			})
 	}
 
 	// load country data for continent selected with API response limited to 4 fields
-	// return the unchanged array of 'all' selected.
+	// return the unchanged array if 'all' selected.
 	getContinentData(event: any) {
 		return event.detail.value === 'all'?
 			this.countries : 
 			this.getCountryList('region/' + event.detail.value)
 	}
 
-	async presentPopover(event: Event) {
+	getCountryDetail(country: any) {
+		let countryName = country.name;
+		console.log('here is the countryName: ', countryName);
+		
+		this.router.navigate(["/country-detail"], 
+			{queryParams: {
+				value: (countryName),
+				fragment: 'loading'
+			}
+		});
+	}	
 
+	async presentPopover(event: Event) {
     const popover = await this.popoverCtrl.create({
 			component: PopoverPage,
 			componentProps: {
@@ -60,15 +73,5 @@ export class CountryListPage implements OnInit {
     await popover.present();
   }
 
-	getCountryDetail(country: any) {
-		this.restApiService
-			.getCountryDetailData('name/' + country.name)
-			.subscribe(data => {
-				this.country = data;
-			});
-			
-		this.router.navigate(["/country-detail"],
-			{queryParams: {country: 'country.name'}
-		});
-	}	
+	
 }

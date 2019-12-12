@@ -34,9 +34,11 @@
 			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 				<div 
 					*ngFor="let country of countries; index as countryId"
-					style="padding: 0;"
-					[routerLink]="['/country-detail']" [queryParams]="{country: country.name}">
-					<app-country-item [country]="country"></app-country-item>
+					style="padding: 0;">
+					<app-country-item
+						[country]="country"
+						(click)="getCountryDetail(country)"
+						></app-country-item>
 				</div>
 			</ion-col>
 		</ion-row>

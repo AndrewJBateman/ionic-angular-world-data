@@ -19,7 +19,9 @@ const routes: Routes = [
 	{ 
 		path: 'country-detail',
 		loadChildren: () => import('./pages/country-detail/country-detail.module').then(m => m.CountryDetailPageModule)
-	}
+	},
+  // { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' }
+
 ];
 
 @NgModule({
