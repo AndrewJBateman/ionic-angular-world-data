@@ -1,0 +1,172 @@
+<ion-card>
+
+  <div class="image-div">
+    <ion-img class="mat-card-image" [src]="country.flag" alt="{{ country.name }}"></ion-img>
+    <div class="flag-text"><span class="small-text">Native name: </span>{{ country.nativeName }}</div>
+  </div>
+
+  <ion-list class="detail-list">
+    <ion-item class="no-padding">
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/region.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Subregion, Region</h2>
+        <h3>{{ country.subregion }}, {{ country.region }}</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/capital.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Capital</h2>
+        <h3>{{ country.capital }}</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/language.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Languages</h2>
+        <h3 *ngIf="country.languages.length === 1">
+          {{ country.languages[0].name }}
+        </h3>
+        <h3 *ngIf="country.languages.length > 1">
+          {{ appendComa(country.languages[0].name) }}
+        </h3>
+        <h3 *ngIf="country.languages[1]">
+          {{ appendComa(country.languages[1].name) }}
+        </h3>
+        <h3 *ngIf="country.languages[2]">
+          {{ appendComa(country.languages[2].name) }}
+        </h3>
+        <h3 *ngIf="country.languages[3]">
+          {{ appendComa(country.languages[3].name) }}
+        </h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/currency.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>Currency</h2>
+        <h3>{{ country.currencies[0].name }} {{ country.currencies[1]?.name }}</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/timezone.jpg">
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <h2>Timezone</h2>
+        <h3>{{ country.timezones }}
+          <!-- {{ country.timezones[1]?.zone }}
+          {{ country.timezones[2]?.zone }} -->
+        </h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/population.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Population</h2>
+        <h3>{{ country.population }}</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/area.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Land Area</h2>
+        <h3>{{ country.area }} km<sup>2</sup></h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/internet.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Top Level Domain</h2>
+        <h3>{{ country.topLevelDomain[0] }}</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/borders.jpg">
+      </ion-avatar>
+      <ion-label *ngIf="!country.borders[0]">
+        <h2>Border Countries</h2>
+        <h3>None</h3>
+      </ion-label>
+      <ion-label *ngIf="country.borders[0]">
+        <h2>Border Countries</h2>
+        <h3>
+          {{ country.borders[0] }}
+          {{ country?.borders[1] }}
+          {{ country?.borders[2] }}
+          {{ country?.borders[3] }}
+        </h3>
+        <h3>
+          {{ country?.borders[4] }}
+          {{ country?.borders[5] }}
+          {{ country?.borders[6] }}
+          {{ country?.borders[7] }}
+        </h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/phone.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>Calling Code</h2>
+        <h3>
+          {{ country.callingCodes[0] }}
+        </h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/numbers.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          2 & 3-Digit ISO Codes
+        </h2>
+        <h3>
+          {{ country.alpha2Code }}, {{ country.alpha3Code }}
+        </h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/imgs/compass.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          Latitude & Longitude
+        </h2>
+        <h3>
+          {{ country.latlng }}
+        </h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-card>

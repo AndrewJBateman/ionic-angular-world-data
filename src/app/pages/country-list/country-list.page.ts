@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 
 import { RestApiService } from './../../services/rest-api.service';
 import { PopoverController } from '@ionic/angular';
@@ -14,8 +15,11 @@ import { CountryListInterface, CountryDetailInterface, Country } from '../../int
 	providers: [RestApiService]
 })
 export class CountryListPage implements OnInit {
-
+	@ViewChild(IonContent) content: IonContent;
+	countryChosen = false;
+	countryName = '';
 	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+	fullList = [];
 	searchTerm: '';
 	countries: any;
 	country: any;
@@ -39,28 +43,47 @@ export class CountryListPage implements OnInit {
 			.fetchCountryListData(url)
 			.subscribe((data: CountryListInterface[]) => {
       	this.countries = data;
-			})
+			},
+			error => {
+				console.log('error fetching country list info: ', error);
+			});
 	}
 
-	// load country data for continent selected with API response limited to 4 fields
+	// load country list data for continent selected with API response limited to 4 fields
 	// return the unchanged array if 'all' selected.
 	getContinentData(event: any) {
-		return event.detail.value === 'all'?
-			this.countries : 
-			this.getCountryList('region/' + event.detail.value)
+
+		// return event.detail.value === 'all' ?
+		// 	this.countries : 
+		// 	this.getCountryList('region/' + event.detail.value)
+
+		if (event.detail.value === 'all') {
+			return this.getCountryList('all?fields=flag;name;capital;region');
+		} 
+		return this.getCountryList('region/' + event.detail.value);
 	}
 
+	// load country detail data
 	getCountryDetail(country: any) {
-		let countryName = country.name;
-		console.log('here is the countryName: ', countryName);
-		
-		this.router.navigate(["/country-detail"], 
-			{queryParams: {
-				value: (countryName),
-				fragment: 'loading'
-			}
-		});
-	}	
+		this.countryChosen = true;
+		let countryToSearch = country.name
+		this.restApiService
+			.fetchCountryDetailData(countryToSearch)
+			.subscribe((data: CountryDetailInterface[]) => {
+				this.country = data[0];
+				this.countryName = data[0].name;
+			},
+			error => {
+				console.log('error fetching country detail info: ', error);
+			});
+		this.content.scrollToTop(0);
+	}
+
+	// If user click on header back button then show country list
+	backToList(event: Event) {
+		this.countryName = '';
+		this.countryChosen = false;
+	}
 
 	async presentPopover(event: Event) {
     const popover = await this.popoverCtrl.create({

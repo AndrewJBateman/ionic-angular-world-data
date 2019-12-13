@@ -8,10 +8,11 @@ import { TranslateModule } from '@ngx-translate/core';
 
 // Component modules
 import { CountryItemComponent } from './country-item/country-item.component';
+import { DetailItemComponent } from './detail-item/detail-item.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
-	declarations: [CountryItemComponent, ProgressBarComponent],
+	declarations: [CountryItemComponent, DetailItemComponent, ProgressBarComponent],
 	imports: [
 		CommonModule,
 		IonicModule,
@@ -19,7 +20,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 	],
 	exports: [
 		CountryItemComponent,
-		ProgressBarComponent
+		ProgressBarComponent,
+		DetailItemComponent
 	]
 })
 

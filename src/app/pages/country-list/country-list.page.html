@@ -1,17 +1,27 @@
 <ion-header>
   <ion-toolbar color="primary">
 		<ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+			<ion-menu-button></ion-menu-button>
+			<ion-button
+				*ngIf="countryChosen"
+				(click)="backToList($event)">
+				<ion-icon			
+					name="arrow-round-back"
+					size="large">
+				</ion-icon>
+			</ion-button>
 		</ion-buttons>
 		
 		<ion-item class="ion-no-padding source" color="primary">
+
 			<ion-title class="ion-text-center">
-				<ion-icon item-start class="icon" name="globe" size="large"></ion-icon>
-				<!-- <ion-text>{{ arrayLength }}</ion-text> -->
+				<ion-icon *ngIf="!countryChosen" item-start class="icon" name="globe" size="large"></ion-icon>
+				<h4 *ngIf="countryChosen" class="toolbar-header">{{ countryName | uppercase }}</h4>
 			</ion-title>
 
 			<!--drop-down list of country regions, select one to change the country category and reload list of country-->
 			<ion-select
+				*ngIf="!countryChosen"
 				interface="action-sheet"
 				placeholder="Continent"
 				[(ngModel)]="continent"
@@ -22,24 +32,50 @@
 					value="{{ continent }}">
 					{{ continent }}
 				</ion-select-option>
-			</ion-select><!--end of drop-down menu-->
+			</ion-select>
+
+			<!--option to open map view of country-->
+			<ion-buttons *ngIf="countryChosen" slot="end">
+				<ion-button 
+					(click)="presentPopover($event)">
+					<ion-icon
+						slot="icon-only"
+						name="locate"
+						size="large"
+						color="light">
+					</ion-icon>
+				</ion-button>
+			</ion-buttons>
+
 		</ion-item>
 
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-no-padding">
+<ion-content fullscreen [scrollEvents]="true">
 	<ion-grid class="ion-no-padding">
 		<ion-row>
 			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
-				<div 
-					*ngFor="let country of countries; index as countryId"
-					style="padding: 0;">
-					<app-country-item
-						[country]="country"
-						(click)="getCountryDetail(country)"
-						></app-country-item>
+
+				<!--display list of countries-->
+				<div *ngIf="!countryChosen">
+					<div 
+						*ngFor="let country of countries; index as countryId"
+						style="padding: 0;">
+						<app-country-item
+							[country]="country"
+							(click)="getCountryDetail(country)">
+						</app-country-item>
+					</div>
 				</div>
+				
+				<!--display chosen country in detail-->
+				<div *ngIf="countryChosen">
+					<app-detail-item
+						[country]="country">
+					</app-detail-item>
+				</div>
+
 			</ion-col>
 		</ion-row>
 	</ion-grid>

@@ -37,10 +37,18 @@ App that displays details about countries using data from the [Rest Countries](h
 
 ## Code Examples
 
-* tba.
+* service function to fetch API country details, from `rest-api.service.ts`
 
 ```typescript
-tba
+fetchCountryDetailData(country: string) {
+  return this.httpClient.get(`${apiUrl}/name/${country}?fullText=true`).pipe(
+    map((data: CountryDetailInterface[]) => {
+      return data;
+    }), catchError( error => {
+      return throwError( 'Country not found' );
+    })  
+  )
+}
 ```
 
 ## Features
@@ -61,15 +69,12 @@ tba
 * **TODO** add menu close function.
 * **TODO** search bar in header to search for country from list.
 
-* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will route to a country detail page.
-**TODO:** Include search bar at top. footer: link to search??
+* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content).
+**TODO:** Add filter in API fetch pipe method to separte out each region into its own array - saves http calls. Correct error message with name. Stop scroll when user reached the bottom. Include search bar at top. footer: link to search? Add floating button to add to favourites? Add code so Map button will route to a (Google) Map view of the country.
 
-* **Country Detail page:** ion-list displays country details from API. Tab bar at bottom has links to more info, map and add to favourites.
-* **TODO** add code so Map button will route to a (Google) Map view of the country.
+* **Search** Change function or remove. Header done.
 
-* **Search** Header done.
-
-* **Favourites** Add code to store favourites.
+* **Favourites** Add code to store favourites?
 
 * **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with links to Author Website, Github Repo and a Contact Page. 
 **TODO:** add popover links, including contact page with thumbnail image.
