@@ -9,14 +9,12 @@ import { TabsPage } from './tabs.page';
 import { TabsPageRoutingModule } from './tabs.router.module';
 import { AboutPageModule } from '../about/about.module';
 import { CountryListPageModule } from '../country-list/country-list.module';
-import { CountryDetailPageModule } from '../country-detail/country-detail.module';
 import { SearchPageModule } from '../search/search.module';
 
 @NgModule({
 	imports: [
 		AboutPageModule,
 		CountryListPageModule,
-		CountryDetailPageModule,
 		SearchPageModule,
 		FavouritesPageModule,
 		CommonModule,

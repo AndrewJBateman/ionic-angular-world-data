@@ -27,6 +27,7 @@ export class RestApiService {
       })
     )
   }
+  
   fetchCountryDetailData(country: string) {
     return this.httpClient.get(`${apiUrl}/name/${country}?fullText=true`).pipe(
       map((data: CountryDetailInterface[]) => {

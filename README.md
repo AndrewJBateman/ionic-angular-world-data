@@ -1,6 +1,6 @@
 # Ionic Country Data
 
-App that displays details about countries using data from the [Rest Countries](https://restcountries.eu/), using the [Ionic 5 framework](https://ionicframework.com/docs).
+App that displays data about countries from the [Rest Countries](https://restcountries.eu/) API, using the [Ionic 5 framework](https://ionicframework.com/docs).
 
 ## Table of contents
 
@@ -15,7 +15,7 @@ App that displays details about countries using data from the [Rest Countries](h
 
 ## General info
 
-* The [Rest Countries API](https://restcountries.eu/) has a lot more detailed functionality available:
+* The [Rest Countries API](https://restcountries.eu/) has a number of enpoints that can be used to seaerch for info. I have used the endpoints: All, Name & Region. The (API Response Example was useful to create my http interface classes)[https://restcountries.eu/#api-endpoints-response-example].
 
 ## Screenshots
 
@@ -69,15 +69,21 @@ fetchCountryDetailData(country: string) {
 * **TODO** add menu close function.
 * **TODO** search bar in header to search for country from list.
 
-* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content).
-**TODO:** Add filter in API fetch pipe method to separte out each region into its own array - saves http calls. Correct error message with name. Stop scroll when user reached the bottom. Include search bar at top. footer: link to search? Add floating button to add to favourites? Add code so Map button will route to a (Google) Map view of the country.
+* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content :-)).
+**TODO:** 
+* Add filter in API fetch pipe method to separate out each region into its own array - saves http calls. 
+* Correct error message with name.
+* Stop scroll when user reached the bottom. 
+* Complete search bar at top. 
+* Add floating button to country-detail to add to favourites?
+* Add code so Map button will route to a (Google) Map view of the country.
 
 * **Search** Change function or remove. Header done.
 
-* **Favourites** Add code to store favourites?
+* **Favourites** Change top right popover to do something else.
 
-* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with links to Author Website, Github Repo and a Contact Page. 
-**TODO:** add popover links, including contact page with thumbnail image.
+* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website & Github Repo. 
+**TODO:** add popover link to contact page with thumbnail image.
 
 ## Status & To-do list
 

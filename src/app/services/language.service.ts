@@ -11,7 +11,10 @@ const LNG_KEY = 'SELECTED_LANGUAGE';
 export class LanguageService {
   selected = 'en';
  
-  constructor(private translate: TranslateService, private storage: Storage, private plt: Platform ) { }
+  constructor(
+    private translate: TranslateService,
+    private storage: Storage,
+    private plt: Platform ) { }
  
 	// sets default language as browser language if no other language choice made
 	// if language language selected then this value is stored using the ionic storage module

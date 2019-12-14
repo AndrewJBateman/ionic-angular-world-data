@@ -3,25 +3,45 @@
 		<ion-buttons slot="start">
 			<ion-menu-button></ion-menu-button>
 			<ion-button
-				*ngIf="countryChosen"
+				*ngIf="countryChosen && !searchActive"
 				(click)="backToList($event)">
 				<ion-icon			
-					name="arrow-round-back"
-					size="large">
+					name="arrow-back"
+					size="sma">
 				</ion-icon>
 			</ion-button>
+
+			<ion-button
+				*ngIf="!countryChosen && !searchActive"
+					(click)="onSearch($event)">
+					<ion-icon name="search"></ion-icon>
+				</ion-button>
 		</ion-buttons>
+
+		<ion-searchbar
+			*ngIf="!countryChosen && searchActive"
+			[(ngModel)]="searchInput"
+			placeholder="Enter country name"
+			[showCancelButton]="false"
+			(ionInput)="onInput($event)"
+			(ionClear)="onClear($event)"
+			autocomplete="on"
+			color="light"
+			showCancelButton="true"
+			class="country-searchbar">
+
+		</ion-searchbar>
 		
 		<ion-item class="ion-no-padding source" color="primary">
 
 			<ion-title class="ion-text-center">
-				<ion-icon *ngIf="!countryChosen" item-start class="icon" name="globe" size="large"></ion-icon>
+				<ion-icon *ngIf="!countryChosen && !searchActive" item-start class="icon" name="globe" size="large"></ion-icon>
 				<h4 *ngIf="countryChosen" class="toolbar-header">{{ countryName | uppercase }}</h4>
 			</ion-title>
 
 			<!--drop-down list of country regions, select one to change the country category and reload list of country-->
 			<ion-select
-				*ngIf="!countryChosen"
+				*ngIf="!countryChosen && !searchActive"
 				interface="action-sheet"
 				placeholder="Continent"
 				[(ngModel)]="continent"
@@ -35,8 +55,9 @@
 			</ion-select>
 
 			<!--option to open map view of country-->
-			<ion-buttons *ngIf="countryChosen" slot="end">
-				<ion-button 
+			<ion-buttons slot="end">
+				<ion-button
+					*ngIf="countryChosen"
 					(click)="presentPopover($event)">
 					<ion-icon
 						slot="icon-only"
@@ -45,6 +66,8 @@
 						color="light">
 					</ion-icon>
 				</ion-button>
+				
+
 			</ion-buttons>
 
 		</ion-item>

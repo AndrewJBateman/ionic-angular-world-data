@@ -3,6 +3,12 @@
 	color: var(--ion-color-tertiary);
 }
 
+ion-searchbarInput {
+	padding: 6px 6px 6px 20px !important;
+	width: 90%;
+	margin: auto;
+}
+
 .country-card ion-card-content {
   flex: 1 1 auto;
 

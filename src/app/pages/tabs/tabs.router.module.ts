@@ -17,15 +17,6 @@ const routes: Routes = [
 				]
 			},
 			{
-				path: 'country-detail',
-				children: [
-					{
-						path: '',
-						loadChildren: () => import('../country-detail/country-detail.module').then(m => m.CountryDetailPageModule)
-					}
-				]
-			},
-			{
 				path: 'search',
 				children: [
 					{

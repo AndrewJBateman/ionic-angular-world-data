@@ -17,12 +17,9 @@ import { PopoverController } from '@ionic/angular';
   `
 })
 export class PopoverPage {
-  contactActive = false;
-
   constructor(public popoverCtrl: PopoverController) {}
 
 	openContact() {
-    this.contactActive = true;
 		console.log('openContact function clicked')
 		this.popoverCtrl.dismiss();
 	}

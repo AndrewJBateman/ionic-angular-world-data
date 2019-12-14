@@ -17,6 +17,8 @@ import { CountryListInterface, CountryDetailInterface, Country } from '../../int
 export class CountryListPage implements OnInit {
 	@ViewChild(IonContent) content: IonContent;
 	countryChosen = false;
+	searchActive = false;
+	searchInput = '';
 	countryName = '';
 	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 	fullList = [];
@@ -84,6 +86,21 @@ export class CountryListPage implements OnInit {
 		this.countryName = '';
 		this.countryChosen = false;
 	}
+
+	onSearch(event: Event) {
+		this.searchActive = true;
+		//api-service to create array of country names (add to init of country-list)
+		console.log('onSearch function: ', this.countries);
+		// this.countrySearched = this.countries.filter(item => country.name.includes(this.searchQuery));
+	}
+
+	onInput(event: any) {
+    // this.performSearch(this.searchInput);
+  }
+
+  onClear(event: any) {
+    // this.results = null;
+  }
 
 	async presentPopover(event: Event) {
     const popover = await this.popoverCtrl.create({

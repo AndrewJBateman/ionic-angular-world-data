@@ -6,8 +6,15 @@
 		
     <ion-title class="ion-text-center">
 			<ion-icon
+			*ngIf="!contactActive"
 				class="icon"
 				name="information-circle"
+				size="large">
+			</ion-icon>
+			<ion-icon
+			*ngIf="contactActive"
+				class="icon"
+				name="mail"
 				size="large">
 			</ion-icon>
 		</ion-title>
@@ -26,7 +33,8 @@
   <ion-grid class="ion-no-padding">
     <ion-row>
       <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
-        <ion-card>
+
+        <ion-card color="light" *ngIf="!contactActive">
 					<div class="image-div">
 						<img class="mat-card-image" src="assets/imgs/about-image.jpg" alt="Photo by Sean O. on Unsplash">
 						<div class="photo-credit">Photo by Nicola Nuttall on Unsplash</div>
@@ -40,7 +48,35 @@
 						<p>All countries are initially listed in alphabetical order. User can list countries by world region. Clicking on a list item routes to a country detail page with links to more detailed country info, a map and 'add to favourites'.</p>
 						<p>The <a class="link-text" href="https://cloud.google.com/maps-platform/maps/" target="_blank" title="Go to the Google Maps API website (opens in a new window)">Google Maps API</a> is used to display the country map. The usual Google Maps functions are available, like zoom etc.</p>
 					</ion-card-content>
-        </ion-card>
+				</ion-card>
+
+				<form  #form="ngForm" (ngSubmit)="register(form)" *ngIf="contactActive" color="light">
+					<ion-grid>
+						<ion-row color="primary" justify-content-center>
+							<ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+								<div class="ion-text-center ion-padding">
+									<ion-icon name="create" size="large" color="secondary"></ion-icon>
+									<!-- <h3 color="secondary">Send Me a Message</h3> -->
+								</div>
+								<div class="ion-padding">
+									<ion-item>
+										<ion-input  name="name" type="text" placeholder="Name" ngModel required></ion-input>
+									</ion-item>
+									<ion-item>
+										<ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+									</ion-item>
+									<ion-item>
+										<ion-textarea name="message" type="message" placeholder="Your message" ngModel required></ion-textarea>
+									</ion-item>
+								</div>
+								<div class="ion-padding">
+									<ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block" color="secondary"><ion-icon name="paper-plane"></ion-icon></ion-button>
+								</div>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</form>
+				
       </ion-col>
     </ion-row>
   </ion-grid>
