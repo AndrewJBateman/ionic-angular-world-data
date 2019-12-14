@@ -92,7 +92,7 @@ fetchCountryDetailData(country: string) {
 
 * Status: Working. See sections above.
 
-* To-do: Look at CIA Fact Book for info - API? -  add link?
+* To-do: Look at (CIA World Fact Book)[https://www.cia.gov/library/publications/the-world-factbook/] for info -  add link?
 
 ## Inspiration
 

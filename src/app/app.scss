@@ -12,3 +12,9 @@
 ion-toggle {
 	color: var(--ion-color-secondary);
 }
+
+.mat-card-image {
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: var(--ion-color-tertiary);
+}

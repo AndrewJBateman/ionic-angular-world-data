@@ -44,6 +44,15 @@ const routes: Routes = [
 				]
 			},
 			{
+				path: 'contact',
+				children: [
+					{
+						path: '',
+						loadChildren: () => import('../contact/contact.module').then(m => m.ContactPageModule)
+					}
+				]
+			},
+			{
 				path: '',
 				redirectTo: '/tabs/country-list',
 				pathMatch: 'full'

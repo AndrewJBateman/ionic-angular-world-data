@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-
 @Component({
   templateUrl: './about-popover.html',
   styleUrls: ['./about-popover.scss']
@@ -15,7 +14,7 @@ export class PopoverPage {
 
 	openContactForm() {
     console.log('openContact function clicked')
-    this.router.navigate(['/contact']);
+    this.router.navigate(['app/tabs/contact']);
 		this.popoverCtrl.dismiss();
 	}
 
