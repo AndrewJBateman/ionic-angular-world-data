@@ -9,6 +9,10 @@ ion-searchbarInput {
 	margin: auto;
 }
 
+ion-fab-button {
+	--background: transparent;
+}
+
 .country-card ion-card-content {
   flex: 1 1 auto;
 

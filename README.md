@@ -15,7 +15,7 @@ App that displays data about countries from the [Rest Countries](https://restcou
 
 ## General info
 
-* The [Rest Countries API](https://restcountries.eu/) has a number of enpoints that can be used to seaerch for info. I have used the endpoints: All, Name & Region. The (API Response Example was useful to create my http interface classes)[https://restcountries.eu/#api-endpoints-response-example].
+* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The (API Response Example)[https://restcountries.eu/#api-endpoints-response-example] was useful to create my http interface classes.
 
 ## Screenshots
 
@@ -53,7 +53,7 @@ fetchCountryDetailData(country: string) {
 
 ## Features
 
-* (future) integrated Google Maps API.
+* **integrated Google Maps** API (future) .
 * **Typescript interface** used to define the expected structures of the json objects returned from the API.
 * **Separate services** page with API http fetch functions.
 * **RxJS Observables** used to extract data asynchronously.
@@ -80,10 +80,13 @@ fetchCountryDetailData(country: string) {
 
 * **Search** Change function or remove. Header done.
 
-* **Favourites** Change top right popover to do something else.
+* **Favourites** Shows a nice image with text below if there are no favourites. 
+**TODO**
+* Change top right popover to do something else.
+* Add code to store favourites.
 
-* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website & Github Repo. 
-**TODO:** add popover link to contact page with thumbnail image.
+* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page. 
+**TODO** add code so contact form is sent.
 
 ## Status & To-do list
 

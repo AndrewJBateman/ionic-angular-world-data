@@ -10,6 +10,7 @@ import { PopoverPage } from './favourites-popover/favourites-popover';
 	styleUrls: ['./favourites.page.scss']
 })
 export class FavouritesPage implements OnInit {
+	countryList = [];
 	sliderOptions = {
 		allowSlidePrev: false,
 		allowSlideNext: false
@@ -29,6 +30,10 @@ export class FavouritesPage implements OnInit {
   }
 
 	ngOnInit() {}
+
+	onRemoveFavourite() {
+		
+	}
 
 	onClearAll() {
 

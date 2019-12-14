@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { PopoverController } from '@ionic/angular';
 import { PopoverPage } from '../about-popover/about-popover';
@@ -9,7 +9,6 @@ import { PopoverPage } from '../about-popover/about-popover';
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage {
-  contactActive = true;
 
   constructor(public popoverCtrl: PopoverController) { }
 
@@ -20,9 +19,5 @@ export class AboutPage {
     });
     await popover.present();
   }
-
-register() {
-
-}
 
 }

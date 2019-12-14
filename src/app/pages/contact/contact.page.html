@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		
+    <ion-title class="ion-text-center">
+			<ion-icon
+				class="icon"
+				name="mail"
+				size="large">
+			</ion-icon>
+    </ion-title>
+    
+		<ion-buttons slot="end">
+			<ion-button>
+    		<ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+		</ion-buttons>
+		
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form  #form="ngForm" (ngSubmit)="register(form)" color="light">
+    <ion-grid>
+      <ion-row color="primary" class="ion-justify-content-center">
+        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+  
+          <div class="ion-text-center ion-padding">
+            <h4 color="secondary">
+              <ion-icon class="title-icon" name="create" size="large" color="secondary"></ion-icon>
+              Send me a message...
+            </h4>
+          </div>
+  
+          <div class="ion-padding">
+            <ion-item>
+              <ion-input  name="name" type="text" placeholder="Name" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="Your email" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-textarea name="message" type="message" placeholder="Your message" ngModel required></ion-textarea>
+            </ion-item>
+          </div>
+  
+          <div class="ion-padding">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                  <ion-button size="large" type="submit" color="secondary">
+                    <ion-icon name="arrow-back"></ion-icon>
+                  </ion-button>
+                </ion-col>
+          
+                <ion-col col-4>
+                  <ion-button  size="large" type="submit" [disabled]="form.invalid" color="secondary">
+                    <ion-icon name="paper-plane"></ion-icon>
+                  </ion-button>
+                </ion-col>
+          
+                <ion-col col-4>
+                  <ion-button  size="large" type="submit" [disabled]="!form.touched" color="danger">
+                    <ion-icon name="close"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  
+</ion-content>

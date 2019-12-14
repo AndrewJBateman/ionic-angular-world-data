@@ -113,5 +113,7 @@ export class CountryListPage implements OnInit {
     await popover.present();
   }
 
-	
+	addToFavourites() {
+		
+	}
 }
