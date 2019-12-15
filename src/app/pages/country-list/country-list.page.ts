@@ -44,7 +44,7 @@ export class CountryListPage implements OnInit {
 		this.restApiService
 			.fetchCountryListData(url)
 			.subscribe((data: CountryListInterface[]) => {
-      	this.countries = data;
+				this.countries = data;
 			},
 			error => {
 				console.log('error fetching country list info: ', error);
@@ -56,19 +56,19 @@ export class CountryListPage implements OnInit {
 	getContinentData(event: any) {
 
 		// return event.detail.value === 'all' ?
-		// 	this.countries : 
+		// 	this.countries :
 		// 	this.getCountryList('region/' + event.detail.value)
 
 		if (event.detail.value === 'all') {
 			return this.getCountryList('all?fields=flag;name;capital;region');
-		} 
+		}
 		return this.getCountryList('region/' + event.detail.value);
 	}
 
 	// load country detail data
 	getCountryDetail(country: any) {
 		this.countryChosen = true;
-		let countryToSearch = country.name
+		const countryToSearch = country.name;
 		this.restApiService
 			.fetchCountryDetailData(countryToSearch)
 			.subscribe((data: CountryDetailInterface[]) => {
@@ -89,31 +89,31 @@ export class CountryListPage implements OnInit {
 
 	onSearch(event: Event) {
 		this.searchActive = true;
-		//api-service to create array of country names (add to init of country-list)
+		// api-service to create array of country names (add to init of country-list)
 		console.log('onSearch function: ', this.countries);
 		// this.countrySearched = this.countries.filter(item => country.name.includes(this.searchQuery));
 	}
 
 	onInput(event: any) {
-    // this.performSearch(this.searchInput);
-  }
+		// this.performSearch(this.searchInput);
+	}
 
-  onClear(event: any) {
-    // this.results = null;
-  }
+	onClear(event: any) {
+		// this.results = null;
+	}
 
 	async presentPopover(event: Event) {
-    const popover = await this.popoverCtrl.create({
+		const popover = await this.popoverCtrl.create({
 			component: PopoverPage,
 			componentProps: {
 				country: this.country
 			},
-      event: event
-    });
-    await popover.present();
-  }
+			event
+		});
+		await popover.present();
+	}
 
 	addToFavourites() {
-		
+
 	}
 }
