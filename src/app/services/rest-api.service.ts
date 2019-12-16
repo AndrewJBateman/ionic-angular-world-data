@@ -8,49 +8,50 @@ import { CountryListInterface, CountryDetailInterface, Country } from '../interf
 const apiUrl = 'https://restcountries.eu/rest/v2';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 
 export class RestApiService {
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+	constructor(
+		private httpClient: HttpClient
+	) { }
 
-  fetchCountryListData(url: string) {
-    return this.httpClient.get(
-      `${apiUrl}/${url}`
-    ).pipe(
-      map((data: CountryListInterface[]) => {
-        return data;
-      }), catchError(error => {
-        return throwError('Countries not found');
-      })
-    )
-  }
-  
-  fetchCountryDetailData(country: string) {
-    return this.httpClient.get(`${apiUrl}/name/${country}?fullText=true`).pipe(
-      map((data: CountryDetailInterface[]) => {
-        return data;
-      }), catchError(error => {
-        return throwError('Country not found');
-      })
-    )
-  }
+	fetchCountryListData(url: string) {
+		return this.httpClient.get(
+			`${apiUrl}/${url}`
+		).pipe(
+			map((data: CountryListInterface[]) => {
+				return data;
+			}), catchError(error => {
+				return throwError('Countries not found');
+			})
+		);
+	}
 
-  fetchCountryByName(name: string): Observable<Country[]> {
-    let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Accept', 'application/json');
+	fetchCountryDetailData(country: string) {
+		return this.httpClient.get(`${apiUrl}/name/${country}?fullText=true`).pipe(
+			map((data: CountryDetailInterface[]) => {
+				return data;
+			}), catchError(error => {
+				return throwError('Country not found');
+			})
+		);
+	}
 
-    return this.httpClient.get(
-      `https://restcountries.eu/rest/v2/name/${name}?fullText=true`,
-      { headers: headers }
-    ).pipe(
-      map((data: Country[]) => {
-        return data;
-      }), catchError(error => {
-        return throwError('Capital not found!');
-      })
-    )
-  }
+	fetchCountryByName(name: string): Observable<Country[]> {
+		let headers: HttpHeaders = new HttpHeaders();
+		headers = headers.append('Accept', 'application/json');
+
+		return this.httpClient.get(
+			`https://restcountries.eu/rest/v2/name/${name}?fullText=true`,
+			{ headers }
+		).pipe(
+			map((data: Country[]) => {
+				return data;
+			}), catchError(error => {
+				return throwError('Capital not found!');
+			})
+		);
+	}
+
 }

@@ -78,7 +78,7 @@ fetchCountryDetailData(country: string) {
 * Add floating button to country-detail to add to favourites?
 * Add code so Map button will route to a (Google) Map view of the country.
 
-* **Search** Change function or remove. Header done.
+* **Oceans page** Header done. Popover working. Create card content. 
 
 * **Favourites** Shows a nice image with text below if there are no favourites. 
 **TODO**

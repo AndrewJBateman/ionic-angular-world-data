@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title class="ion-text-center">
+      <ion-icon
+        class="icon"
+        name="search"
+        size="large">
+      </ion-icon>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button 
+        (click)="presentPopover($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding" *ngFor="let ocean of Oceans">
+        <ion-card>
+          <ion-header>{{ ocean.name }}</ion-header>
+        </ion-card>
+<!--           <ion-card>
+          <div class="image-div">
+            <img class="mat-card-image" src="assets/imgs/about-image.jpg" alt="Photo by Sean O. on Unsplash">
+            <div class="photo-credit">Photo by Nicola Nuttall on Unsplash</div>
+          </div>
+
+          <ion-card-header>
+            <ion-card-title class="ion-text-center about-header"><ion-icon name="globe" class="title-icon" size="large"></ion-icon>World Data</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-wrap">
+            <p>This app fetches JSON metadata from several REST endpoints from <a class="link-text" href="https://restcountries.eu/" target="_blank" title="Go to the Country Info website (opens in a new window)">REST Countries API</a>, that has information on every country in the world.</p>
+            <p>All countries are initially listed in alphabetical order. User can list countries by world region. Clicking on a list item routes to a country detail page with links to more detailed country info, a map and 'add to favourites'.</p>
+            <p>The <a class="link-text" href="https://cloud.google.com/maps-platform/maps/" target="_blank" title="Go to the Google Maps API website (opens in a new window)">Google Maps API</a> is used to display the country map. The usual Google Maps functions are available, like zoom etc.</p>
+          </ion-card-content>
+        </ion-card> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

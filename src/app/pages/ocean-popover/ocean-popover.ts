@@ -30,7 +30,7 @@ import { PopoverController } from '@ionic/angular';
 
     </ion-list>
   `,
-	styleUrls: ['./country-popover.scss']
+	styleUrls: ['./ocean-popover.scss']
 })
 export class PopoverPage implements OnInit {
 	country = null;

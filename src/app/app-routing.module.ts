@@ -11,7 +11,8 @@ const routes: Routes = [
 	{
 		path: 'app',
 		loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
-	}
+	},  { path: 'ocean-list', loadChildren: './pages/ocean-list/ocean-list.module#OceanListPageModule' }
+
 ];
 
 @NgModule({

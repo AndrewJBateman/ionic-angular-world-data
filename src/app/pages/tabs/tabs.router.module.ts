@@ -17,11 +17,11 @@ const routes: Routes = [
 				]
 			},
 			{
-				path: 'search',
+				path: 'ocean-list',
 				children: [
 					{
 						path: '',
-						loadChildren: () => import('../search/search.module').then(m => m.SearchPageModule)
+						loadChildren: () => import('../ocean-list/ocean-list.module').then(m => m.OceanListPageModule)
 					}
 				]
 			},
