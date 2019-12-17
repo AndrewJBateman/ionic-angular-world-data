@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
 	public appPages = [
 		{
 			title: 'Countries',
-			titlefr: '',
-			titlesp: '',
+			titlefr: 'Pays',
+			titlesp: 'Países',
 			url: '/app/tabs/country-list',
 			icon: 'list-box',
 			menuIcon: 'menuIconCountry'

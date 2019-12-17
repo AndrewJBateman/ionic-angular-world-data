@@ -1,19 +1,18 @@
 {
 	"MENU": {
 		"title": "Menu",
-		"Nav-header": "Navigate",
-		"Nav-settings": "Settings",
 		"Label-language": "Language",
 		"LangOption-English": "EN",
 		"LangOption-Spanish": "SP",
 		"LangOption-French": "FR",
-		"Label-darkMode": "Dark-mode",
-		"page-title": ""
+		"Label-darkMode": "Dark-mode"
+
 	},
 	"COUNTRIES": {
-		"cancel": "Cancel"
+		"cancel": "Cancel",
+		"continent": "Continent"
 	},
-	"NEWS-DETAIL": {
+	"OCEANS": {
 		"title": "News from: ",
 		"visit": "Visit website",
 		"add-favourite": "Add to favourites",
@@ -35,8 +34,8 @@
 		"para3": "Each article includes a link to the original news source that opens in a new window."
 	},
 	"TASK-BAR": {
-		"news": "News",
-		"categories": "Categories",
+		"countries": "Countries",
+		"oceans": "Oceans",
 		"favourites": "Favourites",
 		"about": "About"
 	}

@@ -1,10 +1,17 @@
-{
-	"NEWS": {
+{	"MENU": {
+		"title": "Menú",
+		"Label-language": "Idioma",
+		"LangOption-English": "EN",
+		"LangOption-Spanish": "ES",
+		"LangOption-French": "FR",
+		"Label-darkMode": "Modo oscuro"
+	},
+	"COUNTRIES": {
 		"title": "Noticias",
 		"source": "Fuente",
 		"cancel": "anular"
 	},
-	"NEWS-DETAIL": {
+	"OCEANS": {
 		"title": "Noticias de: ",
 		"visit": "Visita pagina",
 		"add-favourite": "Agregar favorito",
@@ -26,8 +33,8 @@
 		"para3": "Cada artículo incluye un enlace a la fuente de noticias original que se abre en una nueva ventana."
 	},
 	"TASK-BAR": {
-		"news": "Noticias",
-		"categories": "Categorias",
+		"countries": "Países",
+		"oceans": "Océanos",
 		"favourites": "Favoritos",
 		"about": "Sobre"
 	}

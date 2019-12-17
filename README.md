@@ -19,6 +19,22 @@ App that displays data about countries and oceans from the [Rest Countries](http
 
 ## Screenshots
 
+| ![Ionic page](./img/Countries1.png) | ![Ionic page](./img/Countries2.png) | ![Ionic categories page](./img/Countries3.png) |
+|:---:|:---:|:---:|
+| Countries Page French | Countries Page Spanish | Countries Page English |
+
+| ![Ionic page](./img/oceans1.png) | ![Ionic page](./img/oceans2.png) | ![Ionic categories page](./img/oceans3.png) |
+|:---:|:---:|:---:|
+| Oceans Page List | Oceans Page Popover| Oceans Page French |
+
+| ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic categories page](./img/favourites3.png) |
+|:---:|:---:|:---:|
+| Favourites Page Empty | Favourites Page Some | Favourites Page Full |
+
+| ![Ionic page](./img/about1.png) | ![Ionic page](./img/about2.png) | ![Ionic categories page](./img/about3.png) |
+|:---:|:---:|:---:|
+| About Page French | About Page + Side Menu | About Page + Info Menu |
+
 ![Ionic page](./img/country-list.png)
 ![Ionic page](./img/country-detail.png)
 ![Ionic page](./img/ocean-list.png)
@@ -67,7 +83,8 @@ fetchCountryDetailData(country: string) {
 
 ## Navigation/Pages
 
-* **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Add languages.
+* **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
+* **TODO** add language for alert cancel?
 
 * **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content :-)).
 **TODO:** 

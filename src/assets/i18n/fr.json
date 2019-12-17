@@ -1,13 +1,11 @@
 {
 	"MENU": {
 		"title": "Menu",
-		"Nav-header": "Naviguer",
-		"Nav-settings": "Reglage",
 		"Label-language": "Langage",
 		"LangOption-English": "AN",
 		"LangOption-Spanish": "ES",
 		"LangOption-French": "FR",
-		"Label-darkMode": "mode-sombre"
+		"Label-darkMode": "Mode-sombre"
 	},
 	"NEWS": {
 		"title": "Nouvelles",
@@ -36,8 +34,8 @@
 		"para3": "Chaque article comprend un lien vers la source de nouvelles originale qui s'ouvre dans une nouvelle fenêtre."
 	},
 	"TASK-BAR": {
-		"news": "Nouvelles",
-		"categories": "Catégories",
+		"countries": "Pays",
+		"oceans": "Océans",
 		"favourites": "Favoris",
 		"about": "À Propos"
 	}

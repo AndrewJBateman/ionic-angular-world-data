@@ -10,6 +10,9 @@ import { FavouritesPageModule } from './../favourites/favourites.module';
 import { AboutPageModule } from '../about/about.module';
 import { CountryListPageModule } from '../country-list/country-list.module';
 
+// ngx node modules
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
 	imports: [
 		AboutPageModule,
@@ -19,8 +22,11 @@ import { CountryListPageModule } from '../country-list/country-list.module';
 		CommonModule,
 		FormsModule,
 		IonicModule,
-		TabsPageRoutingModule
+		TabsPageRoutingModule,
+		TranslateModule
 	],
-	declarations: [TabsPage]
+	declarations: [
+		TabsPage
+	]
 })
 export class TabsPageModule {}
