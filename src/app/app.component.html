@@ -11,9 +11,6 @@
 			
 			<ion-content>
         <ion-list>
-          <ion-list-header>
-            <ion-text color="secondary">{{ 'MENU.Nav-header' | translate }}</ion-text>
-          </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
 						<ion-item
 							[routerLink]="p.url"
@@ -33,18 +30,8 @@
 						</ion-item>
           </ion-menu-toggle>
 				</ion-list>
-				<ion-list>
-					<ion-item>
-						<ion-icon slot="start" name="close" (click)="onSidenavClose()"></ion-icon>
-						<ion-label>Close</ion-label>
-					</ion-item>
-				</ion-list>
 				
 				<ion-list>
-					<ion-list-header>
-						<ion-text color="primary">{{ 'MENU.Nav-settings' | translate }}</ion-text>
-					</ion-list-header>
-
 					<ion-item (click)="themeService.changeThemeMode()">
 						<ion-icon name="contrast" slot="start"></ion-icon>
 						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>

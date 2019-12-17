@@ -1,75 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
-import { PopoverController } from '@ionic/angular';
+import { Component } from '@angular/core';
 
+import oceanData from '../ocean-list/oceans.json';
 @Component({
 	template: `
-
-    <ion-list>
-
-      <ion-item button (click)="moreInfo()">
-        <ion-label>
-        <ion-icon name="information-circle" size="large" color="secondary"></ion-icon>
-        More info.
-        </ion-label>
-      </ion-item>
-
-      <ion-item button (click)="openMap()">
-        <ion-label>
-        <ion-icon name="locate" size="large" color="primary"></ion-icon>
-        View map
-        </ion-label>
-      </ion-item>
-
-      <ion-item button (click)="addToFavourites()">
-        <ion-label>
-        <ion-icon name="heart" size="large" color="danger"></ion-icon>
-        Add to favourites
-        </ion-label>
-      </ion-item>
-
-    </ion-list>
+		<ion-list *ngFor="let ocean of Oceans">
+			<ion-item button href="{{ ocean.wikiLink }}" target="_blank">
+				<ion-label>
+					<ion-icon
+						name="information-circle"
+						size="large"
+						color="secondary">
+					</ion-icon>
+					{{ ocean.name }} Ocean
+					<ion-icon
+						name="arrow-dropright"
+						size="large"
+						color="secondary">
+					</ion-icon>
+				</ion-label>
+			</ion-item>
+		</ion-list>
   `,
 	styleUrls: ['./ocean-popover.scss']
 })
-export class PopoverPage implements OnInit {
-	country = null;
-	countryCode: string;
 
-
-	constructor(
-		private navParams: NavParams,
-		private popoverCtrl: PopoverController
-	) { }
-
-	ngOnInit() {
-		this.country = this.navParams.get('country');
-		console.log('this.country', this.country);
-	}
-
-	moreInfo() {
-		const countryToSearch = this.country.name;
-		const url = `https://en.wikipedia.org/wiki/${countryToSearch}`;
-		window.open(url, '_blank');
-		this.popoverCtrl.dismiss();
-	}
-
-	openUrl(url: string) {
-		console.log('openUrl function clicked');
-		window.open(url, '_blank');
-		this.popoverCtrl.dismiss();
-	}
-
-	openMap() {
-
-	}
-
-	addToFavourites() {
-
-	}
-
-	closePopover() {
-		this.popoverCtrl.dismiss();
-	}
-
+export class PopoverPage {
+	Oceans: any = oceanData;
 }

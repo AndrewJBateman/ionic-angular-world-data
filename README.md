@@ -1,6 +1,6 @@
 # Ionic Country Data
 
-App that displays data about countries from the [Rest Countries](https://restcountries.eu/) API, using the [Ionic 5 framework](https://ionicframework.com/docs).
+App that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API and a local json file. Built using the [Ionic 5 framework](https://ionicframework.com/docs).
 
 ## Table of contents
 
@@ -21,6 +21,8 @@ App that displays data about countries from the [Rest Countries](https://restcou
 
 ![Ionic page](./img/country-list.png)
 ![Ionic page](./img/country-detail.png)
+![Ionic page](./img/ocean-list.png)
+![Ionic page](./img/ocean-list-popover.png)
 ![Ionic page](./img/about.png)
 
 ## Technologies
@@ -65,25 +67,20 @@ fetchCountryDetailData(country: string) {
 
 ## Navigation/Pages
 
-* **Nav side-bar:** countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Change color of tabs bar - add blue top border??
-* **TODO** add menu close function.
-* **TODO** search bar in header to search for country from list.
+* **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Add languages.
 
 * **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content :-)).
 **TODO:** 
 * Add filter in API fetch pipe method to separate out each region into its own array - saves http calls. 
-* Correct error message with name.
 * Stop scroll when user reached the bottom. 
 * Complete search bar at top. 
-* Add floating button to country-detail to add to favourites?
 * Add code so Map button will route to a (Google) Map view of the country.
 
-* **Oceans page** Header done. Popover working. Create card content. 
+* **Oceans page** Working. Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 
 * **Favourites** Shows a nice image with text below if there are no favourites. 
 **TODO**
-* Change top right popover to do something else.
-* Add code to store favourites.
+* Add code to store/clear favourites.
 
 * **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page. 
 **TODO** add code so contact form is sent.
@@ -91,8 +88,6 @@ fetchCountryDetailData(country: string) {
 ## Status & To-do list
 
 * Status: Working. See sections above.
-
-* To-do: Look at (CIA World Fact Book)[https://www.cia.gov/library/publications/the-world-factbook/] for info -  add link?
 
 ## Inspiration
 

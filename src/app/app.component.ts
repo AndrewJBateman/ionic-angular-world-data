@@ -29,18 +29,18 @@ export class AppComponent implements OnInit {
 			menuIcon: 'menuIconCountry'
 		},
 		{
-			title: 'Categories',
-			titlefr: 'Categories',
-			titlesp: 'Categorias',
-      url: '/app/tabs/categories',
-			icon: 'options',
-			menuIcon: 'menuIconCategories'
+			title: 'Oceans',
+			titlefr: 'Océans',
+			titlesp: 'Océanos',
+			url: '/app/tabs/ocean-list',
+			icon: 'water',
+			menuIcon: 'menuIconOceans'
 		},
 		{
 			title: 'Favourites',
 			titlefr: 'Favoris',
 			titlesp: 'Favoritas',
-      url: '/app/tabs/favourites',
+			url: '/app/tabs/favourites',
 			icon: 'heart',
 			menuIcon: 'menuIconFavourites'
 		},
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
 			title: 'About',
 			titlefr: 'Sur cette app',
 			titlesp: 'Sobre esta app',
-      url: '/app/tabs/about',
+			url: '/app/tabs/about',
 			icon: 'information-circle',
 			menuIcon: 'menuIconAbout'
 		}
@@ -78,11 +78,11 @@ export class AppComponent implements OnInit {
 	}
 
 	languageChange() {
-    this.languageService.setLanguage(this.language);
+		this.languageService.setLanguage(this.language);
 	}
 
 	onSidenavClose = () => {
-    this.sidenavClose.emit();
-  }
-	
+		this.sidenavClose.emit();
+	}
+
 }
