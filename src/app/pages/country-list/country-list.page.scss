@@ -1,16 +1,12 @@
-//header
 .toolbar-header {
 	color: var(--ion-color-tertiary);
 }
 
-ion-searchbarInput {
-	padding: 6px 6px 6px 20px !important;
-	width: 90%;
-	margin: auto;
-}
-
-ion-fab-button {
-	--background: transparent;
+ion-searchbar {
+	padding: 10px 10px 0 !important;
+	// --background-color: transparent;
+	// --ion-color-base: transparent !important;
+	
 }
 
 .country-card ion-card-content {

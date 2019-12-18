@@ -86,11 +86,10 @@ fetchCountryDetailData(country: string) {
 * **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** add language for alert cancel?
 
-* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content :-)).
+* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name.
 **TODO:** 
-* Add filter in API fetch pipe method to separate out each region into its own array - saves http calls. 
-* Stop scroll when user reached the bottom. 
-* Complete search bar at top. 
+* Add filter in API fetch pipe method to separate out each region into its own array - saves http calls. Add to filter search. 
+* Stop scroll when user reaches the bottom. 
 * Add code so Map button will route to a (Google) Map view of the country.
 
 * **Oceans page** Working. Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.

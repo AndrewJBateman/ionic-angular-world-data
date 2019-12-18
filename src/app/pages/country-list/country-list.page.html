@@ -1,47 +1,27 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar color="primary">
+
 		<ion-buttons slot="start">
 			<ion-menu-button></ion-menu-button>
 			<ion-button
-				*ngIf="countryChosen && !searchActive"
+				*ngIf="countryChosen"
 				(click)="backToList($event)">
 				<ion-icon			
 					name="arrow-back"
-					size="sma">
+					size="large">
 				</ion-icon>
 			</ion-button>
-
-			<ion-button
-				*ngIf="!countryChosen && !searchActive"
-					(click)="onSearch($event)">
-					<ion-icon name="search"></ion-icon>
-				</ion-button>
 		</ion-buttons>
-
-		<ion-searchbar
-			*ngIf="!countryChosen && searchActive"
-			[(ngModel)]="searchInput"
-			placeholder="Enter country name"
-			[showCancelButton]="false"
-			(ionInput)="onInput($event)"
-			(ionClear)="onClear($event)"
-			autocomplete="on"
-			color="light"
-			showCancelButton="true"
-			class="country-searchbar">
-
-		</ion-searchbar>
 		
 		<ion-item class="ion-no-padding source" color="primary">
-
 			<ion-title class="ion-text-center">
-				<ion-icon *ngIf="!countryChosen && !searchActive" item-start class="icon" name="globe" size="large"></ion-icon>
-				<h4 *ngIf="countryChosen" class="toolbar-header">{{ countryName | uppercase }}</h4>
+				<ion-icon *ngIf="!countryChosen" item-start class="icon" name="globe" size="large"></ion-icon>
+				<h4 *ngIf="countryChosen" class="toolbar-header">{{ country.name | uppercase }}</h4>
 			</ion-title>
 
 			<!--drop-down list of country regions, select one to change the country category and reload list of country-->
 			<ion-select
-				*ngIf="!countryChosen && !searchActive"
+				*ngIf="!countryChosen"
 				interface="action-sheet"
 				placeholder="Continent"
 				[(ngModel)]="continent"
@@ -67,10 +47,23 @@
 					</ion-icon>
 				</ion-button>
 			</ion-buttons>
-
 		</ion-item>
 
-  </ion-toolbar>
+	</ion-toolbar>
+	<ion-grid class="ion-no-padding">
+		<ion-row>
+			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
+				<ion-searchbar
+					*ngIf="!countryChosen"
+					(ionChange)="filterItems($event)"
+					(ionCancel)="onCancel($event)"
+					color="light"
+					placeholder="Enter country name"
+					>
+				</ion-searchbar>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-header>
 
 <ion-content fullscreen [scrollEvents]="true">
@@ -78,20 +71,20 @@
 		<ion-row>
 			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
 
-				<!--display list of countries-->
+				<!--display list of countries in search-->
 				<div *ngIf="!countryChosen">
-					<div 
-						*ngFor="let country of countries; index as countryId"
-						style="padding: 0;">
+					<div *ngFor="let item of searchItems"	style="padding: 0;">
 						<app-country-item
-							[country]="country"
-							(click)="getCountryDetail(country)">
+							[country]="item"
+							(click)="getCountryDetail(item)">
 						</app-country-item>
 					</div>
 				</div>
+
 				
+
 				<!--display chosen country in detail-->
-				<div *ngIf="countryChosen">
+ 				<div *ngIf="countryChosen">
 					<app-detail-item
 						[country]="country">
 					</app-detail-item>

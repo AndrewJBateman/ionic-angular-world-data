@@ -17,8 +17,7 @@ import { CountryListInterface, CountryDetailInterface, Country } from '../../int
 export class CountryListPage implements OnInit {
 	@ViewChild(IonContent) content: IonContent;
 	countryChosen = false;
-	searchActive = false;
-	searchInput = '';
+	query = '';
 	countryName = '';
 	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 	fullList = [];
@@ -27,6 +26,7 @@ export class CountryListPage implements OnInit {
 	country: any;
 	continent: string;
 	arrayLength: any;
+	searchItems: Array<Country> = [];
 
 	constructor(
 		private restApiService:	RestApiService,
@@ -40,11 +40,13 @@ export class CountryListPage implements OnInit {
 	}
 
 	// get list of countries with API response limited to 4 fields
+	// take a copy of array to use in search function
 	getCountryList(url: string) {
 		this.restApiService
 			.fetchCountryListData(url)
 			.subscribe((data: CountryListInterface[]) => {
 				this.countries = data;
+				this.searchItems = this.countries;
 			},
 			error => {
 				console.log('error fetching country list info: ', error);
@@ -87,19 +89,19 @@ export class CountryListPage implements OnInit {
 		this.countryChosen = false;
 	}
 
-	onSearch(event: Event) {
-		this.searchActive = true;
-		// api-service to create array of country names (add to init of country-list)
-		console.log('onSearch function: ', this.countries);
-		// this.countrySearched = this.countries.filter(item => country.name.includes(this.searchQuery));
+	// filter array of country names to match search query (letters only using regex)
+	filterItems(event: any) {
+		const regExp = /^[a-zA-Z]*$/;
+		const query = event.target.value.toLowerCase();
+		this.searchItems = query.length > 0 && regExp.test(query)
+			? this.searchItems.filter(item => {
+					return item.name.toLowerCase().indexOf(query) > -1;
+				})
+			:	this.countries;
 	}
 
-	onInput(event: any) {
-		// this.performSearch(this.searchInput);
-	}
-
-	onClear(event: any) {
-		// this.results = null;
+	onCancel() {
+		this.query = null;
 	}
 
 	async presentPopover(event: Event) {
