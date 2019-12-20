@@ -16,6 +16,8 @@ import { CountryListInterface, CountryDetailInterface, Country } from '../../int
 })
 export class CountryListPage implements OnInit {
 	@ViewChild(IonContent) content: IonContent;
+
+	private scrollDepthTriggered = false;
 	countryChosen = false;
 	query = '';
 	countryName = '';
@@ -114,4 +116,5 @@ export class CountryListPage implements OnInit {
 	addToFavourites() {
 
 	}
+
 }

@@ -36,12 +36,12 @@ export function createTranslateLoader(http: HttpClient) {
 		HttpClientModule,
 		IonicStorageModule.forRoot(),
 		TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
+			loader: {
+				provide: TranslateLoader,
+				useFactory: (createTranslateLoader),
+				deps: [HttpClient]
+			}
+		}),
 	],
 	providers: [
 		StatusBar,

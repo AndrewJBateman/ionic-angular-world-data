@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.app",
+  "appName": "ionic-world-info",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
