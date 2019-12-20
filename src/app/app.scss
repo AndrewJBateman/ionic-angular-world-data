@@ -1,3 +1,9 @@
+.menu-header {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--ion-color-secondary);
+}
+
 .active {
   color: var(--ion-color-primary);
   ion-icon {

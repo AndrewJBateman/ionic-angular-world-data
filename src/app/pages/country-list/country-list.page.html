@@ -58,8 +58,7 @@
 					(ionChange)="filterItems($event)"
 					(ionCancel)="onCancel($event)"
 					color="light"
-					placeholder="Enter country name"
-					>
+					placeholder="Enter country name">
 				</ion-searchbar>
 			</ion-col>
 		</ion-row>
@@ -79,9 +78,7 @@
 							(click)="getCountryDetail(item)">
 						</app-country-item>
 					</div>
-				</div>
-
-				
+				</div>		
 
 				<!--display chosen country in detail-->
  				<div *ngIf="countryChosen">

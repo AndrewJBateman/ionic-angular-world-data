@@ -71,26 +71,28 @@ fetchCountryDetailData(country: string) {
 
 ## Features
 
-* **integrated Google Maps** API (future) .
+* **integrated Google Maps** API (future).
 * **Typescript interface** used to define the expected structures of the json objects returned from the API.
 * **Separate services** page with API http fetch functions.
 * **RxJS Observables** used to extract data asynchronously.
-* **Dark mode** (future) switch on menu changes from light to dark mode.
-* **Offline Storage** of favourite articles using Ionic Storage.
-* **Common Progess Bar Component** ion-card shows while country info loading.
-* **Localisation using i18n** so user can select between English (default), Spanish and French.
-* **ion-grid** with fixed column size used so country data will display ok even on a PC.
+* **Dark mode** switch on menu.
+* **Offline Storage**  (future) of favourite articles using Ionic Storage.
+* **Common Progess Bar Component**  (future) ion-card shows while country info loading.
+* **Localisation using i18n**  (future) so user can select between English (default), Spanish and French.
+* **ion-grid** with fixed column size used so country content data will display ok even on a PC.
+* **search** function to search for country name with regex to only allow letters in search text.
 
 ## Navigation/Pages
 
 * **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** add language for alert cancel?
 
-* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail ( no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name.
-**TODO:** 
-* Add filter in API fetch pipe method to separate out each region into its own array - saves http calls. Add to filter search. 
+* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name.
+* **TODO:** 
 * Stop scroll when user reaches the bottom. 
 * Add code so Map button will route to a (Google) Map view of the country.
+* add function to convert border country 3 letter codes to full country names.
+* add function (custom pipe) to insert ',' in area figures etc.
 
 * **Oceans page** Working. Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 
@@ -103,7 +105,7 @@ fetchCountryDetailData(country: string) {
 
 ## Status & To-do list
 
-* Status: Working. See sections above.
+* Status: Working & deployed to Firebase. For To-do see sections above.
 
 ## Inspiration
 

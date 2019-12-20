@@ -53,20 +53,6 @@ export class CountryListPage implements OnInit {
 			});
 	}
 
-	// load country list data for continent selected with API response limited to 4 fields
-	// return the unchanged array if 'all' selected.
-	getContinentData(event: any) {
-
-		// return event.detail.value === 'all' ?
-		// 	this.countries :
-		// 	this.getCountryList('region/' + event.detail.value)
-
-		if (event.detail.value === 'all') {
-			return this.getCountryList('all?fields=flag;name;capital;region');
-		}
-		return this.getCountryList('region/' + event.detail.value);
-	}
-
 	// load country detail data
 	getCountryDetail(country: any) {
 		this.countryChosen = true;
@@ -87,6 +73,16 @@ export class CountryListPage implements OnInit {
 	backToList(event: Event) {
 		this.countryName = '';
 		this.countryChosen = false;
+	}
+
+	// load country list data for continent selected by filtering list of countries by region
+	getContinentData(event: any) {
+		this.searchItems = this.countries; // reset list after each event
+		return this.searchItems = event.detail.value !== 'all'
+			? this.searchItems.filter(item => {
+				return item.region.indexOf(event.detail.value) > -1;
+				})
+			: this.countries;
 	}
 
 	// filter array of country names to match search query (letters only using regex)

@@ -3,7 +3,7 @@
 
 		<!--Side menu-->
     <ion-menu contentId="menu-content">
-      <ion-header>
+      <ion-header class="menu-header">
         <ion-toolbar color="primary">
           <ion-title>{{ 'MENU.title' | translate }}</ion-title>
         </ion-toolbar>
@@ -33,7 +33,7 @@
 				
 				<ion-list>
 					<ion-item (click)="themeService.changeThemeMode()">
-						<ion-icon name="contrast" slot="start"></ion-icon>
+						<ion-icon name="contrast" slot="start" color="dark"></ion-icon>
 						<ion-label>{{ 'MENU.Label-darkMode' | translate }}</ion-label>
             <ion-toggle
               slot="end"

@@ -24,8 +24,8 @@ const routes: Routes = [
 		FormsModule,
 		IonicModule,
 		RouterModule.forChild(routes),
-    TranslateModule,
-    ComponentsModule
+		TranslateModule,
+		ComponentsModule
 	],
 	declarations: [
 		CountryListPage,
