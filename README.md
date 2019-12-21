@@ -95,6 +95,8 @@ fetchCountryDetailData(country: string) {
 * add function (custom pipe) to insert ',' in area figures etc.
 
 * **Oceans page** Working. Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
+**TODO**
+* Add Ionic accordian?
 
 * **Favourites** Shows a nice image with text below if there are no favourites. 
 **TODO**

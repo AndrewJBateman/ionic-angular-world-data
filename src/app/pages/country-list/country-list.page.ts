@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+import { PopoverController } from '@ionic/angular';
 
 import { RestApiService } from './../../services/rest-api.service';
-import { PopoverController } from '@ionic/angular';
-import { PopoverPage } from '../country-popover/country-popover';
 
+import { PopoverPage } from '../country-popover/country-popover';
 import { CountryListInterface, CountryDetailInterface, Country } from '../../interfaces/interface';
 
 @Component({
@@ -15,7 +15,7 @@ import { CountryListInterface, CountryDetailInterface, Country } from '../../int
 	providers: [RestApiService]
 })
 export class CountryListPage implements OnInit {
-	@ViewChild(IonContent) content: IonContent;
+	@ViewChild(IonContent, { static: true }) content: IonContent;
 
 	private scrollDepthTriggered = false;
 	countryChosen = false;

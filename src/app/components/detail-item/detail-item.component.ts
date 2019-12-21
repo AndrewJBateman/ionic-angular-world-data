@@ -2,25 +2,25 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CountryDetailInterface } from 'src/app/interfaces/interface';
 
 @Component({
-  selector: 'app-detail-item',
-  templateUrl: './detail-item.component.html',
-  styleUrls: ['./detail-item.component.scss'],
+	selector: 'app-detail-item',
+	templateUrl: './detail-item.component.html',
+	styleUrls: ['./detail-item.component.scss'],
 })
 export class DetailItemComponent implements OnInit {
-  @Input() country: CountryDetailInterface;
-  @Input() countryName: string;
+	@Input() country: CountryDetailInterface;
+	@Input() countryName: string;
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit(
-  ) {}
+	ngOnInit(
+	) {}
 
-  appendComa(content: any) {
-    try {
-      let result = content.concat(',');
-      return result;
-    } catch (err){
-      console.log(err);
-    }
-  }
+	appendComa(content: any) {
+		try {
+			const result = content.concat(',');
+			return result;
+		} catch (err) {
+			console.log(err);
+		}
+	}
 }

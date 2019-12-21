@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { CountryListPage } from './country-list.page';
 import { ComponentsModule} from '../../components/components.module';
@@ -25,7 +26,8 @@ const routes: Routes = [
 		IonicModule,
 		RouterModule.forChild(routes),
 		TranslateModule,
-		ComponentsModule
+		ComponentsModule,
+		GoogleChartsModule
 	],
 	declarations: [
 		CountryListPage,
