@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+
 @Component({
 	templateUrl: './about-popover.html',
 	styleUrls: ['./about-popover.scss']

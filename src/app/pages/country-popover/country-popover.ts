@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
 import { PopoverController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
 	template: `
@@ -9,14 +10,14 @@ import { PopoverController } from '@ionic/angular';
 
       <ion-item button (click)="moreInfo()">
         <ion-label>
-        <ion-icon name="information-circle" size="large" color="secondary"></ion-icon>
+        <ion-icon name="information-circle" size="large" color="primary"></ion-icon>
         More info.
         </ion-label>
       </ion-item>
 
       <ion-item button (click)="openMap()">
         <ion-label>
-        <ion-icon name="locate" size="large" color="primary"></ion-icon>
+        <ion-icon name="locate" size="large" color="secondary"></ion-icon>
         View map
         </ion-label>
       </ion-item>
@@ -38,6 +39,7 @@ export class PopoverPage implements OnInit {
 
 
 	constructor(
+		private router: Router,
 		private navParams: NavParams,
 		private popoverCtrl: PopoverController
 	) { }
@@ -61,7 +63,10 @@ export class PopoverPage implements OnInit {
 	}
 
 	openMap() {
-
+		console.log('openMap function clicked');
+		console.log('country to pass to chart: ', this.country);
+		this.router.navigate(['app/tabs/map']);
+		this.popoverCtrl.dismiss();
 	}
 
 	addToFavourites() {

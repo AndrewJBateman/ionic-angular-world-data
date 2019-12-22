@@ -3,22 +3,22 @@ import { Router } from '@angular/router';
 import { Form } from '@angular/forms';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.page.html',
-  styleUrls: ['./contact.page.scss'],
+	selector: 'app-contact',
+	templateUrl: './contact.page.html',
+	styleUrls: ['./contact.page.scss'],
 })
 export class ContactPage implements OnInit {
 
-  constructor(
-    private router: Router
-  ) { }
+	constructor(
+		private router: Router
+	) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
-  register(form: Form) {
-    console.log('form', form)
-    this.router.navigate(['/app/tabs/about']);
-  }
+	register(form: Form) {
+		console.log('form', form);
+		this.router.navigate(['/app/tabs/about']);
+	}
 
 }

@@ -1,6 +1,6 @@
 # Ionic Country Data
 
-App that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API and a local json file. Built using the [Ionic 5 framework](https://ionicframework.com/docs).
+App that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Charts Maps](https://developers.google.com/chart/interactive/docs/gallery/map) API and a local json file. Built using the [Ionic 5 framework](https://ionicframework.com/docs).
 
 ## Table of contents
 
@@ -16,6 +16,8 @@ App that displays data about countries and oceans from the [Rest Countries](http
 ## General info
 
 * The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The (API Response Example)[https://restcountries.eu/#api-endpoints-response-example] was useful to create my http interface classes.
+
+* The [Google Charts Maps](https://developers.google.com/chart/interactive/docs/gallery/map): 'displays a map using the Google Maps API. Data values are displayed as markers on the map. Data values can be coordinates (lat-long pairs) or addresses. The map will be scaled so that it includes all the identified points.' (text from link).
 
 ## Screenshots
 
@@ -47,6 +49,7 @@ App that displays data about countries and oceans from the [Rest Countries](http
 * [Angular v7.2.2](https://angular.io/)
 * [Ionic/angular v4.1.0](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v2.0.5](https://restcountries.eu/)
+* [Google Charts Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
 * [Ionic 4 open source Ionicons](https://ionicons.com/)
 
 ## Setup
@@ -71,7 +74,7 @@ fetchCountryDetailData(country: string) {
 
 ## Features
 
-* **integrated Google Maps** API (future).
+* **integrated Google Chart Maps** API to show country map.
 * **Typescript interface** used to define the expected structures of the json objects returned from the API.
 * **Separate services** page with API http fetch functions.
 * **RxJS Observables** used to extract data asynchronously.
@@ -85,12 +88,12 @@ fetchCountryDetailData(country: string) {
 ## Navigation/Pages
 
 * **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
-* **TODO** add language for alert cancel?
+* **TODO** Add language for alert cancel?
 
-* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name.
+* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Popover link to map of country, generated using the Google Charts Maps API.
 * **TODO:** 
 * Stop scroll when user reaches the bottom. 
-* Add code so Map button will route to a (Google) Map view of the country.
+* Complete code for Map view of the country. Add options in popover.
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.
 
@@ -103,7 +106,8 @@ fetchCountryDetailData(country: string) {
 * Add code to store/clear favourites.
 
 * **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page. 
-**TODO** add code so contact form is sent.
+**TODO**
+* Add code so contact form is sent.
 
 ## Status & To-do list
 

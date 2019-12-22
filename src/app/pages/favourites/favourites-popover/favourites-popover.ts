@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 
 @Component({
-  template: `
+	template: `
     <ion-list>
 
       <ion-item button (click)="clearFavourites()">
@@ -11,22 +11,22 @@ import { PopoverController } from '@ionic/angular';
         Clear favourites
         </ion-label>
       </ion-item>
-      
+
     </ion-list>
   `,
-  styleUrls: ['./favourites-popover.scss']
+	styleUrls: ['./favourites-popover.scss']
 })
 export class PopoverPage {
-  constructor(public popoverCtrl: PopoverController) {}
+	constructor(public popoverCtrl: PopoverController) {}
 
-  clearFavourites() {
+	clearFavourites() {
 
-  }
+	}
 
-  openUrl(url: string) {
-		console.log('openUrl function clicked')
-    window.open(url, '_blank');
-    this.popoverCtrl.dismiss();
+	openUrl(url: string) {
+		console.log('openUrl function clicked');
+		window.open(url, '_blank');
+		this.popoverCtrl.dismiss();
 	}
 
 }
