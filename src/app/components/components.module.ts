@@ -10,15 +10,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CountryItemComponent } from './country-item/country-item.component';
 import { DetailItemComponent } from './detail-item/detail-item.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import { ChartComponent } from './chart/chart.component';
 
 import { GoogleChartsModule } from 'angular-google-charts';
 
 const COMPONENTS: any[] = [
 	CountryItemComponent,
 	DetailItemComponent,
-	ProgressBarComponent,
-	ChartComponent
+	ProgressBarComponent
 ];
 
 @NgModule({

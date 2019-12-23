@@ -20,13 +20,13 @@ export class CountryListPage implements OnInit {
 	private scrollDepthTriggered = false;
 	countryChosen = false;
 	query = '';
-	countryName = '';
+	public countryName = '';
 	continents = ['all', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 	fullList = [];
 	searchTerm: '';
 	countries: any;
-	country: any;
-	continent: string;
+	public country: any;
+	public continent: string;
 	arrayLength: any;
 	searchItems: Array<Country> = [];
 
@@ -111,6 +111,17 @@ export class CountryListPage implements OnInit {
 			event
 		});
 		await popover.present();
+	}
+
+	public openMap(event: any): void {
+		console.log('openMap function clicked');
+		this.router.navigate(['app/tabs/map'], {
+			queryParams: {
+				countryName: this.countryName,
+				countryLat: this.country.latlng[0],
+				countryLng: this.country.latlng[1]
+			}
+		});
 	}
 
 	addToFavourites() {

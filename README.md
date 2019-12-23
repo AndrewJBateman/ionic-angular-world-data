@@ -90,10 +90,10 @@ fetchCountryDetailData(country: string) {
 * **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** Add language for alert cancel?
 
-* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Popover link to map of country, generated using the Google Charts Maps API.
+* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
 * **TODO:** 
 * Stop scroll when user reaches the bottom. 
-* Complete code for Map view of the country. Add options in popover.
+* Complete code for Map view of the country. Solve lifecycle problems? so lat and lng used in map init.
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
+import { NavParams, NavController } from '@ionic/angular';
 import { PopoverController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+// import { MapPage } from '../map/map';
 
 @Component({
 	template: `
@@ -15,13 +16,6 @@ import { Router } from '@angular/router';
         </ion-label>
       </ion-item>
 
-      <ion-item button (click)="openMap()">
-        <ion-label>
-        <ion-icon name="locate" size="large" color="secondary"></ion-icon>
-        View map
-        </ion-label>
-      </ion-item>
-
       <ion-item button (click)="addToFavourites()">
         <ion-label>
         <ion-icon name="heart" size="large" color="danger"></ion-icon>
@@ -29,23 +23,27 @@ import { Router } from '@angular/router';
         </ion-label>
       </ion-item>
 
-    </ion-list>
+		</ion-list>
+
   `,
 	styleUrls: ['./country-popover.scss']
 })
 export class PopoverPage implements OnInit {
+	viewMap = false;
 	country = null;
 	countryCode: string;
-
+	countryName: string;
 
 	constructor(
 		private router: Router,
+		public navCtrl: NavController,
 		private navParams: NavParams,
 		private popoverCtrl: PopoverController
 	) { }
 
 	ngOnInit() {
 		this.country = this.navParams.get('country');
+		this.countryName = this.country.name;
 		console.log('this.country', this.country);
 	}
 
@@ -59,13 +57,6 @@ export class PopoverPage implements OnInit {
 	openUrl(url: string) {
 		console.log('openUrl function clicked');
 		window.open(url, '_blank');
-		this.popoverCtrl.dismiss();
-	}
-
-	openMap() {
-		console.log('openMap function clicked');
-		console.log('country to pass to chart: ', this.country);
-		this.router.navigate(['app/tabs/map']);
 		this.popoverCtrl.dismiss();
 	}
 

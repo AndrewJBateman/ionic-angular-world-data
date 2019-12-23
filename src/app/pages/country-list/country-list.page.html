@@ -89,15 +89,13 @@
 					</app-detail-item>
 				</div>
 
-
-
 			</ion-col>
 		</ion-row>
 	</ion-grid>
-	<!-- <ion-fab vertical="center" horizontal="end" slot="fixed">
-		<ion-fab-button fill="clear" *ngIf="countryChosen">
-			<ion-icon name="heart" color="danger" size="large" (click)="addToFavourites()"></ion-icon>
-		</ion-fab-button>
-	</ion-fab> -->
 
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="countryChosen">
+    <ion-fab-button (click)="openMap()">
+      <ion-icon name="locate"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 <ion-content>

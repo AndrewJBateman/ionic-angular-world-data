@@ -6,3 +6,15 @@ ion-label {
 ion-label ion-icon {
   margin-right: 8px;
 }
+
+ion-popover {
+  ion-backdrop {
+    opacity: 0.5 !important;
+  }
+   .popover-wrapper {
+   .popover-content {
+    width:80vw;
+    max-width:500px;
+   }
+  }
+}

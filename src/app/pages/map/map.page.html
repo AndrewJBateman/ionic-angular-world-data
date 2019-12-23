@@ -4,13 +4,17 @@
       <ion-menu-button></ion-menu-button>
 		</ion-buttons>
 		
-    <ion-title class="ion-text-center">
+    <!-- <ion-title class="ion-text-center">
 			<ion-icon
 				class="icon"
 				name="locate"
 				size="large">
 			</ion-icon>
-    </ion-title>
+		</ion-title> -->
+		
+		<ion-title class="ion-text-center">
+			<h4 class="toolbar-header">{{ countryName | uppercase }}</h4>
+		</ion-title>
     
 		<ion-buttons slot="end">
 			<ion-button>
@@ -22,5 +26,5 @@
 </ion-header>
 
 <ion-content>
-  <app-chart></app-chart>
+	<div #mapContainer id="map"></div>
 </ion-content>
