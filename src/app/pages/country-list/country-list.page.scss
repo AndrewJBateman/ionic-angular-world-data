@@ -9,6 +9,11 @@ ion-searchbar {
 	
 }
 
+ion-fab-button {
+	--background: transparent;
+	// --ion-color-base: transparent !important;
+}
+
 .country-card ion-card-content {
   flex: 1 1 auto;
   padding: 0;

@@ -1,5 +1,5 @@
 /// <reference types="@types/googlemaps" />
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, OnChanges, Input } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, OnChanges, Input } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -11,61 +11,36 @@ declare let google: any;
 	styleUrls: ['./map.page.scss'],
 })
 
-export class MapPage implements OnInit, AfterViewInit {
-	public countryName: string;
-	public countryLat: number;
-	public countryLng: number;
+export class MapPage implements AfterViewInit {
+	countryName: string;
 	queryParams: Params;
-	title = this.countryName;
-
-	constructor(private activatedRoute: ActivatedRoute) {
-
-
-	}
-
 	@ViewChild('mapContainer', { static: false }) gmap: ElementRef;
 	map: google.maps.Map;
-	lat = 42.5;
-	lng = 1.5;
 
-	coordinates = new google.maps.LatLng(this.lat, this.lng);
-	mapOptions: google.maps.MapOptions = {
-		center: this.coordinates,
-		zoom: 8
-	};
+	constructor(private activatedRoute: ActivatedRoute) {}
 
-	marker = new google.maps.Marker({
-		position: this.coordinates,
-		map: this.map,
-	});
+	ngAfterViewInit() {
+		this.initMap();
+	}
 
-	// ngOnChanges() {
-	// 	this.getRouteParams();
-	// }
-
-	getRouteParams() {
-		return this.activatedRoute.queryParams.subscribe( params => {
+	initMap() {
+		this.activatedRoute.queryParams.subscribe( params => {
 			console.log('params: ', params);
 			this.queryParams = params;
 			this.countryName = this.queryParams.countryName;
-			this.countryLat = parseInt(this.queryParams.countryLat, 10);
-			this.countryLng = parseInt(this.queryParams.countryLng, 10);
+			const coordinates = new google.maps.LatLng(
+				this.queryParams.countryLat, this.queryParams.countryLng
+			);
+			const mapOptions: google.maps.MapOptions = {
+				center: coordinates,
+				zoom: 3
+			};
+			const marker = new google.maps.Marker({
+				position: coordinates,
+				map: this.map,
+			});
+			this.map = new google.maps.Map(this.gmap.nativeElement,	mapOptions);
+			marker.setMap(this.map);
 		});
 	}
-
-
-	ngAfterViewInit() {
-		this.mapInitializer();
-		console.log('coords: ', this.countryLat, this.countryLng);
-		console.log('title: ', this.countryName);
-	}
-
-		ngOnInit() {
-		this.getRouteParams();
-		}
-
-		mapInitializer() {
-			this.map = new google.maps.Map(this.gmap.nativeElement,	this.mapOptions);
-			this.marker.setMap(this.map);
-		}
 }
