@@ -9,6 +9,7 @@ import { ContactPageModule } from '../contact/contact.module';
 import { FavouritesPageModule } from './../favourites/favourites.module';
 import { AboutPageModule } from '../about/about.module';
 import { CountryListPageModule } from '../country-list/country-list.module';
+import { OceanListPageModule } from '../ocean-list/ocean-list.module';
 
 // ngx node modules
 import { TranslateModule } from '@ngx-translate/core';
@@ -19,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
 		ContactPageModule,
 		CountryListPageModule,
 		FavouritesPageModule,
+		OceanListPageModule,
 		CommonModule,
 		FormsModule,
 		IonicModule,

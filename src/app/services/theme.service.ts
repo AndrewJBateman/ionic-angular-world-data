@@ -4,13 +4,13 @@ import { DOCUMENT } from '@angular/common';
 import { Storage } from '@ionic/storage';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class ThemeService {
 	darkMode: any;
 	renderer: Renderer2;
 
-  constructor(
+	constructor(
 		private rendererFactory: RendererFactory2,
 		private storage: Storage,
 		@Inject(DOCUMENT) private document: Document) {
@@ -22,7 +22,7 @@ export class ThemeService {
 		this.storage.set('dark-theme', true);
 		this.darkMode = true;
 	}
-	
+
 	enableLight() {
 		this.renderer.removeClass(this.document.body, 'dark-theme');
 		this.storage.set('dark-theme', false);
@@ -33,4 +33,3 @@ export class ThemeService {
 		this.darkMode ? this.enableLight() : this.enableDark();
 	}
 }
-

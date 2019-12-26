@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+
 import { IonicModule } from '@ionic/angular';
 
 import { TranslateModule } from '@ngx-translate/core';
-import { GoogleChartsModule } from 'angular-google-charts';
 
 import { CountryListPage } from './country-list.page';
 import { ComponentsModule} from '../../components/components.module';
@@ -26,8 +26,7 @@ const routes: Routes = [
 		IonicModule,
 		RouterModule.forChild(routes),
 		TranslateModule,
-		ComponentsModule,
-		GoogleChartsModule
+		ComponentsModule
 	],
 	declarations: [
 		CountryListPage,

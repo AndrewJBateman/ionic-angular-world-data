@@ -17,6 +17,7 @@ import { CountryListInterface, CountryDetailInterface, Country } from '../../int
 export class CountryListPage implements OnInit {
 	@ViewChild(IonContent, { static: true }) content: IonContent;
 
+	loadingInfo = false;
 	private scrollDepthTriggered = false;
 	countryChosen = false;
 	query = '';
@@ -38,7 +39,9 @@ export class CountryListPage implements OnInit {
 
 	// get country info for category 'all' with just the 4 fields needed.
 	ngOnInit() {
+		this.loadingInfo = true;
 		this.getCountryList('all?fields=flag;name;capital;region');
+		this.loadingInfo = false;
 	}
 
 	// get list of countries with API response limited to 4 fields
@@ -57,6 +60,7 @@ export class CountryListPage implements OnInit {
 
 	// load country detail data
 	getCountryDetail(country: any) {
+		this.loadingInfo = true;
 		this.countryChosen = true;
 		const countryToSearch = country.name;
 		this.restApiService
@@ -68,6 +72,7 @@ export class CountryListPage implements OnInit {
 			error => {
 				console.log('error fetching country detail info: ', error);
 			});
+		this.loadingInfo = false;
 		this.content.scrollToTop(0);
 	}
 

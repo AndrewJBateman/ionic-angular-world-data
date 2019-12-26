@@ -16,9 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage';
-import { GoogleChartsModule } from 'angular-google-charts';
-
-// import { ChartComponent } from './components/chart/chart.component';
 
 // exported translations loader function that fetches JSON files from the assets folder
 export function createTranslateLoader(http: HttpClient) {
@@ -27,8 +24,8 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
 	declarations: [
-		AppComponent,
-		// ChartComponent
+		AppComponent
+
 	],
 	entryComponents: [],
 	imports: [
@@ -45,8 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
 				useFactory: (createTranslateLoader),
 				deps: [HttpClient]
 			}
-		}),
-		GoogleChartsModule.forRoot()
+		})
 	],
 	providers: [
 		StatusBar,

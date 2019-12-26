@@ -31,7 +31,6 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@types/googlemaps": "^3.38.1",
-    "angular-google-charts": "^0.1.6",
     "core-js": "^2.6.11",
     "rxjs": "^6.5.3",
     "serialize-javascript": "^2.1.2",

@@ -11,8 +11,7 @@ const routes: Routes = [
 	{
 		path: 'app',
 		loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
-	},  { path: 'map', loadChildren: './pages/map/map.module#MapPageModule' }
-
+	}
 
 ];
 

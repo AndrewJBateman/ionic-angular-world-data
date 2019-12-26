@@ -1,6 +1,6 @@
 # Ionic Country Data
 
-App that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Charts Maps](https://developers.google.com/chart/interactive/docs/gallery/map) API and a local json file. Built using the [Ionic 5 framework](https://ionicframework.com/docs).
+App that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file. Built using the [Ionic 5 framework](https://ionicframework.com/docs).
 
 ## Table of contents
 
@@ -15,9 +15,9 @@ App that displays data about countries and oceans from the [Rest Countries](http
 
 ## General info
 
-* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The (API Response Example)[https://restcountries.eu/#api-endpoints-response-example] was useful to create my http interface classes.
+* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The (API Response Example)[https://restcountries.eu/#api-endpoints-response-example] was useful to create my http interface classe.
 
-* The [Google Charts Maps](https://developers.google.com/chart/interactive/docs/gallery/map): 'displays a map using the Google Maps API. Data values are displayed as markers on the map. Data values can be coordinates (lat-long pairs) or addresses. The map will be scaled so that it includes all the identified points.' (text from link).
+* The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays a interactive map of the chosen country that the user can zoom in and out of.
 
 ## Screenshots
 
@@ -49,7 +49,7 @@ App that displays data about countries and oceans from the [Rest Countries](http
 * [Angular v7.2.2](https://angular.io/)
 * [Ionic/angular v4.1.0](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v2.0.5](https://restcountries.eu/)
-* [Google Charts Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
+* [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
 * [Ionic 4 open source Ionicons](https://ionicons.com/)
 
 ## Setup
@@ -81,7 +81,7 @@ fetchCountryDetailData(country: string) {
 * **Dark mode** switch on menu.
 * **Offline Storage**  (future) of favourite articles using Ionic Storage.
 * **Common Progess Bar Component**  (future) ion-card shows while country info loading.
-* **Localisation using i18n**  (future) so user can select between English (default), Spanish and French.
+* **Localisation using i18n** so user can select between English (default), Spanish and French.
 * **ion-grid** with fixed column size used so country content data will display ok even on a PC.
 * **search** function to search for country name with regex to only allow letters in search text.
 
@@ -116,6 +116,7 @@ fetchCountryDetailData(country: string) {
 ## Inspiration
 
 * [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page).
+* [Devpato article: Setup Google Map in Angular app (The pro way)](https://dev.to/devpato/setup-google-map-in-angular-app-the-pro-way-3m9p)
 
 ## Contact
 

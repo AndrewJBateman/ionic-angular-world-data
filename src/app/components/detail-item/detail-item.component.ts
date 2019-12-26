@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CountryDetailInterface } from 'src/app/interfaces/interface';
 
 @Component({
@@ -6,14 +6,9 @@ import { CountryDetailInterface } from 'src/app/interfaces/interface';
 	templateUrl: './detail-item.component.html',
 	styleUrls: ['./detail-item.component.scss'],
 })
-export class DetailItemComponent implements OnInit {
+export class DetailItemComponent {
 	@Input() country: CountryDetailInterface;
 	@Input() countryName: string;
-
-	constructor() { }
-
-	ngOnInit(
-	) {}
 
 	appendComa(content: any) {
 		try {
@@ -23,4 +18,5 @@ export class DetailItemComponent implements OnInit {
 			console.log(err);
 		}
 	}
+
 }
