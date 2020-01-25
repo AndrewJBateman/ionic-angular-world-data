@@ -13,7 +13,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-devkit/build-angular": "^0.803.21",
+    "@angular-devkit/build-angular": "^0.803.23",
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
     "@angular/forms": "^8.2.14",

@@ -10,7 +10,12 @@
 	},
 	"COUNTRIES": {
 		"cancel": "Cancel",
-		"continent": "Continent"
+		"continent": "Continent",
+		"enter-country": "Enter country name"
+	},
+	"COUNTRY-ITEM": {
+		"capital": "Capital",
+		"region": "Region"
 	},
 	"OCEANS": {
 		"title": "News from: ",
@@ -21,9 +26,6 @@
 	"FAVOURITES": {
 		"title": "Favourites",
 		"notice": "There are no articles in Favourites"
-	},
-	"PROGRESS_BAR": {
-		"title": "Loading news..."
 	},
 	"ABOUT": {
 		"page-title": "About",

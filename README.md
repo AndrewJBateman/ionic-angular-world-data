@@ -85,7 +85,11 @@ fetchCountryDetailData(country: string) {
 * **ion-grid** with fixed column size used so country content data will display ok even on a PC.
 * **search** function to search for country name with regex to only allow letters in search text.
 
-## Navigation/Pages
+## General/Navigation/Pages
+
+* **General:** i18n Translation part-complete
+* **TODO:** 
+* Correct language check so it does revert to English when EN selected - use storage?
 
 * **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** Add language for alert cancel?
@@ -96,6 +100,7 @@ fetchCountryDetailData(country: string) {
 * Map view - add auto zoom? solve initMap error message.
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.
+* translate: popup continent names, card: capital region
 
 * **Oceans page** Working. Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 **TODO**

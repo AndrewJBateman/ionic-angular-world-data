@@ -7,9 +7,13 @@
 		"Label-darkMode": "Modo oscuro"
 	},
 	"COUNTRIES": {
-		"title": "Noticias",
-		"source": "Fuente",
-		"cancel": "anular"
+		"cancel": "Cancelar",
+		"continent": "Continente",
+		"enter-country": "Nombre del país.."
+	},
+	"COUNTRY-ITEM": {
+		"capital": "Capital",
+		"region": "Región"
 	},
 	"OCEANS": {
 		"title": "Noticias de: ",

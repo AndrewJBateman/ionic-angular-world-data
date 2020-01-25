@@ -7,24 +7,26 @@
 		"LangOption-French": "FR",
 		"Label-darkMode": "Mode-sombre"
 	},
+	"COUNTRIES": {
+		"cancel": "Annuler",
+		"continent": "Continent",
+		"enter-country": "Entrez le nom du pays"
+	},
+	"COUNTRY-ITEM": {
+		"capital": "Capitale",
+		"region": "Région"
+	},
 	"NEWS": {
 		"title": "Nouvelles",
 		"source": "source",
 		"cancel": "annuler"
 	},
-	"NEWS-DETAIL": {
-		"title": "Nouvelles de: ",
-		"visit": "Visiter site",
-		"add-favourite": "Ajouter Favori",
-		"remove-favourite": "Retirer Favori"
-	},
+
 	"FAVOURITES": {
 		"title": "Favoris",
 		"notice": "Il n'y a pas d'articles dans les Favoris"
 	},
-	"PROGRESS_BAR": {
-		"title": "Chargement des nouvelles..."
-	},
+
 	"ABOUT": {
 		"page-title": "À Propos de Cette App",
 		"card-title": "Nouvelles du Monde",
