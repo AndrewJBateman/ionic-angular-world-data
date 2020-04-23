@@ -1,8 +1,8 @@
-# Ionic Country Data
+# :zap: Ionic Country Data
 
 App that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file. Built using the [Ionic 5 framework](https://ionicframework.com/docs).
 
-## Table of contents
+## :page_facing_up: Table of contents
 
 * [General info](#general-info)
 * [Screenshots](#screenshots)
@@ -13,13 +13,13 @@ App that displays data about countries and oceans from the [Rest Countries](http
 * [Inspiration](#inspiration)
 * [Contact](#contact)
 
-## General info
+## :books: General info
 
-* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The (API Response Example)[https://restcountries.eu/#api-endpoints-response-example] was useful to create my http interface classe.
+* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.eu/#api-endpoints-response-example) was useful to create my http interface classe.
 
-* The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays a interactive map of the chosen country that the user can zoom in and out of.
+* The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays an interactive map of the chosen country that the user can zoom in and out of.
 
-## Screenshots
+## :camera: Screenshots
 
 | ![Ionic page](./img/Countries1.png) | ![Ionic page](./img/Countries2.png) | ![Ionic categories page](./img/Countries3.png) |
 |:---:|:---:|:---:|
@@ -43,7 +43,7 @@ App that displays data about countries and oceans from the [Rest Countries](http
 ![Ionic page](./img/ocean-list-popover.png)
 ![Ionic page](./img/about.png)
 
-## Technologies
+## :signal_strength: Technologies
 
 * [Ionic v5.0.0](https://ionicframework.com/)
 * [Angular v7.2.2](https://angular.io/)
@@ -52,11 +52,11 @@ App that displays data about countries and oceans from the [Rest Countries](http
 * [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
 * [Ionic 4 open source Ionicons](https://ionicons.com/)
 
-## Setup
+## :floppy_disk: Setup
 
 * To start the server on _localhost://8100_ type: 'ionic serve'
 
-## Code Examples
+## :computer: Code Examples
 
 * service function to fetch API country details, from `rest-api.service.ts`
 
@@ -72,7 +72,7 @@ fetchCountryDetailData(country: string) {
 }
 ```
 
-## Features
+## :cool: Features
 
 * **integrated Google Chart Maps** API to show country map.
 * **Typescript interface** used to define the expected structures of the json objects returned from the API.
@@ -88,15 +88,15 @@ fetchCountryDetailData(country: string) {
 ## General/Navigation/Pages
 
 * **General:** i18n Translation part-complete
-* **TODO:** 
+* **TODO:**
 * Correct language check so it does revert to English when EN selected - use storage?
 
 * **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** Add language for alert cancel?
 
 * **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
-* **TODO:** 
-* Stop scroll when user reaches the bottom. 
+* **TODO:**
+* Stop scroll when user reaches the bottom.
 * Map view - add auto zoom? solve initMap error message.
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.
@@ -106,23 +106,23 @@ fetchCountryDetailData(country: string) {
 **TODO**
 * Add Ionic accordian?
 
-* **Favourites** Shows a nice image with text below if there are no favourites. 
+* **Favourites** Shows a nice image with text below if there are no favourites.
 **TODO**
 * Add code to store/clear favourites.
 
-* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page. 
+* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page.
 **TODO**
 * Add code so contact form is sent.
 
-## Status & To-do list
+## :clipboard: Status & To-do list
 
 * Status: Working & deployed to Firebase. For To-do see sections above.
 
-## Inspiration
+## :clap: Inspiration
 
 * [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page).
 * [Devpato article: Setup Google Map in Angular app (The pro way)](https://dev.to/devpato/setup-google-map-in-angular-app-the-pro-way-3m9p)
 
-## Contact
+## :envelope: Contact
 
-Repo created by [ABateman](https://www.andrewbateman.org) - feel free to contact me!
+* Repo created by [ABateman](https://www.andrewbateman.org) - you are welcome to [send me a message](https://andrewbateman.org/contact)
