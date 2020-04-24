@@ -16,7 +16,6 @@ App that displays data about countries and oceans from the [Rest Countries](http
 ## :books: General info
 
 * The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.eu/#api-endpoints-response-example) was useful to create my http interface classe.
-
 * The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays an interactive map of the chosen country that the user can zoom in and out of.
 
 ## :camera: Screenshots
@@ -45,12 +44,12 @@ App that displays data about countries and oceans from the [Rest Countries](http
 
 ## :signal_strength: Technologies
 
-* [Ionic v5.0.0](https://ionicframework.com/)
-* [Angular v7.2.2](https://angular.io/)
-* [Ionic/angular v4.1.0](https://www.npmjs.com/package/@ionic/angular)
-* [Rest Countries API v2.0.5](https://restcountries.eu/)
+* [Ionic v5](https://ionicframework.com/)
+* [Angular v9](https://angular.io/)
+* [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
+* [Rest Countries API v2](https://restcountries.eu/)
 * [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
-* [Ionic 4 open source Ionicons](https://ionicons.com/)
+* [Ionic 5 open source Ionicons](https://ionicons.com/)
 
 ## :floppy_disk: Setup
 
@@ -79,7 +78,7 @@ fetchCountryDetailData(country: string) {
 * **Separate services** page with API http fetch functions.
 * **RxJS Observables** used to extract data asynchronously.
 * **Dark mode** switch on menu.
-* **Offline Storage**  (future) of favourite articles using Ionic Storage.
+* **Offline Storage**  (future) of favourite countries/oceans using Ionic Storage.
 * **Common Progess Bar Component**  (future) ion-card shows while country info loading.
 * **Localisation using i18n** so user can select between English (default), Spanish and French.
 * **ion-grid** with fixed column size used so country content data will display ok even on a PC.
@@ -91,7 +90,7 @@ fetchCountryDetailData(country: string) {
 * **TODO:**
 * Correct language check so it does revert to English when EN selected - use storage?
 
-* **Nav side-bar:** Working. countries, categories, favorites, search, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
+* **Nav side-bar:** Working. countries, oceans, favorites, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** Add language for alert cancel?
 
 * **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
@@ -104,7 +103,7 @@ fetchCountryDetailData(country: string) {
 
 * **Oceans page** Working. Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 **TODO**
-* Add Ionic accordian?
+* Add Ionic accordian? or popover with ocean names listed
 
 * **Favourites** Shows a nice image with text below if there are no favourites.
 **TODO**

@@ -1,37 +1,34 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from "@ngx-translate/core";
 
-import { CountryListPage } from './country-list.page';
-import { ComponentsModule} from '../../components/components.module';
+import { CountryListPage } from "./country-list.page";
+import { ComponentsModule } from "../../components/components.module";
 
-import { PopoverPage } from '../country-popover/country-popover';
+import { PopoverPage } from "../country-popover/country-popover";
 
 const routes: Routes = [
-	{
-		path: '',
-		component: CountryListPage
-	}
+  {
+    path: "",
+    component: CountryListPage,
+  },
 ];
 
 @NgModule({
-	imports: [
-		CommonModule,
-		FormsModule,
-		IonicModule,
-		RouterModule.forChild(routes),
-		TranslateModule,
-		ComponentsModule
-	],
-	declarations: [
-		CountryListPage,
-		PopoverPage
-	],
-	entryComponents: [PopoverPage],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild(routes),
+    TranslateModule,
+    ComponentsModule,
+  ],
+  declarations: [CountryListPage, PopoverPage],
+  entryComponents: [PopoverPage],
 })
 export class CountryListPageModule {}

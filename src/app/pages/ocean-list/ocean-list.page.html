@@ -3,26 +3,17 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    
+
     <ion-title class="ion-text-center">
-      <ion-icon
-        class="icon"
-        name="water"
-        size="large"
-        color="tertiary">
+      <ion-icon class="icon" name="water" size="large" color="tertiary">
       </ion-icon>
     </ion-title>
 
     <ion-buttons slot="end">
-      <ion-button 
-        (click)="presentPopover($event)">
-        <ion-icon
-          slot="icon-only"
-          name="more">
-        </ion-icon>
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="end" name="ellipsis-vertical-outline"> </ion-icon>
       </ion-button>
     </ion-buttons>
-    
   </ion-toolbar>
 </ion-header>
 
@@ -30,44 +21,43 @@
   <ion-grid class="ion-no-padding">
     <ion-row>
       <ion-col
-        size="12" size-sm="8" size-ms="8" size-xl="6"
+        size="12"
+        size-sm="8"
+        size-ms="8"
+        size-xl="6"
         offset-sm="2"
         class="ion-no-padding"
-        *ngFor="let ocean of Oceans">
+        *ngFor="let ocean of Oceans"
+      >
         <!-- <app-accordian>
 
         </app-accordian> -->
         <ion-card>
-          <img [src]="ocean.urlToImage" class="detail-img"/>
-          <ion-card-title
-            color="secondary"
-            class="ion-text-center">
+          <img [src]="ocean.urlToImage" class="detail-img" />
+          <ion-card-title color="secondary" class="ion-text-center">
             {{ ocean.name }} Ocean
           </ion-card-title>
-					<ion-card-content>
+          <ion-card-content>
             <p>
-              <span class="small-text">Bounded by: 
-              </span>{{ ocean.boundedBy}}
+              <span class="small-text">Bounded by: </span>{{ ocean.boundedBy}}
+            </p>
+            <p><span class="small-text">Ridges: </span>{{ ocean.ridges}}</p>
+            <p>
+              <span class="small-text">Largest Basins: </span>{{
+              ocean.largestBasins}}
             </p>
             <p>
-              <span class="small-text">Ridges: 
-              </span>{{ ocean.ridges}}
+              <span class="small-text">Deepest Trenches: </span>{{
+              ocean.deepestTrenches}}
             </p>
             <p>
-              <span class="small-text">Largest Basins: 
-              </span>{{ ocean.largestBasins}}
+              <span class="small-text">Area: </span>{{ ocean.areaKm2}} km<sup
+                >2</sup
+              >
+              ({{ ocean.areaMile2 }} miles<sup>2</sup>)
             </p>
-            <p>
-              <span class="small-text">Deepest Trenches: 
-              </span>{{ ocean.deepestTrenches}}
-            </p>
-            <p>
-              <span class="small-text">Area: 
-              </span>{{ ocean.areaKm2}} km<sup>2</sup> ({{ ocean.areaMile2 }} miles<sup>2</sup>)
-            </p>
-					</ion-card-content>
-				</ion-card>
-
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

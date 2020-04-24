@@ -1,5 +1,5 @@
 ion-card-title {
-	color: var(--ion-color-dark);
+  color: var(--ion-color-dark);
 }
 
 .about-header {
@@ -8,41 +8,41 @@ ion-card-title {
 }
 
 p {
-	width: 100%;
+  width: 100%;
   color: var(--ion-color-dark);
-	text-align: justify;
-	margin-bottom: 10px;
-	margin-left: 0;
-	margin-right: 0;
+  text-align: justify;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .p_standout {
-	color: var(--ion-color-primary);
+  color: var(--ion-color-primary);
 }
 
-	a:link {
-		color: var(--ion-color-secondary);
-		background-color: transparent;
-		text-decoration: none;
-	}
-	
-	a:visited {
-		color: var(--ion-color-secondary-shade);
-		background-color: transparent;
-		text-decoration: none;
-	}
-	
-	a:hover {
-		color: var(--ion-color-primary);
-		background-color: transparent;
-		text-decoration: underline;
-	}
-	
-	a:active {
-		color: var(--ion-color-secondary-shade);
-		background-color: transparent;
-		text-decoration: underline;
-	}
+a:link {
+  color: var(--ion-color-secondary);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--ion-color-secondary-shade);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ion-color-primary);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: var(--ion-color-secondary-shade);
+  background-color: transparent;
+  text-decoration: underline;
+}
 
 // h6 {
 // 	color: var(--ion-color-primary);
@@ -75,12 +75,12 @@ p {
 }
 
 .icon {
-	vertical-align: middle;
-	color: var(--ion-color-tertiary);
+  vertical-align: middle;
+  color: var(--ion-color-tertiary);
 }
 
 .title-icon {
-	vertical-align: middle;
-	color: var(--ion-color-secondary);
-	padding-right: 4px;
+  vertical-align: middle;
+  color: var(--ion-color-secondary);
+  padding-right: 4px;
 }

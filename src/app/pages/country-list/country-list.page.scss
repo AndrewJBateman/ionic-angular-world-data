@@ -1,17 +1,16 @@
 .toolbar-header {
-	color: var(--ion-color-tertiary);
+  color: var(--ion-color-tertiary);
 }
 
 ion-searchbar {
-	padding: 10px 10px 0 !important;
-	// --background-color: transparent;
-	// --ion-color-base: transparent !important;
-	
+  padding: 10px 10px 0 !important;
+  // --background-color: transparent;
+  // --ion-color-base: transparent !important;
 }
 
 ion-fab-button {
-	--background: transparent;
-	// --ion-color-base: transparent !important;
+  --background: transparent;
+  // --ion-color-base: transparent !important;
 }
 
 .country-card ion-card-content {
@@ -20,6 +19,6 @@ ion-fab-button {
 }
 
 .icon {
-	vertical-align: middle;
-	color: var(--ion-color-tertiary);
+  vertical-align: middle;
+  color: var(--ion-color-tertiary);
 }

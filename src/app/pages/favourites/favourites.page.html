@@ -2,45 +2,51 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-		</ion-buttons>
-		
+    </ion-buttons>
+
     <ion-title class="ion-text-center">
-			<ion-icon
-				class="icon"
-				name="heart"
-				size="large">
-			</ion-icon>
-		</ion-title>
+      <ion-icon class="icon" name="heart" size="large"> </ion-icon>
+    </ion-title>
 
-		<ion-buttons slot="end">
-			<ion-button
-				(click)="presentPopover($event)">
-    		<ion-icon slot="icon-only" name="more"></ion-icon>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
       </ion-button>
-		</ion-buttons>
-
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-grid class="ion-no-padding">
-		<ion-row>
-			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
-	
-				<!--ion-card displays if no favourites-->
-				<ion-card *ngIf="countryList.length === 0">
-					<div class="image-div">
-						<img class="mat-card-image" src="../../../assets/imgs/nofavs-image.jpg" alt="Photo by CapDfrawy on Unsplash">
-						<div class="photo-credit">Photo by Fabian Struwe on Unsplash</div>
-					</div>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col
+        size="12"
+        size-sm="8"
+        size-ms="8"
+        size-xl="6"
+        offset-sm="2"
+        class="ion-no-padding"
+      >
+        <!--ion-card displays if no favourites-->
+        <ion-card *ngIf="countryList.length === 0">
+          <div class="image-div">
+            <img
+              class="mat-card-image"
+              src="../../../assets/imgs/nofavs-image.jpg"
+              alt="Photo by CapDfrawy on Unsplash"
+            />
+            <div class="photo-credit">Photo by Fabian Struwe on Unsplash</div>
+          </div>
 
-					<ion-card-content>
-						<h2 class="ion-text-center">There are no countries in Favourites</h2>
-					</ion-card-content>
-				</ion-card>
+          <ion-card-content>
+            <h2 class="ion-text-center">
+              There are no countries in Favourites
+            </h2>
+          </ion-card-content>
+        </ion-card>
 
-				<!--list of news articles with rhs slide to delete from favourites-->
-				<!-- <div  class="" color="secondary" >
+        <!--list of news articles with rhs slide to delete from favourites-->
+        <!-- <div  class="" color="secondary" >
 					<ion-list>
 						<ion-item-sliding style="padding: 0;" 
 							router-direction="forward" #slidingItem>
@@ -55,8 +61,7 @@
 						</ion-item-sliding>
 					</ion-list>
 				</div> -->
-			</ion-col>
-		</ion-row>
-	</ion-grid>
-	
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

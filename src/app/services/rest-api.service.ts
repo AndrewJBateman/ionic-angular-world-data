@@ -22,8 +22,8 @@ export class RestApiService {
 		).pipe(
 			map((data: CountryListInterface[]) => {
 				return data;
-			}), catchError(error => {
-				return throwError('Countries not found');
+			}), catchError(err => {
+				return throwError('Countries not found, error:', err);
 			})
 		);
 	}

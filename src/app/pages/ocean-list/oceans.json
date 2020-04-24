@@ -1,55 +1,57 @@
-[{
-	"name": "Pacific",
-	"areaKm2": "165,250,000",
-	"areaMile2": "63,800,000",
-	"urlToImage": "../assets/imgs/pacific.jpg",
-	"boundedBy": "Asia, Australia, North & South America",
-	"ridges": "East Pacific Rise, Nazca Ridge, Mid-Pacific Mountains, Hawaiian Ridge, Emperor Seamounts",
-	"largestBasins": "Northeast Pacific Basin, Southeast Pacific Basin, Southwest Pacific Basin, Central Pacific Basin",
-	"deepestTrenches": "Mariana Trench, Kuril Trench, Aleutian Trench, Peru-Chile Trench, Kermadec Trench",
-	"wikiLink": "https://en.wikipedia.org/wiki/Pacific_Ocean"
-},
-{
-	"name": "Atlantic",
-	"areaKm2": "106,460,000",
-	"areaMile2": "41,100,000",
-	"urlToImage": "../assets/imgs/atlantic.jpg",
-	"boundedBy": "North & South America, Europe & Africa",
-	"ridges": "Mid-Atlantic Ridge",
-	"largestBasins": "Sohm Plain, Cape Verde Plain, Angola Plain, Argentine Plain",
-	"deepestTrenches": "Puerto Rico Trench South Sandwich Trench",
-	"wikiLink": "https://en.wikipedia.org/wiki/Atlantic_Ocean"
-},
-{
-	"name": "Indian",
-	"areaKm2": "70,560,000",
-	"areaMile2": "27,240,000",
-	"urlToImage": "../assets/imgs/indian.jpg",
-	"boundedBy": "Asia, Africa, Australia & Antarctica",
-	"ridges": "Mid-Indian Ridge, Southeast Indian Ridge, Southwest Indian Ridge, Chagos-Laccadive Ridge, Mascaren Plateau, Ninetyeast Ridge, Broken Ridge",
-	"largestBasins": "Arabian Basin, Mid Indian Basin, Somali Basin, Southeast Indian Basin",
-	"deepestTrenches": "Java Trench, Mozambique Escarpment",
-	"wikiLink": "https://en.wikipedia.org/wiki/Indian_Ocean"
-},
-{
-	"name": "Southern",
-	"areaKm2": "20,327,000",
-	"areaMile2": "7,848,300",
-	"urlToImage": "../assets/imgs/southern.jpg",
-	"boundedBy": "continents of Antarctica, South America, Africa & Australia & Broughton Island, New Zealand",
-	"ridges": "Scotia, Mid-Atlantic, Southeast Indian, Pacific-Antarctic",
-	"largestBasins": "Southern Ocean Basin (area surrounding Antarctica, including the southern portions of the Indian, Atlantic & Pacific ocean basins)",
-	"deepestTrenches": "South Sandwich Trench (southern end)",
-	"wikiLink": "https://en.wikipedia.org/wiki/Southern_Ocean"
-},
-{
-	"name": "Arctic",
-	"areaKm2": "14,056,000",
-	"areaMile2": "8,733,994",
-	"urlToImage": "../assets/imgs/arctic.jpg",
-	"boundedBy": "Asia, Australia, North & South America",
-	"ridges": "Alpha, Gakkel, Lomonosov & Mendeleev Ridges & Chukchi Cap",
-	"largestBasins": "Artic Basin (North Polar Basin)",
-	"deepestTrenches": "Litke Trench",
-	"wikiLink": "https://en.wikipedia.org/wiki/Arctic_Ocean"
-}]
+[
+  {
+    "name": "Pacific",
+    "areaKm2": "165,250,000",
+    "areaMile2": "63,800,000",
+    "urlToImage": "../assets/imgs/pacific.jpg",
+    "boundedBy": "Asia, Australia, North & South America",
+    "ridges": "East Pacific Rise, Nazca Ridge, Mid-Pacific Mountains, Hawaiian Ridge, Emperor Seamounts",
+    "largestBasins": "Northeast Pacific Basin, Southeast Pacific Basin, Southwest Pacific Basin, Central Pacific Basin",
+    "deepestTrenches": "Mariana Trench, Kuril Trench, Aleutian Trench, Peru-Chile Trench, Kermadec Trench",
+    "wikiLink": "https://en.wikipedia.org/wiki/Pacific_Ocean"
+  },
+  {
+    "name": "Atlantic",
+    "areaKm2": "106,460,000",
+    "areaMile2": "41,100,000",
+    "urlToImage": "../assets/imgs/atlantic.jpg",
+    "boundedBy": "North & South America, Europe & Africa",
+    "ridges": "Mid-Atlantic Ridge",
+    "largestBasins": "Sohm Plain, Cape Verde Plain, Angola Plain, Argentine Plain",
+    "deepestTrenches": "Puerto Rico Trench South Sandwich Trench",
+    "wikiLink": "https://en.wikipedia.org/wiki/Atlantic_Ocean"
+  },
+  {
+    "name": "Indian",
+    "areaKm2": "70,560,000",
+    "areaMile2": "27,240,000",
+    "urlToImage": "../assets/imgs/indian.jpg",
+    "boundedBy": "Asia, Africa, Australia & Antarctica",
+    "ridges": "Mid-Indian Ridge, Southeast Indian Ridge, Southwest Indian Ridge, Chagos-Laccadive Ridge, Mascaren Plateau, Ninetyeast Ridge, Broken Ridge",
+    "largestBasins": "Arabian Basin, Mid Indian Basin, Somali Basin, Southeast Indian Basin",
+    "deepestTrenches": "Java Trench, Mozambique Escarpment",
+    "wikiLink": "https://en.wikipedia.org/wiki/Indian_Ocean"
+  },
+  {
+    "name": "Southern",
+    "areaKm2": "20,327,000",
+    "areaMile2": "7,848,300",
+    "urlToImage": "../assets/imgs/southern.jpg",
+    "boundedBy": "continents of Antarctica, South America, Africa & Australia & Broughton Island, New Zealand",
+    "ridges": "Scotia, Mid-Atlantic, Southeast Indian, Pacific-Antarctic",
+    "largestBasins": "Southern Ocean Basin (area surrounding Antarctica, including the southern portions of the Indian, Atlantic & Pacific ocean basins)",
+    "deepestTrenches": "South Sandwich Trench (southern end)",
+    "wikiLink": "https://en.wikipedia.org/wiki/Southern_Ocean"
+  },
+  {
+    "name": "Arctic",
+    "areaKm2": "14,056,000",
+    "areaMile2": "8,733,994",
+    "urlToImage": "../assets/imgs/arctic.jpg",
+    "boundedBy": "Asia, Australia, North & South America",
+    "ridges": "Alpha, Gakkel, Lomonosov & Mendeleev Ridges & Chukchi Cap",
+    "largestBasins": "Artic Basin (North Polar Basin)",
+    "deepestTrenches": "Litke Trench",
+    "wikiLink": "https://en.wikipedia.org/wiki/Arctic_Ocean"
+  }
+]

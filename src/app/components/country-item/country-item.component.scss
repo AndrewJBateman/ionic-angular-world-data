@@ -1,26 +1,27 @@
 ion-label {
-	color: var(--ion-color-light-contrast);
-	font-size: 14px;
+  color: var(--ion-color-light-contrast);
+  font-size: 14px;
 }
 
 ion-thumbnail {
-	width: 100%;
-	height: 65px;
+  width: 100%;
+  height: 65px;
 }
 
 .image-col {
-	padding: 0;
+  padding: 0;
 }
 
 .text-col {
 	background-color: var(--ion-color-light);
+	padding-left: 4px;
 }
 
 .title-text {
-	color: var(--ion-color-secondary);
-	font-size: 18px;
+  color: var(--ion-color-secondary);
+  font-size: 18px;
 }
 .small-text {
-	color: var(--ion-color-secondary);
-	white-space: nowrap;
+  color: var(--ion-color-secondary);
+  white-space: nowrap;
 }
