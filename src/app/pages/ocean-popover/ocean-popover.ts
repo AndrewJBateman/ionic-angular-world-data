@@ -6,7 +6,7 @@ import oceanData from "../ocean-list/oceans.json";
     <ion-list *ngFor="let ocean of Oceans">
       <ion-item button href="{{ ocean.wikiLink }}" target="_blank">
         <ion-label color="secondary">
-          <ion-icon name="information-circle" size="large" color="primary">
+          <ion-icon name="information-circle" size="large" color="secondary">
           </ion-icon>
           {{ ocean.name }} Ocean
         </ion-label>

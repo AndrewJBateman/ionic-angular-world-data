@@ -3,9 +3,7 @@
 }
 
 ion-searchbar {
-  padding: 10px 10px 0 !important;
-  // --background-color: transparent;
-  // --ion-color-base: transparent !important;
+  padding: 0 !important;
 }
 
 ion-fab-button {
@@ -18,7 +16,11 @@ ion-fab-button {
   padding: 0;
 }
 
-.icon {
+.toolbar-icon {
   vertical-align: middle;
   color: var(--ion-color-tertiary);
+}
+
+.list-back-arrow {
+  color: var(--ion-color-primary-contrast);
 }

@@ -23,7 +23,6 @@
               <ion-icon
                 slot="start"
                 [name]="p.icon"
-                [class]="p.menuIcon"
               ></ion-icon>
               <ion-label *ngIf="language === 'en'">
                 {{ p.title }}
@@ -40,13 +39,13 @@
 
         <ion-list>
           <ion-item (click)="themeService.changeThemeMode()">
-            <ion-icon name="contrast" slot="start" color="dark"></ion-icon>
+            <ion-icon name="contrast" slot="start"></ion-icon>
             <ion-label>{{ "MENU.Label-darkMode" | translate }}</ion-label>
             <ion-toggle slot="end" [(ngModel)]="darkMode"> </ion-toggle>
           </ion-item>
 
           <ion-item>
-            <ion-icon name="language-outline" slot="start" color="dark"></ion-icon>
+            <ion-icon name="language-outline" slot="start"></ion-icon>
             <ion-label>{{ "MENU.Label-language" | translate }}</ion-label>
             <ion-select
               #Language
@@ -66,7 +65,7 @@
           </ion-item>
         </ion-list>
 
-        <ion-card>
+        <ion-card color="light">
           <img
             class="mat-card-image"
             src="assets/imgs/sidemenu-image.jpg"
@@ -74,7 +73,7 @@
           />
           <ion-card-header>
             <ion-card-subtitle class="ion-text-center">
-              <ion-icon name="camera" color="secondary"></ion-icon> Jonathan
+              <ion-icon slot="start" size="medium" name="camera" color="secondary"></ion-icon> Jonathan
               Pease: Unsplash
             </ion-card-subtitle>
           </ion-card-header>

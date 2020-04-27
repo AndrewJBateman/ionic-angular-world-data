@@ -10,12 +10,15 @@
       <ion-label class="title-text">
         {{ country.name | uppercase }}
       </ion-label>
-      <br />
-      <span class="small-text"> {{ "COUNTRY-ITEM.capital" | translate }}: </span
-      >{{ country.capital }}
-      <br />
-      <span class="small-text"> {{ "COUNTRY-ITEM.region" | translate }}: </span
-      >{{ country.region }}
+      <ion-text>
+        <br />
+        <span class="small-text"> {{ "COUNTRY-ITEM.capital" | translate }}: </span
+        >{{ country.capital }}
+        <br />
+        <span class="small-text"> {{ "COUNTRY-ITEM.region" | translate }}: </span
+        >{{ country.region }}
+      </ion-text>
+
     </ion-col>
   </ion-row>
 </ion-card>

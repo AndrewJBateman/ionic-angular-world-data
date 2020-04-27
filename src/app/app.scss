@@ -5,17 +5,23 @@
 }
 
 .active {
-  color: var(--ion-color-primary);
-  ion-icon {
+  color: var(--ion-color-secondary);
+  ion-icon, ion-label {
     color: var(--ion-color-secondary);
   }
+
 }
 
 ion-toggle {
-	color: var(--ion-color-secondary);
+	color: var(--ion-color-secondary) !important  ;
+}
+
+ion-card {
+  margin: auto 0 !important;
 }
 
 .mat-card-image {
+  width: 100% !important;
   border-bottom-style: solid;
   border-bottom-width: 4px;
   border-bottom-color: var(--ion-color-tertiary);

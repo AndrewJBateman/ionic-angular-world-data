@@ -20,19 +20,19 @@ App that displays data about countries and oceans from the [Rest Countries](http
 
 ## :camera: Screenshots
 
-| ![Ionic page](./img/Countries1.png) | ![Ionic page](./img/Countries2.png) | ![Ionic categories page](./img/Countries3.png) |
+| ![Ionic page](./img/Countries1.png) | ![Ionic page](./img/Countries2.png) | ![Ionic page](./img/Countries3.png) |
 |:---:|:---:|:---:|
-| Countries Page French | Countries Page Spanish | Countries Page English |
+| Country-List Page | Countries Page Spanish | Countries Page Dark |
 
-| ![Ionic page](./img/oceans1.png) | ![Ionic page](./img/oceans2.png) | ![Ionic categories page](./img/oceans3.png) |
+| ![Ionic page](./img/oceans1.png) | ![Ionic page](./img/oceans2.png) | ![Ionic page](./img/oceans3.png) |
 |:---:|:---:|:---:|
-| Oceans Page List | Oceans Page Popover| Oceans Page French |
+| Oceans-List Page | Oceans Page Popover| Oceans Page French |
 
-| ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic categories page](./img/favourites3.png) |
+| ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic page](./img/favourites3.png) |
 |:---:|:---:|:---:|
 | Favourites Page Empty | Favourites Page Some | Favourites Page Full |
 
-| ![Ionic page](./img/about1.png) | ![Ionic page](./img/about2.png) | ![Ionic categories page](./img/about3.png) |
+| ![Ionic page](./img/about1.png) | ![Ionic page](./img/about2.png) | ![Ionic page](./img/about3.png) |
 |:---:|:---:|:---:|
 | About Page French | About Page + Side Menu | About Page + Info Menu |
 

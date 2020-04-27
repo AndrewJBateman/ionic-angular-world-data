@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
       titlefr: "Pays",
       titlesp: "Países",
       url: "/app/tabs/country-list",
-      icon: "globe-outline",
+      icon: "earth-outline",
       menuIcon: "menuIconCountry",
     },
     {
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
       titlefr: "Océans",
       titlesp: "Océanos",
       url: "/app/tabs/ocean-list",
-      icon: "water",
+      icon: "water-outline",
       menuIcon: "menuIconOceans",
     },
     {
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
       titlefr: "Favoris",
       titlesp: "Favoritas",
       url: "/app/tabs/favourites",
-      icon: "heart",
+      icon: "heart-outline",
       menuIcon: "menuIconFavourites",
     },
     {
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
       titlefr: "Sur cette app",
       titlesp: "Sobre esta app",
       url: "/app/tabs/about",
-      icon: "information-circle",
+      icon: "information-circle-outline",
       menuIcon: "menuIconAbout",
     },
   ];

@@ -11,7 +11,7 @@
 
     <ion-buttons slot="end">
       <ion-button (click)="presentPopover($event)">
-        <ion-icon slot="end" name="ellipsis-vertical-outline"> </ion-icon>
+        <ion-icon class="popover-icon" slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -34,9 +34,12 @@
         </app-accordian> -->
         <ion-card>
           <img [src]="ocean.urlToImage" class="detail-img" />
-          <ion-card-title color="secondary" class="ion-text-center">
-            {{ ocean.name }} Ocean
-          </ion-card-title>
+          <ion-card-header>
+            <ion-card-title color="secondary" class="ion-text-center">
+              {{ ocean.name }} Ocean
+            </ion-card-title>
+          </ion-card-header>
+
           <ion-card-content>
             <p>
               <span class="small-text">Bounded by: </span>{{ ocean.boundedBy}}

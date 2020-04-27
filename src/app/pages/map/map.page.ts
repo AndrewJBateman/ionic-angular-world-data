@@ -23,7 +23,7 @@ export class MapPage implements AfterViewInit {
 		this.initMap();
 	}
 
-	initMap() {
+	initMap = () => {
 		this.activatedRoute.queryParams.subscribe( params => {
 			console.log('params: ', params);
 			this.queryParams = params;

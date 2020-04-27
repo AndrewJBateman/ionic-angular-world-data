@@ -25,3 +25,7 @@ ion-thumbnail {
   color: var(--ion-color-secondary);
   white-space: nowrap;
 }
+
+ion-col.text:host {
+  color: var(--ion-color-dark);
+}
