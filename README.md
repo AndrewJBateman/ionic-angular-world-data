@@ -95,7 +95,6 @@ fetchCountryDetailData(country: string) {
 
 * **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
 * **TODO:**
-* Stop scroll when user reaches the bottom.
 * Map view - add auto zoom? solve initMap error message.
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.

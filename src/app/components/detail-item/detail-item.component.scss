@@ -33,3 +33,10 @@ ion-list {
 h2 {
 	color: var(--ion-color-secondary);
 }
+
+ion-item {
+  ion-icon {
+    color: var(--ion-color-secondary);
+    font-size: 32px;
+  }
+}
