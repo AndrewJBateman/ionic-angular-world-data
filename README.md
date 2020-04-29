@@ -1,6 +1,6 @@
 # :zap: Ionic Country Data
 
-App that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file. Built using the [Ionic 5 framework](https://ionicframework.com/docs).
+Ionic 5 app that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file
 
 ## :page_facing_up: Table of contents
 
@@ -17,30 +17,29 @@ App that displays data about countries and oceans from the [Rest Countries](http
 
 * The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.eu/#api-endpoints-response-example) was useful to create my http interface classe.
 * The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays an interactive map of the chosen country that the user can zoom in and out of.
+* Built using the [Ionic 5 framework](https://ionicframework.com/docs)
 
 ## :camera: Screenshots
 
-| ![Ionic page](./img/Countries1.png) | ![Ionic page](./img/Countries2.png) | ![Ionic page](./img/Countries3.png) |
+| ![Ionic page](./img/list1.png) | ![Ionic page](./img/list2.png) | ![Ionic page](./img/list3.png) |
 |:---:|:---:|:---:|
-| Country-List Page | Countries Page Spanish | Countries Page Dark |
+| Country-List Page | Country-List Page - Dark | Country-List - Detail |
+
+| ![Ionic page](./img/world1.png) | ![Ionic page](./img/world2.png) | ![Ionic page](./img/world3.png) |
+|:---:|:---:|:---:|
+| Map View Page | Side Menu | Side Menu - Dark |
 
 | ![Ionic page](./img/oceans1.png) | ![Ionic page](./img/oceans2.png) | ![Ionic page](./img/oceans3.png) |
 |:---:|:---:|:---:|
-| Oceans-List Page | Oceans Page Popover| Oceans Page French |
+| Oceans-List Page | Oceans Page - Dark| Oceans Page + Popover |
 
 | ![Ionic page](./img/favourites1.png) | ![Ionic page](./img/favourites2.png) | ![Ionic page](./img/favourites3.png) |
 |:---:|:---:|:---:|
-| Favourites Page Empty | Favourites Page Some | Favourites Page Full |
+| Favourites Page | Favourites Page + Popover | Favourites Page - Dark |
 
 | ![Ionic page](./img/about1.png) | ![Ionic page](./img/about2.png) | ![Ionic page](./img/about3.png) |
 |:---:|:---:|:---:|
-| About Page French | About Page + Side Menu | About Page + Info Menu |
-
-![Ionic page](./img/country-list.png)
-![Ionic page](./img/country-detail.png)
-![Ionic page](./img/ocean-list.png)
-![Ionic page](./img/ocean-list-popover.png)
-![Ionic page](./img/about.png)
+| About Page | About Page + Popover | About Page - Dark |
 
 ## :signal_strength: Technologies
 
@@ -53,6 +52,7 @@ App that displays data about countries and oceans from the [Rest Countries](http
 
 ## :floppy_disk: Setup
 
+* Run `npm i` to install dependencies
 * To start the server on _localhost://8100_ type: 'ionic serve'
 
 ## :computer: Code Examples
@@ -104,21 +104,21 @@ fetchCountryDetailData(country: string) {
 **TODO**
 * Add Ionic accordian? or popover with ocean names listed
 
-* **Favourites** Shows a nice image with text below if there are no favourites.
+* **Favourites** Shows a nice image with text below if there are no favourites
 **TODO**
-* Add code to store/clear favourites.
+* Add code to store/clear favourites
 
-* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page.
+* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page
 **TODO**
-* Add code so contact form is sent.
+* Add link to my website contact form
 
 ## :clipboard: Status & To-do list
 
-* Status: Working & deployed to Firebase. For To-do see sections above.
+* Status: Working & deployed to Firebase. For To-do see sections above
 
 ## :clap: Inspiration
 
-* [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page).
+* [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page)
 * [Devpato article: Setup Google Map in Angular app (The pro way)](https://dev.to/devpato/setup-google-map-in-angular-app-the-pro-way-3m9p)
 
 ## :envelope: Contact

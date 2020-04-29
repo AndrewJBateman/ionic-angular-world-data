@@ -76,7 +76,6 @@ a:active {
 
 .icon {
   vertical-align: middle;
-  color: var(--ion-color-tertiary);
 }
 
 .title-icon {
@@ -85,6 +84,6 @@ a:active {
   padding-right: 4px;
 }
 
-.popover-icon {
+.popover-icon, .icon {
   color: var(--ion-color-primary-contrast) !important;
 }

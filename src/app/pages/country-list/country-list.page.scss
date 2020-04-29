@@ -1,5 +1,6 @@
 .toolbar-header {
-  color: var(--ion-color-tertiary);
+  color: var(--ion-color-primary-contrast);
+  padding: 0 !important;
 }
 
 ion-searchbar {
@@ -7,8 +8,7 @@ ion-searchbar {
 }
 
 ion-fab-button {
-  --background: transparent;
-  // --ion-color-base: transparent !important;
+  --background: var(--ion-color-light);
 }
 
 .country-card ion-card-content {
@@ -18,9 +18,10 @@ ion-fab-button {
 
 .toolbar-icon {
   vertical-align: middle;
-  color: var(--ion-color-tertiary);
+  color: var(--ion-color-primary-light);
 }
 
 .list-back-arrow {
   color: var(--ion-color-primary-contrast);
+  font-size: 32px;
 }

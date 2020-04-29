@@ -28,9 +28,8 @@ h2 {
 
 .icon {
   vertical-align: middle;
-  color: var(--ion-color-tertiary);
 }
 
-.popover-icon {
+.popover-icon, .icon {
   color: var(--ion-color-primary-contrast) !important;
 }
