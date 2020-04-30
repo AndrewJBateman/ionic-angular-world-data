@@ -20,7 +20,6 @@ export class LanguageService {
 	// if language language selected then this value is stored using the ionic storage module
 	setInitialAppLanguage() {
 		const language = this.translate.getBrowserLang();
-		console.log('language', language);
 		this.translate.setDefaultLang(language);
 
 		this.storage.get(LNG_KEY).then(val => {

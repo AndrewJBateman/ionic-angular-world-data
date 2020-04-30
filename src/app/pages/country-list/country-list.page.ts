@@ -4,7 +4,6 @@ import { IonContent } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
 
 import { RestApiService } from "./../../services/rest-api.service";
-
 import { PopoverPage } from "../country-popover/country-popover";
 import {
   CountryListInterface,
@@ -22,7 +21,6 @@ export class CountryListPage implements OnInit {
   @ViewChild(IonContent, { static: true }) content: IonContent;
 
   loadingInfo = false;
-  private scrollDepthTriggered = false;
   countryChosen = false;
   query = "";
   public countryName = "";
@@ -80,7 +78,7 @@ export class CountryListPage implements OnInit {
     this.content.scrollToTop(0);
   }
 
-  // If user click on header back button then show country list
+  // If user clicks on header back button then show country list
   backToList(event: Event) {
     this.countryName = "";
     this.countryChosen = false;
@@ -125,7 +123,6 @@ export class CountryListPage implements OnInit {
   }
 
   public openMap(event: any): void {
-    console.log("openMap function clicked");
     this.router.navigate(["app/tabs/map"], {
       queryParams: {
         countryName: this.countryName,

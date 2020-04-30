@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs.page';
 import { TabsPageRoutingModule } from './tabs.router.module';
-import { ContactPageModule } from '../contact/contact.module';
 import { FavouritesPageModule } from './../favourites/favourites.module';
 import { AboutPageModule } from '../about/about.module';
 import { CountryListPageModule } from '../country-list/country-list.module';
@@ -17,7 +16,6 @@ import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
 	imports: [
 		AboutPageModule,
-		ContactPageModule,
 		CountryListPageModule,
 		FavouritesPageModule,
 		OceanListPageModule,

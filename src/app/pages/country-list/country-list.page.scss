@@ -5,6 +5,7 @@
 
 ion-searchbar {
   padding: 0 !important;
+  max-width: 542.22px;
 }
 
 ion-fab-button {
@@ -24,4 +25,8 @@ ion-fab-button {
 .list-back-arrow {
   color: var(--ion-color-primary-contrast);
   font-size: 32px;
+}
+
+#scroll-list{
+  height: 100vh;
 }

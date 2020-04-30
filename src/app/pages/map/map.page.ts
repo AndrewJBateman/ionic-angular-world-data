@@ -25,7 +25,6 @@ export class MapPage implements AfterViewInit {
 
 	initMap = () => {
 		this.activatedRoute.queryParams.subscribe( params => {
-			console.log('params: ', params);
 			this.queryParams = params;
 			this.countryName = this.queryParams.countryName;
 			const coordinates = new google.maps.LatLng(
@@ -43,4 +42,5 @@ export class MapPage implements AfterViewInit {
 			marker.setMap(this.map);
 		});
 	}
+
 }

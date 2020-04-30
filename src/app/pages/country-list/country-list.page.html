@@ -1,4 +1,3 @@
-
 <ion-header no-border>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
@@ -19,7 +18,7 @@
           size="large"
         ></ion-icon>
         <h6 *ngIf="countryChosen" class="toolbar-header no-border no-margin">
-          {{ country.name | uppercase }}
+          {{ countryName | uppercase }}
         </h6>
       </ion-title>
 
@@ -56,13 +55,7 @@
   </ion-toolbar>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col
-        size="12"
-        size-sm="8"
-        size-ms="8"
-        size-xl="6"
-        offset-sm="2"
-      >
+      <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
         <ion-searchbar
           *ngIf="!countryChosen"
           (ionChange)="filterItems($event)"
@@ -76,21 +69,24 @@
   </ion-grid>
 </ion-header>
 
-<ion-content scroll="false" fullscreen>
-  <ion-scroll style="height:100vh">
+<ion-content>
+  <div scrollY="true" id="scroll-list">
     <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
           <app-progress-bar *ngIf="loadingInfo"></app-progress-bar>
-  
+
           <!--display list of countries in search-->
           <div *ngIf="!countryChosen">
             <div *ngFor="let item of searchItems" style="padding: 2px 0;">
-              <app-country-item [country]="item" (click)="getCountryDetail(item)">
+              <app-country-item
+                [country]="item"
+                (click)="getCountryDetail(item)"
+              >
               </app-country-item>
             </div>
           </div>
-  
+
           <!--display chosen country in detail-->
           <div *ngIf="countryChosen">
             <app-detail-item [country]="country"> </app-detail-item>
@@ -98,17 +94,15 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  
-    <ion-fab
-      vertical="center"
-      horizontal="end"
-      slot="fixed"
-      *ngIf="countryChosen"
-    >
-      <ion-fab-button (click)="openMap()">
-        <ion-icon name="locate" color="secondary" size="large"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </ion-scroll>
-
+  </div>
+  <ion-fab
+    vertical="center"
+    horizontal="end"
+    slot="fixed"
+    *ngIf="countryChosen"
+  >
+    <ion-fab-button (click)="openMap()">
+      <ion-icon name="locate" color="secondary" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

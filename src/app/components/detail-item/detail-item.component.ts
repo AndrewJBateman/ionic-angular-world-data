@@ -8,7 +8,6 @@ import { CountryDetailInterface } from 'src/app/interfaces/interface';
 })
 export class DetailItemComponent {
 	@Input() country: CountryDetailInterface;
-	@Input() countryName: string;
 
 	appendComa(content: any) {
 		try {

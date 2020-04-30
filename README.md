@@ -54,6 +54,8 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 
 * Run `npm i` to install dependencies
 * To start the server on _localhost://8100_ type: 'ionic serve'
+* To create a build file suitable for Firebase deployment: `ionic build --prod --release`
+* To deploy to Firebase: `firebase deploy`
 
 ## :computer: Code Examples
 
@@ -79,7 +81,6 @@ fetchCountryDetailData(country: string) {
 * **RxJS Observables** used to extract data asynchronously.
 * **Dark mode** switch on menu.
 * **Offline Storage**  (future) of favourite countries/oceans using Ionic Storage.
-* **Common Progess Bar Component**  (future) ion-card shows while country info loading.
 * **Localisation using i18n** so user can select between English (default), Spanish and French.
 * **ion-grid** with fixed column size used so country content data will display ok even on a PC.
 * **search** function to search for country name with regex to only allow letters in search text.
@@ -90,17 +91,17 @@ fetchCountryDetailData(country: string) {
 * **TODO:**
 * Correct language check so it does revert to English when EN selected - use storage?
 
-* **Nav side-bar:** Working. countries, oceans, favorites, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
+* **Nav side-bar:** countries, oceans, favorites, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** Add language for alert cancel?
 
-* **Countries page:** Working. Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
+* **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
 * **TODO:**
-* Map view - add auto zoom? solve initMap error message.
+* Map view - add auto zoom?
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.
 * translate: popup continent names, card: capital region
 
-* **Oceans page** Working. Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
+* **Oceans page** Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 **TODO**
 * Add Ionic accordian? or popover with ocean names listed
 
@@ -108,9 +109,7 @@ fetchCountryDetailData(country: string) {
 **TODO**
 * Add code to store/clear favourites
 
-* **About** Working. Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & a contact page
-**TODO**
-* Add link to my website contact form
+* **About** Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & author website contact page
 
 ## :clipboard: Status & To-do list
 

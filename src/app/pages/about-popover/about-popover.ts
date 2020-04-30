@@ -10,13 +10,11 @@ export class PopoverPage {
   constructor(private router: Router, public popoverCtrl: PopoverController) {}
 
   openContactForm() {
-    console.log("openContact function clicked");
     this.router.navigate(["app/tabs/contact"]);
     this.popoverCtrl.dismiss();
   }
 
   openUrl(url: string) {
-    console.log("openUrl function clicked");
     window.open(url, "_blank");
     this.popoverCtrl.dismiss();
   }
