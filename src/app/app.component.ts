@@ -14,6 +14,7 @@ import { Router } from "@angular/router";
 // Services
 import { LanguageService } from "./services/language.service";
 import { ThemeService } from "./services/theme.service";
+import { StorageService } from "./services/storage.service";
 
 @Component({
   selector: "app-root",
@@ -21,9 +22,9 @@ import { ThemeService } from "./services/theme.service";
   styleUrls: ["app.scss"],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   @Output() sidenavClose = new EventEmitter();
-  darkMode: any;
+  darkMode: boolean;
   public language: string = this.languageService.selected;
   public appPages = [
     {
@@ -66,19 +67,27 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public themeService: ThemeService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private storageService: StorageService
   ) {
     this.initializeApp();
-    this.darkMode = this.themeService.darkMode;
   }
-
-  ngOnInit() {}
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.languageService.setInitialAppLanguage();
+      this.darkStartMode();
+    });
+  }
+
+  async darkStartMode() {
+    this.storageService.getStoredData("dark-theme").then((val) => {
+      this.darkMode = JSON.parse(val);
+      this.darkMode === true
+        ? this.themeService.enableDark()
+        : this.themeService.enableLight();  
     });
   }
 

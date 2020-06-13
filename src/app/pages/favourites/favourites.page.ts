@@ -21,7 +21,7 @@ export class FavouritesPage implements OnInit {
     public popoverCtrl: PopoverController
   ) {}
 
-  async presentPopover(event) {
+  async presentPopover(event: any) {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
       event: event,

@@ -54,6 +54,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 
 * Run `npm i` to install dependencies
 * To start the server on _localhost://8100_ type: 'ionic serve'
+* To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
 * To deploy to Firebase: `firebase deploy`
 
@@ -68,7 +69,7 @@ fetchCountryDetailData(country: string) {
       return data;
     }), catchError( error => {
       return throwError( 'Country not found' );
-    })  
+    })
   )
 }
 ```
@@ -96,7 +97,7 @@ fetchCountryDetailData(country: string) {
 
 * **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
 * **TODO:**
-* Map view - add auto zoom?
+* Make fab button stay inside div
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.
 * translate: popup continent names, card: capital region
@@ -113,7 +114,18 @@ fetchCountryDetailData(country: string) {
 
 ## :clipboard: Status & To-do list
 
-* Status: Working & deployed to Firebase. For To-do see sections above
+* Status: Working & deployed to Firebase.
+
+## :clipboard: To-do
+
+1. replace any types with models
+2. Dark theme - add storage
+3. Check translations
+4. Splash screen
+5. SqLite - use as default database?
+6. Search page - add or remove Search page.
+7. Lighthouse score?
+8. Run on simulator
 
 ## :clap: Inspiration
 

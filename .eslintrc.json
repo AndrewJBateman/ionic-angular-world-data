@@ -19,6 +19,6 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": ["error", "tab"]
+        // "indent": ["error", "tab"]
     }
 }

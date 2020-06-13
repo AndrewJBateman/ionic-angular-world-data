@@ -20,10 +20,7 @@
               routerDirection="root"
               (click)="onSidenavClose()"
             >
-              <ion-icon
-                slot="start"
-                [name]="p.icon"
-              ></ion-icon>
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label *ngIf="language === 'en'">
                 {{ p.title }}
               </ion-label>
@@ -38,10 +35,16 @@
         </ion-list>
 
         <ion-list>
-          <ion-item (click)="themeService.changeThemeMode()">
+          <ion-item>
             <ion-icon name="contrast" slot="start"></ion-icon>
             <ion-label>{{ "MENU.Label-darkMode" | translate }}</ion-label>
-            <ion-toggle slot="end" [(ngModel)]="darkMode"> </ion-toggle>
+            <ion-toggle
+              [(ngModel)]="darkMode"
+              slot="end"
+              [checked]="darkMode"
+              (ionChange)="themeService.changeThemeMode($event)"
+            >
+            </ion-toggle>
           </ion-item>
 
           <ion-item>
@@ -73,8 +76,13 @@
           />
           <ion-card-header>
             <ion-card-subtitle class="ion-text-center">
-              <ion-icon slot="start" size="medium" name="camera" color="secondary"></ion-icon> Jonathan
-              Pease: Unsplash
+              <ion-icon
+                slot="start"
+                size="medium"
+                name="camera"
+                color="secondary"
+              ></ion-icon>
+              Jonathan Pease: Unsplash
             </ion-card-subtitle>
           </ion-card-header>
         </ion-card>
