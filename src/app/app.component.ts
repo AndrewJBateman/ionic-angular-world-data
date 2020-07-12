@@ -87,7 +87,7 @@ export class AppComponent {
       this.darkMode = JSON.parse(val);
       this.darkMode === true
         ? this.themeService.enableDark()
-        : this.themeService.enableLight();  
+        : this.themeService.enableLight();
     });
   }
 

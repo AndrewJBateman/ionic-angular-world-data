@@ -1,32 +1,29 @@
-import { Component } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { Component } from "@angular/core";
+import { PopoverController } from "@ionic/angular";
 
 @Component({
-	template: `
+  template: `
     <ion-list>
-
       <ion-item button (click)="clearFavourites()">
         <ion-label>
-        <ion-icon name="trash" size="large" color="secondary"></ion-icon>
-        Clear favourites
+          <ion-icon name="trash" size="large" color="secondary"></ion-icon>
+          Clear favourites
         </ion-label>
       </ion-item>
-
     </ion-list>
   `,
-	styleUrls: ['./favourites-popover.scss']
+  styleUrls: ["./favourites-popover.scss"],
 })
 export class PopoverPage {
-	constructor(public popoverCtrl: PopoverController) {}
+  constructor(public popoverCtrl: PopoverController) {}
 
-	clearFavourites() {
-
-	}
-
-	openUrl(url: string) {
-		console.log('openUrl function clicked');
-		window.open(url, '_blank');
+  clearFavourites() {
 		this.popoverCtrl.dismiss();
 	}
 
+  openUrl(url: string) {
+    console.log("openUrl function clicked");
+    window.open(url, "_blank");
+    this.popoverCtrl.dismiss();
+  }
 }

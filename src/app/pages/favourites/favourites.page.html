@@ -35,12 +35,12 @@
               src="../../../assets/imgs/nofavs-image.jpg"
               alt="Photo by CapDfrawy on Unsplash"
             />
-            <div class="photo-credit">Photo by Fabian Struwe on Unsplash</div>
+            <div class="photo-credit">{{ 'FAVOURITES.photo-credit' | translate }}</div>
           </div>
 
           <ion-card-content>
             <h2 class="ion-text-center">
-              There are no countries in Favourites
+              {{ 'FAVOURITES.notice' | translate }}
             </h2>
           </ion-card-content>
         </ion-card>
@@ -48,7 +48,7 @@
         <!--list of news articles with rhs slide to delete from favourites-->
         <!-- <div  class="" color="secondary" >
 					<ion-list>
-						<ion-item-sliding style="padding: 0;" 
+						<ion-item-sliding style="padding: 0;"
 							router-direction="forward" #slidingItem>
 							<app-country-item></app-country-item>
 							<ion-item-options>

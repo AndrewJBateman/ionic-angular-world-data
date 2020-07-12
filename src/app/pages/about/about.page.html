@@ -32,29 +32,27 @@
             <img
               class="mat-card-image"
               src="assets/imgs/about-image.jpg"
-              alt="Photo by Sean O. on Unsplash"
+              alt="{{ 'ABOUT.photo-credit' | translate }}"
             />
-            <div class="photo-credit">Photo by Nicola Nuttall on Unsplash</div>
+            <div class="photo-credit">{{ 'ABOUT.photo-credit' | translate }}</div>
           </div>
 
           <ion-card-header>
             <ion-card-title class="ion-text-center about-header"
               ><ion-icon name="earth-outline" class="title-icon" size="large"></ion-icon
-              >World Data</ion-card-title
+              >{{ 'ABOUT.card-title' | translate }}</ion-card-title
             >
           </ion-card-header>
           <ion-card-content class="ion-text-wrap">
             <p>
-              This app displays JSON metadata about all the countries in the
-              world from several
-              <a
+              {{ 'ABOUT.para1-part1' | translate }}<a
                 class="link-text"
                 href="https://restcountries.eu/"
                 target="_blank"
                 title="Go to the Country Info website (opens in a new window)"
                 >REST Countries API
               </a>
-              endpoints.
+              {{ 'ABOUT.para1-part2' | translate }}
             </p>
             <p>
               Countries are listed in alphabetical order. The user can search

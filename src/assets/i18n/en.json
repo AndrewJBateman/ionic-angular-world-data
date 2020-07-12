@@ -24,16 +24,16 @@
 		"remove-favourite": "Remove Article"
 	},
 	"FAVOURITES": {
-		"title": "Favourites",
+		"photo-credit": "Photo by Fabian Struwe on Unsplash",
 		"notice": "There are no articles in Favourites"
 	},
 	"ABOUT": {
-		"page-title": "About",
 		"card-title": "World News",
+		"photo-credit": "Photo by Sean O. on Unsplash",
 		"para1-part1": "This app fetches live JSON metadata from ",
-		"para1-part2": "a HTTP REST API with articles from about 30,000 news sources/blogs world-wide.",
-		"para2": "Articles can be viewed in categories of general, technology, business, entertainment, health, science and sports.",
-		"para3": "Each article includes a link to the original news source that opens in a new window."
+		"para1-part2": "a HTTP REST API with information about countries world-wide. It also displays data on the world oceans from a JSON data file.",
+		"para2": "Countries are listed in alphabetical order. The user can search for a country or list countries by world region.",
+		"para3": "Each country or ocean includes a link to further information. Clicking on a list item shows more detailed information with a map link and an add to favourites button."
 	},
 	"TASK-BAR": {
 		"countries": "Countries",

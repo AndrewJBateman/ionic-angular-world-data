@@ -22,19 +22,19 @@
 		"remove-favourite": "Quitar Articulo"
 	},
 	"FAVOURITES": {
-		"title": "Favoritos",
+		"photo-credit": "Photo de Fabian Struwe en Unsplash",
 		"notice": "No hay articulos en favoritos"
 	},
 	"PROGRESS_BAR": {
 		"title": "Cargando noticias..."
 	},
 	"ABOUT": {
-		"page-title": "Sobre esta app",
 		"card-title": "Noticias del Mundo",
-		"para1-part1": "Esta aplicación obtiene metadatos JSON en vivo de ",
-		"para1-part2": "una API HTTP REST con artículos de aproximadamente 30,000 fuentes de noticias / blogs en todo el mundo.",
-		"para2": "Los artículos se pueden ver en categorías de general, tecnología, negocios, entretenimiento, salud, ciencia y deportes.",
-		"para3": "Cada artículo incluye un enlace a la fuente de noticias original que se abre en una nueva ventana."
+		"photo-credit": "Foto de Fabian Struwe en Unsplash",
+		"para1-part1": "",
+		"para1-part2": "",
+		"para2": "",
+		"para3": ""
 	},
 	"TASK-BAR": {
 		"countries": "Países",

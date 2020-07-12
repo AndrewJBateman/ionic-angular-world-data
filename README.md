@@ -53,6 +53,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 ## :floppy_disk: Setup
 
 * Run `npm i` to install dependencies
+* npm i --save-dev @angular-devkit/architect
 * To start the server on _localhost://8100_ type: 'ionic serve'
 * To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
@@ -90,7 +91,7 @@ fetchCountryDetailData(country: string) {
 
 * **General:** i18n Translation part-complete
 * **TODO:**
-* Correct language check so it does revert to English when EN selected - use storage?
+* Correct language check so it does revert to English when EN selected - use storage
 
 * **Nav side-bar:** countries, oceans, favorites, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
 * **TODO** Add language for alert cancel?

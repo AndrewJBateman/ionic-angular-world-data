@@ -32,7 +32,7 @@ export class MapPage implements AfterViewInit {
 			);
 			const mapOptions: google.maps.MapOptions = {
 				center: coordinates,
-				zoom: 3
+				zoom: 5
 			};
 			const marker = new google.maps.Marker({
 				position: coordinates,

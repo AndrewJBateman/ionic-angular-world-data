@@ -19,21 +19,18 @@ export class ThemeService {
   }
 
   enableDark() {
-		console.log('enable dark');
     this.renderer.addClass(this.document.body, "dark-theme");
     this.storage.set("dark-theme", true);
     this.darkMode = true;
   }
 
   enableLight() {
-		console.log('enable light');
     this.renderer.removeClass(this.document.body, "dark-theme");
     this.storage.set("dark-theme", false);
     this.darkMode = false;
   }
 
   changeThemeMode(e: any) {
-		console.log('toggled: ', e.detail.checked);
     e.detail.checked ? this.enableDark() : this.enableLight();
   }
 }
