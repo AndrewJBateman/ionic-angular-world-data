@@ -44,7 +44,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v9](https://angular.io/)
+* [Angular v10](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v2](https://restcountries.eu/)
 * [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
@@ -53,7 +53,6 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 ## :floppy_disk: Setup
 
 * Run `npm i` to install dependencies
-* npm i --save-dev @angular-devkit/architect
 * To start the server on _localhost://8100_ type: 'ionic serve'
 * To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
