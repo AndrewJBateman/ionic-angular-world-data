@@ -44,7 +44,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v10](https://angular.io/)
+* [Angular v11](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v2](https://restcountries.eu/)
 * [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
@@ -123,9 +123,8 @@ fetchCountryDetailData(country: string) {
 3. Check translations
 4. Splash screen
 5. SqLite - use as default database?
-6. Search page - add or remove Search page.
-7. Lighthouse score?
-8. Run on simulator
+6. Lighthouse score?
+7. Run on simulator
 
 ## :clap: Inspiration
 
