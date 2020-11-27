@@ -9,20 +9,20 @@ import { OceanListPage } from "./ocean-list.page";
 import { PopoverPage } from "../ocean-popover/ocean-popover";
 
 const routes: Routes = [
-  {
-    path: "",
-    component: OceanListPage,
-  },
+	{
+		path: "",
+		component: OceanListPage,
+	},
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes),
-  ],
-  declarations: [OceanListPage, PopoverPage],
-  entryComponents: [PopoverPage],
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RouterModule.forChild(routes),
+	],
+	declarations: [OceanListPage, PopoverPage],
+	entryComponents: [PopoverPage],
 })
 export class OceanListPageModule {}

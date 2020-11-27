@@ -53,6 +53,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 ## :floppy_disk: Setup
 
 * Run `npm i` to install dependencies
+* Get yourself an API key for Google Cloud Maps API and add to `index.html` file
 * To start the server on _localhost://8100_ type: 'ionic serve'
 * To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
@@ -114,7 +115,7 @@ fetchCountryDetailData(country: string) {
 
 ## :clipboard: Status & To-do list
 
-* Status: Working & deployed to Firebase.
+* Status: Working, passes linting.
 
 ## :clipboard: To-do
 

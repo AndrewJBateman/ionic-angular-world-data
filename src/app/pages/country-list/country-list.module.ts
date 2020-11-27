@@ -13,22 +13,22 @@ import { ComponentsModule } from "../../components/components.module";
 import { PopoverPage } from "../country-popover/country-popover";
 
 const routes: Routes = [
-  {
-    path: "",
-    component: CountryListPage,
-  },
+	{
+		path: "",
+		component: CountryListPage,
+	},
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes),
-    TranslateModule,
-    ComponentsModule,
-  ],
-  declarations: [CountryListPage, PopoverPage],
-  entryComponents: [PopoverPage],
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RouterModule.forChild(routes),
+		TranslateModule,
+		ComponentsModule,
+	],
+	declarations: [CountryListPage, PopoverPage],
+	entryComponents: [PopoverPage],
 })
 export class CountryListPageModule {}

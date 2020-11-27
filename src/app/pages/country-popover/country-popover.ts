@@ -4,63 +4,63 @@ import { PopoverController } from "@ionic/angular";
 // import { MapPage } from '../map/map';
 
 @Component({
-  template: `
-    <ion-list>
-      <ion-item button (click)="moreInfo()">
-        <ion-label>
-          <ion-icon
-            name="information-circle"
-            size="large"
-            color="primary"
-          ></ion-icon>
-          More info.
-        </ion-label>
-      </ion-item>
+	template: `
+		<ion-list>
+			<ion-item button (click)="moreInfo()">
+				<ion-label>
+					<ion-icon
+						name="information-circle"
+						size="large"
+						color="primary"
+					></ion-icon>
+					More info.
+				</ion-label>
+			</ion-item>
 
-      <ion-item button (click)="addToFavourites()">
-        <ion-label>
-          <ion-icon name="heart" size="large" color="danger"></ion-icon>
-          Add to favourites
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  `,
-  styleUrls: ["./country-popover.scss"],
+			<ion-item button (click)="addToFavourites()">
+				<ion-label>
+					<ion-icon name="heart" size="large" color="danger"></ion-icon>
+					Add to favourites
+				</ion-label>
+			</ion-item>
+		</ion-list>
+	`,
+	styleUrls: ["./country-popover.scss"],
 })
 export class PopoverPage implements OnInit {
-  viewMap = false;
-  country = null;
-  countryCode: string;
-  countryName: string;
+	viewMap = false;
+	country = null;
+	countryCode: string;
+	countryName: string;
 
-  constructor(
-    public navCtrl: NavController,
-    private navParams: NavParams,
-    private popoverCtrl: PopoverController
-  ) {}
+	constructor(
+		public navCtrl: NavController,
+		private navParams: NavParams,
+		private popoverCtrl: PopoverController
+	) {}
 
-  ngOnInit() {
-    this.country = this.navParams.get("country");
-    this.countryName = this.country.name;
-    console.log("this.country", this.country);
-  }
+	ngOnInit() {
+		this.country = this.navParams.get("country");
+		this.countryName = this.country.name;
+		console.log("this.country", this.country);
+	}
 
-  moreInfo() {
-    const countryToSearch = this.country.name;
-    const url = `https://en.wikipedia.org/wiki/${countryToSearch}`;
-    window.open(url, "_blank");
-    this.popoverCtrl.dismiss();
-  }
+	moreInfo() {
+		const countryToSearch = this.country.name;
+		const url = `https://en.wikipedia.org/wiki/${countryToSearch}`;
+		window.open(url, "_blank");
+		this.popoverCtrl.dismiss();
+	}
 
-  openUrl(url: string) {
-    console.log("openUrl function clicked");
-    window.open(url, "_blank");
-    this.popoverCtrl.dismiss();
-  }
+	openUrl(url: string) {
+		console.log("openUrl function clicked");
+		window.open(url, "_blank");
+		this.popoverCtrl.dismiss();
+	}
 
-  addToFavourites() {}
+	addToFavourites() {}
 
-  closePopover() {
-    this.popoverCtrl.dismiss();
-  }
+	closePopover() {
+		this.popoverCtrl.dismiss();
+	}
 }

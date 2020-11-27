@@ -13,22 +13,22 @@ import { FavouritesPage } from "./favourites.page";
 import { ComponentsModule } from "../../components/components.module";
 
 const routes: Routes = [
-  {
-    path: "",
-    component: FavouritesPage,
-  },
+	{
+		path: "",
+		component: FavouritesPage,
+	},
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    TranslateModule,
-    RouterModule.forChild(routes),
-    ComponentsModule,
-  ],
-  declarations: [FavouritesPage, PopoverPage],
-  entryComponents: [PopoverPage],
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		TranslateModule,
+		RouterModule.forChild(routes),
+		ComponentsModule,
+	],
+	declarations: [FavouritesPage, PopoverPage],
+	entryComponents: [PopoverPage],
 })
 export class FavouritesPageModule {}
