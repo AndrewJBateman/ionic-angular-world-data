@@ -93,7 +93,7 @@ fetchCountryDetailData(country: string) {
 * **TODO:**
 * Correct language check so it does revert to English when EN selected - use storage
 
-* **Nav side-bar:** countries, oceans, favorites, about, change language, dark theme toggle + Unsplash image with credit. Languages added.
+* **Nav side-bar:** countries, oceans, favorites, about, change language, dark theme toggle. Languages added.
 * **TODO** Add language for alert cancel?
 
 * **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
@@ -111,7 +111,7 @@ fetchCountryDetailData(country: string) {
 **TODO**
 * Add code to store/clear favourites
 
-* **About** Displays Unsplash image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & author website contact page
+* **About** Displays image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & author website contact page
 
 ## :clipboard: Status & To-do list
 

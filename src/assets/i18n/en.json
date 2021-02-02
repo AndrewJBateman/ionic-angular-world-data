@@ -24,12 +24,11 @@
 		"remove-favourite": "Remove Article"
 	},
 	"FAVOURITES": {
-		"photo-credit": "Photo by Fabian Struwe on Unsplash",
+		"photo-credit": "Image from https://www.onlygfx.com",
 		"notice": "There are no articles in Favourites"
 	},
 	"ABOUT": {
 		"card-title": "World News",
-		"photo-credit": "Photo by Sean O. on Unsplash",
 		"para1-part1": "This app fetches live JSON metadata from ",
 		"para1-part2": "a HTTP REST API with information about countries world-wide. It also displays data on the world oceans from a JSON data file.",
 		"para2": "Countries are listed in alphabetical order. The user can search for a country or list countries by world region.",

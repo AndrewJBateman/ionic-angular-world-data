@@ -52,7 +52,7 @@ export class RestApiService {
 					return data;
 				}),
 				catchError((error) => {
-					return throwError("Capital not found!");
+					return throwError("Country not found!");
 				})
 			);
 	}
