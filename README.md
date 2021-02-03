@@ -61,17 +61,18 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 
 ## :computer: Code Examples
 
-* service function to fetch API country details, from `rest-api.service.ts`
+* service function to fetch API country details, from `rest-api.service.ts` using the take() method so unsubscribing from the observable is not necessary.
 
 ```typescript
 fetchCountryDetailData(country: string) {
-  return this.httpClient.get(`${apiUrl}/name/${country}?fullText=true`).pipe(
-    map((data: CountryDetailInterface[]) => {
-      return data;
-    }), catchError( error => {
-      return throwError( 'Country not found' );
+  return this.httpClient
+    .get<CountryDetailInterface[]>(`${apiUrl}/name/${country}?fullText=true`)
+    .pipe(
+      take(1),
+      catchError((error) => {
+      return throwError('Country not found', error);
     })
-  )
+  );
 }
 ```
 
@@ -104,10 +105,8 @@ fetchCountryDetailData(country: string) {
 * translate: popup continent names, card: capital region
 
 * **Oceans page** Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
-**TODO**
-* Add Ionic accordian? or popover with ocean names listed
 
-* **Favourites** Shows a nice image with text below if there are no favourites
+* **Favourites** Shows an image with text below if there are no favourites
 **TODO**
 * Add code to store/clear favourites
 

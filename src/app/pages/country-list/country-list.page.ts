@@ -108,7 +108,7 @@ export class CountryListPage implements OnInit {
 	}
 
 	onCancel() {
-		this.query = null;
+    this.query = null;
 	}
 
 	async presentPopover(event: Event) {
