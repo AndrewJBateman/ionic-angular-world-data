@@ -1,6 +1,12 @@
 # :zap: Ionic Country Data
 
-Ionic 5 app that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file
+Ionic 5 app that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
+
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-world-data?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/AndrewJBateman/ionic-angular-world-data?style=for-the-badge)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/ionic-angular-world-data?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/ionic-angular-world-data?style=for-the-badge)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/AndrewJBateman/ionic-angular-world-data?style=for-the-badge)
 
 ## :page_facing_up: Table of contents
 
@@ -15,7 +21,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 
 ## :books: General info
 
-* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.eu/#api-endpoints-response-example) was useful to create my http interface classe.
+* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.eu/#api-endpoints-response-example) was useful to create my http interface class.
 * The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays an interactive map of the chosen country that the user can zoom in and out of.
 * Built using the [Ionic 5 framework](https://ionicframework.com/docs)
 
@@ -61,7 +67,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 
 ## :computer: Code Examples
 
-* service function to fetch API country details, from `rest-api.service.ts` using the take() method so unsubscribing from the observable is not necessary.
+* service function to fetch API country details, from `rest-api.service.ts` using the take(1) method so unsubscribing from the observable is not necessary.
 
 ```typescript
 fetchCountryDetailData(country: string) {
@@ -99,6 +105,7 @@ fetchCountryDetailData(country: string) {
 
 * **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
 * **TODO:**
+* Change from Google Maps to Leaflet
 * Make fab button stay inside div
 * add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.

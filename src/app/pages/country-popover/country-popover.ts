@@ -5,7 +5,6 @@ import { PopoverController } from "@ionic/angular";
 
 @Component({
 	template: `
-		<ion-list>
 			<ion-item button (click)="moreInfo()">
 				<ion-label>
 					<ion-icon
@@ -16,14 +15,6 @@ import { PopoverController } from "@ionic/angular";
 					More info.
 				</ion-label>
 			</ion-item>
-
-			<ion-item button (click)="addToFavourites()">
-				<ion-label>
-					<ion-icon name="heart" size="large" color="danger"></ion-icon>
-					Add to favourites
-				</ion-label>
-			</ion-item>
-		</ion-list>
 	`,
 	styleUrls: ["./country-popover.scss"],
 })
@@ -57,8 +48,6 @@ export class PopoverPage implements OnInit {
 		window.open(url, "_blank");
 		this.popoverCtrl.dismiss();
 	}
-
-	addToFavourites() {}
 
 	closePopover() {
 		this.popoverCtrl.dismiss();
