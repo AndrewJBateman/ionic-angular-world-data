@@ -1,7 +1,7 @@
 import { Injectable, RendererFactory2, Inject, Renderer2 } from "@angular/core";
 
 import { DOCUMENT } from "@angular/common";
-import { Storage } from "@ionic/storage";
+import { Storage } from "@ionic/storage-angular";
 
 @Injectable({
 	providedIn: "root",

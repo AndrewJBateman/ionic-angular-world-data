@@ -13,7 +13,7 @@ import { AppRoutingModule } from "./app-routing.module";
 // Third party imports
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
-import { IonicStorageModule } from "@ionic/storage";
+import { IonicStorageModule } from "@ionic/storage-angular";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
