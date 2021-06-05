@@ -15,7 +15,7 @@ const COMPONENTS: any[] = [
 ];
 
 @NgModule({
-	declarations: [COMPONENTS],
+	declarations: [...COMPONENTS],
 	imports: [CommonModule, IonicModule, TranslateModule],
 	exports: [...COMPONENTS],
 })
