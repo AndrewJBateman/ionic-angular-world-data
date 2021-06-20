@@ -59,7 +59,7 @@
 				<ion-searchbar
 					*ngIf="!countryChosen"
 					(ionChange)="filterItems($event)"
-					(ionCancel)="onCancel($event)"
+					(ionCancel)="onCancel()"
 					color="primary"
 					placeholder="{{ 'COUNTRIES.enter-country' | translate }}"
 				>
@@ -95,7 +95,7 @@
 			</ion-row>
 		</ion-grid>
 	</div>
-	<ion-fab
+	<!-- <ion-fab
 		vertical="center"
 		horizontal="end"
 		slot="fixed"
@@ -104,5 +104,5 @@
 		<ion-fab-button (click)="openMap()">
 			<ion-icon name="locate" color="secondary" size="large"></ion-icon>
 		</ion-fab-button>
-	</ion-fab>
+	</ion-fab> -->
 </ion-content>
