@@ -34,6 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
 		HttpClientModule,
 		IonicStorageModule.forRoot(),
 		TranslateModule.forRoot({
+      defaultLanguage:'en',
 			loader: {
 				provide: TranslateLoader,
 				useFactory: createTranslateLoader,
