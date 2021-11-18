@@ -1,6 +1,6 @@
 # :zap: Ionic Country Data
 
-Ionic 5 app that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
+Ionic app that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
 **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-world-data?style=plastic)
@@ -50,7 +50,7 @@ Ionic 5 app that displays data about countries and oceans from the [Rest Countri
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v11](https://angular.io/)
+* [Angular v12](https://angular.io/)
 * [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v2](https://restcountries.eu/)
 * [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
@@ -121,7 +121,7 @@ fetchCountryDetailData(country: string) {
 
 ## :clipboard: Status & To-do list
 
-* Status: Working, updated june 2021. passes linting.
+* Status: Working, passes linting.
 
 ## :clipboard: To-do
 
