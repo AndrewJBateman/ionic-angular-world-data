@@ -21,7 +21,7 @@ export class RestApiService {
 		return this.httpClient.get<CountryListInterface[]>(`${apiUrl}/${url}`).pipe(
 			take(1),
 			catchError((error) => {
-				return throwError("Countries not found, error:", error);
+				return throwError(() => console.log("Countries not found!", error));
 			})
 		);
 	}
@@ -32,7 +32,7 @@ export class RestApiService {
 			.pipe(
 				take(1),
 				catchError((error) => {
-					return throwError("Country not found", error);
+					return throwError(() => console.log("Country not found!", error));
 				})
 			);
 	}
@@ -51,7 +51,7 @@ export class RestApiService {
 			.pipe(
 				take(1),
 				catchError((error) => {
-					return throwError("Country not found!", error);
+					return throwError(() => console.log("Country not found!", error));
 				})
 			);
 	}
