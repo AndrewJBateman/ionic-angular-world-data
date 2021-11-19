@@ -18,14 +18,16 @@ export class ThemeService {
 		this.renderer = this.rendererFactory.createRenderer(null, null);
 	}
 
-	enableDark() {
+	async enableDark() {
 		this.renderer.addClass(this.document.body, "dark-theme");
+    await this.storage.create();
 		this.storage.set("dark-theme", true);
 		this.darkMode = true;
 	}
 
-	enableLight() {
+	async enableLight() {
 		this.renderer.removeClass(this.document.body, "dark-theme");
+    await this.storage.create();
 		this.storage.set("dark-theme", false);
 		this.darkMode = false;
 	}

@@ -8,7 +8,8 @@ import { ToastController } from "@ionic/angular";
 export class StorageService implements OnInit {
 	constructor(private storage: Storage, private toastContr: ToastController) {}
 
-	ngOnInit() {
+	async ngOnInit() {
+    await this.storage.create();
 		this.storage.clear();
 		// this.loadFavourites();
 	}

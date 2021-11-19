@@ -19,10 +19,11 @@ export class LanguageService {
 
 	// sets default language as browser language if no other language choice made
 	// if language language selected then this value is stored using the ionic storage module
-	setInitialAppLanguage() {
+	async setInitialAppLanguage() {
 		const language = this.translate.getBrowserLang();
+    console.log('language: ', language);
 		this.translate.setDefaultLang(language);
-
+    await this.storage.create();
 		this.storage.get(LNG_KEY).then((val) => {
 			if (val) {
 				this.setLanguage(val);
