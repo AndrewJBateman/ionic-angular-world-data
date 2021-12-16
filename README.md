@@ -1,6 +1,6 @@
 # :zap: Ionic Country Data
 
-Ionic app that displays data about countries and oceans from the [Rest Countries](https://restcountries.eu/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
+Ionic app that displays data about countries and oceans from the [Rest Countries](https://restcountries.com/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
 **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-world-data?style=plastic)
@@ -21,7 +21,7 @@ Ionic app that displays data about countries and oceans from the [Rest Countries
 
 ## :books: General info
 
-* The [Rest Countries API](https://restcountries.eu/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.eu/#api-endpoints-response-example) was useful to create my http interface class.
+* The [Rest Countries API](https://restcountries.com/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.com/#api-endpoints-response-example) was useful to create my http interface class.
 * The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays an interactive map of the chosen country that the user can zoom in and out of.
 * Built using the [Ionic 5 framework](https://ionicframework.com/docs)
 
@@ -121,7 +121,8 @@ fetchCountryDetailData(country: string) {
 
 ## :clipboard: Status & To-do list
 
-* Status: Working, passes linting.
+* Status: Part working, displays country list & country detail page etc. passes linting.
+* To-do: fix search function & region selection, fix linting, reduce API calls (use param?), replace deprecated subscribe function. Consider using API v3 - requires new interfaces etc.
 
 ## :clipboard: To-do
 
@@ -137,6 +138,8 @@ fetchCountryDetailData(country: string) {
 
 * [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page)
 * [Devpato article: Setup Google Map in Angular app (The pro way)](https://dev.to/devpato/setup-google-map-in-angular-app-the-pro-way-3m9p)
+* [ERROR Error: Database not created. Must call create() first](https://stackoverflow.com/questions/68378350/error-error-database-not-created-must-call-create-first)
+* [What’s New in RxJS 7: Small Bundles and Big Changes to share()](https://www.bitovi.com/blog/whats-new-in-rxjs-7-small-bundles-and-big-changes-to-share)
 
 ## :file_folder: License
 
