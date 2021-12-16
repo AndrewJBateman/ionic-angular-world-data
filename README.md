@@ -50,9 +50,9 @@ Ionic app that displays data about countries and oceans from the [Rest Countries
 ## :signal_strength: Technologies
 
 * [Ionic v5](https://ionicframework.com/)
-* [Angular v12](https://angular.io/)
-* [Ionic/angular v5](https://www.npmjs.com/package/@ionic/angular)
-* [Rest Countries API v2](https://restcountries.eu/)
+* [Angular v13](https://angular.io/)
+* [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
+* [Rest Countries API v2](https://restcountries.com/)
 * [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
 * [Ionic 5 open source Ionicons](https://ionicons.com/)
 
