@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
-import { catchError, take } from "rxjs/operators";
+import { catchError, take, tap } from "rxjs/operators";
 
 import {
 	CountryListInterface,
@@ -9,7 +9,7 @@ import {
 	Country,
 } from "../interfaces/interface";
 
-const apiUrl = "https://restcountries.eu/rest/v2";
+const apiUrl = "https://restcountries.com/v2";
 
 @Injectable({
 	providedIn: "root",
@@ -18,7 +18,8 @@ export class RestApiService {
 	constructor(private httpClient: HttpClient) {}
 
 	fetchCountryListData(url: string) {
-		return this.httpClient.get<CountryListInterface[]>(`${apiUrl}/${url}`).pipe(
+    return this.httpClient.get<CountryListInterface[]>(`${apiUrl}/${url}`).pipe(
+      tap(data => console.log('data: ', data)),
 			take(1),
 			catchError((error) => {
 				return throwError(() => console.log("Countries not found!", error));
