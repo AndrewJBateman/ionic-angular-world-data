@@ -22,7 +22,9 @@
 				</h6>
 			</ion-title>
 
-			<!--drop-down list of country regions, select one to change the country category and reload list of country-->
+			<!--drop-down list of country regions,
+        select one to change the country category
+        and reload list of country-->
 			<ion-select
 				*ngIf="!countryChosen"
 				interface="action-sheet"
@@ -78,7 +80,10 @@
 
 					<!--display list of countries in search-->
 					<div *ngIf="!countryChosen">
-						<div *ngFor="let item of searchItems" style="padding: 2px 0">
+						<div
+							*ngFor="let item of searchItems | async"
+							style="padding: 2px 0"
+						>
 							<app-country-item
 								[country]="item"
 								(click)="getCountryDetail(item)"
