@@ -2,11 +2,11 @@
   <div class="image-div">
     <ion-img
       class="mat-card-image"
-      [src]="country.flag"
-      alt="flag for {{ country.name }}"
+      [src]="country.flags.svg"
+      alt="flag for {{ country.name.common }}"
     ></ion-img>
     <div class="flag-text">
-      <span class="small-text">Native name: </span>{{ country.nativeName }}
+      <span class="small-text">Official name: </span>{{ country.name.official }}
     </div>
   </div>
 
@@ -31,10 +31,10 @@
       <ion-icon name="language-outline" slot="start"></ion-icon>
       <ion-label>
         <h2>Languages</h2>
-        <h3 *ngIf="country.languages.length === 1">
-          {{ country.languages[0].name }}
+        <h3 *ngIf="country.languages">
+          {{ country.languages }}
         </h3>
-        <h3 *ngIf="country.languages.length > 1">
+        <!-- <h3 *ngIf="country.languages[0].length > 1">
           {{ appendComa(country.languages[0].name) }}
         </h3>
         <h3 *ngIf="country.languages[1]">
@@ -45,7 +45,7 @@
         </h3>
         <h3 *ngIf="country.languages[3]">
           {{ appendComa(country.languages[3].name) }}
-        </h3>
+        </h3> -->
       </ion-label>
     </ion-item>
 
@@ -64,7 +64,7 @@
       <ion-label class="ion-text-wrap">
         <h2>Timezone</h2>
         <h3>
-          {{ country.timezones }}
+          <!-- {{ country.timezones }} -->
           <!-- {{ country.timezones[1]?.zone }}
             {{ country.timezones[2]?.zone }} -->
         </h3>
@@ -91,7 +91,7 @@
       <ion-icon name="desktop-outline" slot="start"></ion-icon>
       <ion-label>
         <h2>Top Level Domain</h2>
-        <h3>{{ country.topLevelDomain[0] }}</h3>
+        <h3>{{ country.tld[0] }}</h3>
       </ion-label>
     </ion-item>
 
@@ -122,7 +122,7 @@
       <ion-icon name="call-outline" slot="start"></ion-icon>
       <ion-label>
         <h2>Calling Code</h2>
-        <h3>+{{ country.callingCodes[0] }}</h3>
+        <!-- <h3>+{{ country.callingCodes[0] }}</h3> -->
       </ion-label>
     </ion-item>
 
@@ -132,7 +132,7 @@
         <h2>
           2 & 3-Digit ISO Codes
         </h2>
-        <h3>{{ country.alpha2Code }}, {{ country.alpha3Code }}</h3>
+        <!-- <h3>{{ country.alpha2Code }}, {{ country.alpha3Code }}</h3> -->
       </ion-label>
     </ion-item>
 
@@ -143,7 +143,7 @@
           Latitude & Longitude
         </h2>
         <h3>
-          {{ country.latlng }}
+          {{ country.latlng[0] }}, {{ country.latlng[1]}}
         </h3>
       </ion-label>
     </ion-item>

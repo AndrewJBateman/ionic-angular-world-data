@@ -2,13 +2,13 @@
   <ion-row>
     <ion-col class="image-col" size-xs="3">
       <ion-thumbnail>
-        <img [src]="country.flag" alt="{{ country.name }}" />
+        <img [src]="country.flags.png" alt="{{ country.name }}" />
       </ion-thumbnail>
     </ion-col>
 
     <ion-col class="text-col" size-xs="9">
       <ion-label class="title-text">
-        {{ country.name | uppercase }}
+        {{ country.name["common"] | uppercase }}
       </ion-label>
       <ion-text>
         <br />

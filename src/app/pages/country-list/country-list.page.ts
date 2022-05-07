@@ -7,8 +7,7 @@ import { RestApiService } from "./../../services/rest-api.service";
 import { PopoverPage } from "../country-popover/country-popover";
 import {
   CountryListInterface,
-  CountryDetailInterface,
-  Country,
+  CountryDetailInterface
 } from "../../interfaces/interface";
 
 @Component({
@@ -42,25 +41,29 @@ export class CountryListPage implements OnInit {
   // get country info for category 'all' with just the 4 fields needed.
   ngOnInit() {
     this.loadingInfo = true;
-    this.getCountryList("all?");
+    this.getCountryList("all?fields=name,capital,region,flags");
     this.loadingInfo = false;
   }
 
   // fetch full list of countries
   getCountryList = async (url: string) => {
-    this.countries = this.restApiService.fetchCountryListData(url);
-    this.searchItems = this.countries;
+    this.restApiService.fetchCountryListData(url).subscribe((data) => {
+      this.countries = data;
+      this.searchItems = this.countries;
+    });
   };
 
   // fetch country detail
   getCountryDetail(country: any) {
+    console.log('detail: ', country.name.common)
     this.loadingInfo = true;
     this.countryChosen = true;
-    const countryToSearch = country.name;
+    const countryToSearch = country.name.common;
     this.restApiService.fetchCountryDetailData(countryToSearch).subscribe(
-      (data: CountryDetailInterface[]) => {
+      // (data: CountryDetailInterface[]) => {
+        (data: any) => {
         this.country = data[0];
-        this.countryName = data[0].name;
+        this.countryName = data[0].name["common"];
       },
       (error) => {
         console.log("error fetching country detail info: ", error);
@@ -90,11 +93,12 @@ export class CountryListPage implements OnInit {
   // filter array of country names to match search query (letters only using regex)
   filterItems(event: any) {
     const regExp = /^[a-zA-Z]*$/;
-    const query = event.target.value.toLowerCase();
+    const query = event.target.value.toString().toLowerCase();
+    console.log("query: ", query);
     this.searchItems =
       query.length > 0 && regExp.test(query)
-        ? this.searchItems.filter((item) => {
-            return item.name.toLowerCase().indexOf(query) > -1;
+        ? this.searchItems.filter((item: any) => {
+            return item.name.common.toString().toLowerCase().indexOf(query) > -1;
           })
         : this.countries;
   }
@@ -124,5 +128,5 @@ export class CountryListPage implements OnInit {
     });
   }
 
-  addToFavourites() {}
+  // addToFavourites() {}
 }

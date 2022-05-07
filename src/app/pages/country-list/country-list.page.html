@@ -81,7 +81,7 @@
 					<!--display list of countries in search-->
 					<div *ngIf="!countryChosen">
 						<div
-							*ngFor="let item of searchItems | async"
+							*ngFor="let item of searchItems"
 							style="padding: 2px 0"
 						>
 							<app-country-item
