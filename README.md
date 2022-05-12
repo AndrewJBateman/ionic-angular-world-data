@@ -1,6 +1,6 @@
 # :zap: Ionic Country Data
 
-Ionic app that displays data about countries and oceans from the [Rest Countries](https://restcountries.com/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
+* Ionic app that displays data about countries and oceans from the [Rest Countries](https://restcountries.com/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
 **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-world-data?style=plastic)
@@ -10,20 +10,27 @@ Ionic app that displays data about countries and oceans from the [Rest Countries
 
 ## :page_facing_up: Table of contents
 
-* [General info](#general-info)
-* [Screenshots](#screenshots)
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+* [:zap: Ionic Country Data](#zap-ionic-country-data)
+  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:books: General info](#books-general-info)
+  * [:camera: Screenshots](#camera-screenshots)
+  * [:signal_strength: Technologies](#signal_strength-technologies)
+  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:computer: Code Examples](#computer-code-examples)
+  * [:cool: Features](#cool-features)
+  * [General/Navigation/Pages](#generalnavigationpages)
+  * [:clipboard: Status & To-do list](#clipboard-status--to-do-list)
+  * [:clipboard: To-do](#clipboard-to-do)
+  * [:clap: Inspiration](#clap-inspiration)
+  * [:file_folder: License](#file_folder-license)
+  * [:envelope: Contact](#envelope-contact)
 
 ## :books: General info
 
-* The [Rest Countries API](https://restcountries.com/) has a number of endpoints that can be used to search for info. I have used the endpoints: All, Name & Region. The [API Response Example](https://restcountries.com/#api-endpoints-response-example) was useful to create my http interface class.
+* The [Rest Countries API v3](https://restcountries.com/) has a number of endpoints that can be used to search for info. I have used the endpoints: `All?fields=name,capital,region,flags`, Name & Region. The [API Response Example](https://restcountries.com/#api-endpoints-response-example) was useful to create my http interface class.
 * The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays an interactive map of the chosen country that the user can zoom in and out of.
 * Built using the [Ionic 5 framework](https://ionicframework.com/docs)
+* [Angular KeyValuePipe](https://angular.io/api/common/KeyValuePipe) used to extract values from key-value pairs
 
 ## :camera: Screenshots
 
@@ -49,10 +56,10 @@ Ionic app that displays data about countries and oceans from the [Rest Countries
 
 ## :signal_strength: Technologies
 
-* [Ionic v5](https://ionicframework.com/)
+* [Ionic v6](https://ionicframework.com/)
 * [Angular v13](https://angular.io/)
 * [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
-* [Rest Countries API v2](https://restcountries.com/)
+* [Rest Countries API v3](https://restcountries.com/) - v3 has a lot of breaking changes from v2
 * [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
 * [Ionic 5 open source Ionicons](https://ionicons.com/)
 
@@ -107,7 +114,6 @@ fetchCountryDetailData(country: string) {
 * **TODO:**
 * Change from Google Maps to Leaflet
 * Make fab button stay inside div
-* add function to convert border country 3 letter codes to full country names.
 * add function (custom pipe) to insert ',' in area figures etc.
 * translate: popup continent names, card: capital region
 
@@ -122,7 +128,7 @@ fetchCountryDetailData(country: string) {
 ## :clipboard: Status & To-do list
 
 * Status: Part working, displays country list & country detail page etc. passes linting.
-* To-do: fix search function & region selection, fix linting, reduce API calls (use param?), replace deprecated subscribe function. Consider using API v3 - requires new interfaces etc.
+* Fix linting, reduce API calls (use param?)
 
 ## :clipboard: To-do
 
