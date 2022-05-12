@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NavParams, NavController } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
-// import { MapPage } from '../map/map';
 
 @Component({
 	template: `
@@ -37,7 +36,7 @@ export class PopoverPage implements OnInit {
 	}
 
 	moreInfo() {
-		const countryToSearch = this.country.name;
+		const countryToSearch = this.country.name.common;
 		const url = `https://en.wikipedia.org/wiki/${countryToSearch}`;
 		window.open(url, "_blank");
 		this.popoverCtrl.dismiss();

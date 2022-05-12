@@ -46,6 +46,7 @@ export interface CountryDetailInterface {
   region:       string;
   subregion:    string;
   languages:    Languages;
+  timezones:    string[];
   translations: { [key: string]: Translation };
   latlng:       number[];
   landlocked:   boolean;

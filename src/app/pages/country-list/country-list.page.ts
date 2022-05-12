@@ -55,7 +55,6 @@ export class CountryListPage implements OnInit {
 
   // fetch country detail
   getCountryDetail(country: any) {
-    console.log('detail: ', country.name.common)
     this.loadingInfo = true;
     this.countryChosen = true;
     const countryToSearch = country.name.common;
