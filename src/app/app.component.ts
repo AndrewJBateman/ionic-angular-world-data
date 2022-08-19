@@ -92,6 +92,7 @@ export class AppComponent {
 	}
 
 	languageChange() {
+		console.log('language change..')
 		this.languageService.setLanguage(this.language);
 	}
 

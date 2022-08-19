@@ -93,7 +93,6 @@ export class CountryListPage implements OnInit {
   filterItems(event: any) {
     const regExp = /^[a-zA-Z]*$/;
     const query = event.target.value.toString().toLowerCase();
-    console.log("query: ", query);
     this.searchItems =
       query.length > 0 && regExp.test(query)
         ? this.searchItems.filter((item: any) => {

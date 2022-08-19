@@ -32,7 +32,6 @@ export class PopoverPage implements OnInit {
 	ngOnInit() {
 		this.country = this.navParams.get("country");
 		this.countryName = this.country.name;
-		console.log("this.country", this.country);
 	}
 
 	moreInfo() {
