@@ -67,7 +67,7 @@
 
 * Run `npm i` to install dependencies
 * Get yourself an API key for Google Cloud Maps API and add to `index.html` file
-* To start the server on _localhost://8100_ type: 'ionic serve'
+* `ionic serve` to start the server on _localhost://8100_ type
 * To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
 * To deploy to Firebase: `firebase deploy`
@@ -127,8 +127,8 @@ fetchCountryDetailData(country: string) {
 
 ## :clipboard: Status & To-do list
 
-* Status: Part working, displays country list & country detail page etc. passes linting.
-* Fix linting, reduce API calls (use param?)
+* Status: Working, displays country list & country detail page etc. passes linting.
+* Fix favourites or replace. Fix linting, reduce API calls (use param?)
 
 ## :clipboard: To-do
 
