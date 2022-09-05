@@ -27,8 +27,6 @@
     "@ionic-native/status-bar": "^5.36.0",
     "@ionic/angular": "^6.2.5",
     "@ionic/storage-angular": "^3.0.6",
-    "@ngx-translate/core": "^14.0.0",
-    "@ngx-translate/http-loader": "^7.0.0",
     "@types/googlemaps": "^3.43.3",
     "core-js": "^3.25.0",
     "rxjs": "^7.5.6",
@@ -68,7 +66,7 @@
     "karma-jasmine-html-reporter": "^2.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~10.9.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.7.2"
   },
   "description": "An Ionic project"
 }
