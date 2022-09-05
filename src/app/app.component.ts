@@ -12,7 +12,6 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { Router } from "@angular/router";
 
 // Services
-import { LanguageService } from "./services/language.service";
 import { ThemeService } from "./services/theme.service";
 import { StorageService } from "./services/storage.service";
 
@@ -24,37 +23,28 @@ import { StorageService } from "./services/storage.service";
 })
 export class AppComponent {
 	@Output() sidenavClose = new EventEmitter();
-	darkMode: boolean;
-	public language: string = this.languageService.selected;
+	darkMode: boolean = false;
 	public appPages = [
 		{
 			title: "Countries",
-			titlefr: "Pays",
-			titlesp: "Países",
 			url: "/app/tabs/country-list",
 			icon: "earth-outline",
 			menuIcon: "menuIconCountry",
 		},
 		{
 			title: "Oceans",
-			titlefr: "Océans",
-			titlesp: "Océanos",
 			url: "/app/tabs/ocean-list",
 			icon: "water-outline",
 			menuIcon: "menuIconOceans",
 		},
 		{
 			title: "Favourites",
-			titlefr: "Favoris",
-			titlesp: "Favoritas",
 			url: "/app/tabs/favourites",
 			icon: "heart-outline",
 			menuIcon: "menuIconFavourites",
 		},
 		{
 			title: "About",
-			titlefr: "Sur cette app",
-			titlesp: "Sobre esta app",
 			url: "/app/tabs/about",
 			icon: "information-circle-outline",
 			menuIcon: "menuIconAbout",
@@ -67,7 +57,6 @@ export class AppComponent {
 		private splashScreen: SplashScreen,
 		private statusBar: StatusBar,
 		public themeService: ThemeService,
-		private languageService: LanguageService,
 		private storageService: StorageService
 	) {
 		this.initializeApp();
@@ -77,8 +66,7 @@ export class AppComponent {
 		this.platform.ready().then(() => {
 			this.statusBar.styleDefault();
 			this.splashScreen.hide();
-			this.languageService.setInitialAppLanguage();
-			this.darkStartMode();
+			// this.darkStartMode();
 		});
 	}
 
@@ -89,11 +77,6 @@ export class AppComponent {
 				? this.themeService.enableDark()
 				: this.themeService.enableLight();
 		});
-	}
-
-	languageChange() {
-		console.log('language change..')
-		this.languageService.setLanguage(this.language);
 	}
 
 	onSidenavClose = () => {

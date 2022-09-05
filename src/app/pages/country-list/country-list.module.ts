@@ -5,8 +5,6 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { IonicModule } from "@ionic/angular";
 
-import { TranslateModule } from "@ngx-translate/core";
-
 import { CountryListPage } from "./country-list.page";
 import { ComponentsModule } from "../../components/components.module";
 
@@ -25,7 +23,6 @@ const routes: Routes = [
 		FormsModule,
 		IonicModule,
 		RouterModule.forChild(routes),
-		TranslateModule,
 		ComponentsModule,
 	],
 	declarations: [CountryListPage, PopoverPage],

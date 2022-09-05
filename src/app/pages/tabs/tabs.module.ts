@@ -10,9 +10,6 @@ import { AboutPageModule } from "../about/about.module";
 import { CountryListPageModule } from "../country-list/country-list.module";
 import { OceanListPageModule } from "../ocean-list/ocean-list.module";
 
-// ngx node modules
-import { TranslateModule } from "@ngx-translate/core";
-
 @NgModule({
 	imports: [
 		AboutPageModule,
@@ -23,7 +20,6 @@ import { TranslateModule } from "@ngx-translate/core";
 		FormsModule,
 		IonicModule,
 		TabsPageRoutingModule,
-		TranslateModule,
 	],
 	declarations: [TabsPage],
 })

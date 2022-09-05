@@ -4,9 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 
-// ngx node modules
-import { TranslateModule } from "@ngx-translate/core";
-
 // Component & pipe modules
 import { PopoverPage } from "./favourites-popover/favourites-popover";
 import { FavouritesPage } from "./favourites.page";
@@ -24,7 +21,6 @@ const routes: Routes = [
 		CommonModule,
 		FormsModule,
 		IonicModule,
-		TranslateModule,
 		RouterModule.forChild(routes),
 		ComponentsModule,
 	],

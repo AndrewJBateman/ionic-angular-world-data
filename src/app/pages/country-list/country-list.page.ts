@@ -7,7 +7,7 @@ import { RestApiService } from "./../../services/rest-api.service";
 import { PopoverPage } from "../country-popover/country-popover";
 import {
   CountryListInterface,
-  CountryDetailInterface
+  CountryDetailInterface,
 } from "../../interfaces/interface";
 
 @Component({
@@ -60,7 +60,7 @@ export class CountryListPage implements OnInit {
     const countryToSearch = country.name.common;
     this.restApiService.fetchCountryDetailData(countryToSearch).subscribe(
       // (data: CountryDetailInterface[]) => {
-        (data: any) => {
+      (data: any) => {
         this.country = data[0];
         this.countryName = data[0].name["common"];
       },
@@ -96,7 +96,9 @@ export class CountryListPage implements OnInit {
     this.searchItems =
       query.length > 0 && regExp.test(query)
         ? this.searchItems.filter((item: any) => {
-            return item.name.common.toString().toLowerCase().indexOf(query) > -1;
+            return (
+              item.name.common.toString().toLowerCase().indexOf(query) > -1
+            );
           })
         : this.countries;
   }

@@ -14,13 +14,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { IonicStorageModule } from "@ionic/storage-angular";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-
-// exported translations loader function that fetches JSON files from the assets folder
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, "assets/i18n/", ".json");
-}
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,14 +26,6 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),
-    TranslateModule.forRoot({
-      defaultLanguage: "en",
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient],
-      },
-    }),
   ],
   providers: [
     StatusBar,

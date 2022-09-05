@@ -31,13 +31,13 @@
 				placeholder="Continent"
 				[(ngModel)]="continent"
 				(ionChange)="getContinentData($event)"
-				cancelText="{{ 'COUNTRIES.cancel' | translate }}"
+				cancelText="Cancel"
 			>
 				<ion-select-option
 					*ngFor="let continent of continents"
 					value="{{ continent }}"
 				>
-					{{ continent | translate }}
+					{{ continent }}
 				</ion-select-option>
 			</ion-select>
 
@@ -63,7 +63,7 @@
 					(ionChange)="filterItems($event)"
 					(ionCancel)="onCancel()"
 					color="primary"
-					placeholder="{{ 'COUNTRIES.enter-country' | translate }}"
+					placeholder="Enter country name..."
 				>
 				</ion-searchbar>
 			</ion-col>

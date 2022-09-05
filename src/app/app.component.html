@@ -4,7 +4,7 @@
     <ion-menu contentId="menu-content">
       <ion-header class="menu-header">
         <ion-toolbar color="primary">
-          <ion-title>{{ "MENU.title" | translate }}</ion-title>
+          <ion-title>{{ "MENU.title" }}</ion-title>
         </ion-toolbar>
       </ion-header>
 
@@ -21,14 +21,8 @@
               (click)="onSidenavClose()"
             >
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label *ngIf="language === 'en'">
+              <ion-label>
                 {{ p.title }}
-              </ion-label>
-              <ion-label *ngIf="language === 'fr'">
-                {{ p.titlefr }}
-              </ion-label>
-              <ion-label *ngIf="language === 'es'">
-                {{ p.titlesp }}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
@@ -37,7 +31,7 @@
         <ion-list>
           <ion-item>
             <ion-icon name="contrast" slot="start"></ion-icon>
-            <ion-label>{{ "MENU.Label-darkMode" | translate }}</ion-label>
+            <ion-label>Darkmode</ion-label>
             <ion-toggle
               [(ngModel)]="darkMode"
               slot="end"
@@ -45,26 +39,6 @@
               (ionChange)="themeService.changeThemeMode($event)"
             >
             </ion-toggle>
-          </ion-item>
-
-          <ion-item>
-            <ion-icon name="language-outline" slot="start"></ion-icon>
-            <ion-label>{{ "MENU.Label-language" | translate }}</ion-label>
-            <ion-select
-              #Language
-              [(ngModel)]="language"
-              (ionChange)="languageChange()"
-            >
-              <ion-select-option option value="en" selected>{{
-                "MENU.LangOption-English" | translate
-              }}</ion-select-option>
-              <ion-select-option option value="sp">{{
-                "MENU.LangOption-Spanish" | translate
-              }}</ion-select-option>
-              <ion-select-option option value="fr">{{
-                "MENU.LangOption-French" | translate
-              }}</ion-select-option>
-            </ion-select>
           </ion-item>
         </ion-list>
       </ion-content>
