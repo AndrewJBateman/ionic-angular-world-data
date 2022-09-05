@@ -29,25 +29,24 @@ export class PopoverPage implements OnInit {
 		private popoverCtrl: PopoverController
 	) {}
 
-	ngOnInit() {
+	ngOnInit(): void {
 		this.country = this.navParams.get("country");
 		this.countryName = this.country.name;
 	}
 
-	moreInfo() {
+	moreInfo(): void {
 		const countryToSearch = this.country.name.common;
 		const url = `https://en.wikipedia.org/wiki/${countryToSearch}`;
 		window.open(url, "_blank");
 		this.popoverCtrl.dismiss();
 	}
 
-	openUrl(url: string) {
-		console.log("openUrl function clicked");
+	openUrl(url: string): void {
 		window.open(url, "_blank");
 		this.popoverCtrl.dismiss();
 	}
 
-	closePopover() {
+	closePopover(): void {
 		this.popoverCtrl.dismiss();
 	}
 }
