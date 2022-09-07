@@ -1,88 +1,81 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage-angular";
-import { ToastController } from "@ionic/angular";
+import { Country } from "../interfaces/interface";
 
 @Injectable({
-	providedIn: "root",
+  providedIn: "root",
 })
-export class StorageService implements OnInit {
-	constructor(private storage: Storage, private toastContr: ToastController) {}
+export class StorageService {
+  private _storage: Storage | null = null;
+  countries: Country[] = [];
 
-	async ngOnInit() {
-    await this.storage.create();
-		this.storage.clear();
-		// this.loadFavourites();
-	}
+  constructor(private storage: Storage) {
+    this.initStorage();
+    this.loadFavourites();
+  }
 
-	storeData(key: string, value: string | boolean) {
-		try {
-			this.storage.set(key, value);
-			// const result: string = await this.storage.get(key);
-			// return true;
-		} catch (err) {
-			alert("Error storing data: " + err);
-			// return false;
-		}
-	}
+  // initialise storage DB
+  async initStorage() {
+    let storage = await this.storage.create();
+    this._storage = storage;
+  }
 
-	async getStoredData(key: string) {
-		try {
-			return this.storage.get(key);
-		} catch (err) {
-			alert("Error getting stored data: " + err);
-			return null;
-		}
-	}
+  storeData(key: string, value: string | boolean): void {
+    try {
+      this._storage?.set(key, value);
+    } catch (err) {
+      alert("Error storing data: " + err);
+    }
+  }
 
-	// storeCountryCode(checkedCountryCode) {
-	// 	this.storage.set('userCountry', checkedCountryCode);
-	// }
+  async getStoredData(key: string) {
+    try {
+      return this._storage.get(key);
+    } catch (err) {
+      alert("Error getting stored data: " + err);
+      return null;
+    }
+  }
 
-	// addToFavourites(article: Article) {
-	//   !this.isFavourite(article)
-	//     ? this.storeArticle(article)
-	//     : console.log("article already exists in storage");
-	// }
+  // check if country to be added to favourites is already in stored data
+  // if not add new country to beginning of country array then store updated array
+  async storeCountry(country: Country): Promise<Boolean> {
+    let exists = false;
 
-	// add new article to beginning of array so in date order. Add array to storage.
-	// storeArticle(article: Article) {
-	//   console.log("news array: ", this.news);
-	//   this.news.unshift(article);
-	//   console.log("article added to news array: ", this.news);
-	//   this.storage.set("favourites", this.news);
-	//   this.storeData("favourites", JSON.stringify(this.news));
-	//   this.presentToast("Article added to favourites");
-	// }
-	// remove article from news array and storage.
-	// removeFromFavourites(article: Article) {
-	//   this.news = this.news.filter((data) => data.title !== article.title);
-	//   this.storeData("favourites", JSON.stringify(this.news));
+    for (const countr of this.countries) {
+      if (countr.name === country.name) {
+        exists = true;
+        break;
+      }
+    }
 
-	//   console.log("article removed from news array: ", this.news);
-	//   this.presentToast("Article deleted from favourites");
-	// }
+    // if country already exists in favourites then filter it out
+    // else add country to favourites then store updated favourites array
+    if (exists) {
+      this.countries = this.countries.filter(
+        (countr) => countr.name == country.name
+      );
+    } else {
+      this.countries.unshift(country);
+    }
 
-	// use indexOf to test if article exists in favourites array or not.
-	// isFavourite(article: Article) {
-	//   return this.news.indexOf(article) !== -1;
-	// }
+    this._storage.set("favourites", this.countries);
+    console.log("storage was set with: ", this.countries);
+    return !exists;
+  }
 
-	async presentToast(message: string) {
-		const toast = await this.toastContr.create({
-			message,
-			position: "middle",
-			duration: 2000,
-		});
-		toast.present();
-	}
+  // load array of countries from storage to list on favourites page.
+  async loadFavourites(): Promise<Country[] | []> {
+    const storedCountries = await this.storage.get("countries");
+    this.countries = storedCountries || [];
+    return this.countries;
+  }
 
-	// get array of articles from storage to list on favourites page.
-	// async loadFavourites() {
-	//   const favourites = await this.storage.get("favourites");
-	//   console.log("favourites in storage: ", favourites);
-
-	//   if (favourites) {
-	//     this.news = favourites;
-	//   }
-	// }
+  // return true if country is in favourites, otherwise false
+  async countryInFavourites(countryName: string): Promise<Boolean> {
+    await this.loadFavourites();
+    const exists = this.countries.find((countr) => countr.name === countryName);
+    console.log("exists: ", exists);
+    return exists ? true : false;
+  }
 }

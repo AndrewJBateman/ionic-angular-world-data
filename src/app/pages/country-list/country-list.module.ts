@@ -9,6 +9,7 @@ import { CountryListPage } from "./country-list.page";
 import { ComponentsModule } from "../../components/components.module";
 
 import { PopoverPage } from "../country-popover/country-popover";
+import { StorageService } from "src/app/services/storage.service";
 
 const routes: Routes = [
 	{
@@ -23,9 +24,10 @@ const routes: Routes = [
 		FormsModule,
 		IonicModule,
 		RouterModule.forChild(routes),
-		ComponentsModule,
+		ComponentsModule
 	],
 	declarations: [CountryListPage, PopoverPage],
 	entryComponents: [PopoverPage],
+	providers: [StorageService]
 })
 export class CountryListPageModule {}
