@@ -3,35 +3,46 @@ import { Component, OnInit } from "@angular/core";
 
 import { PopoverController } from "@ionic/angular";
 import { PopoverPage } from "./favourites-popover/favourites-popover";
+import { Country } from "src/app/interfaces/interface";
+import { StorageService } from "src/app/services/storage.service";
 
 @Component({
-	selector: "app-favourites",
-	templateUrl: "./favourites.page.html",
-	styleUrls: ["./favourites.page.scss"],
+  selector: "app-favourites",
+  templateUrl: "./favourites.page.html",
+  styleUrls: ["./favourites.page.scss"],
 })
 export class FavouritesPage implements OnInit {
-	countryList = [];
-	sliderOptions = {
-		allowSlidePrev: false,
-		allowSlideNext: false,
-	};
+  loadingInfo = false;
+  countries: Country[] = [];
+  sliderOptions = {
+    allowSlidePrev: false,
+    allowSlideNext: false,
+  };
 
-	constructor(
-		private loadingCtrl: LoadingController,
-		public popoverCtrl: PopoverController
-	) {}
+  constructor(
+    private loadingCtrl: LoadingController,
+    public popoverCtrl: PopoverController,
+    private storage: StorageService
+  ) {}
 
-	async presentPopover(event: any) {
-		const popover = await this.popoverCtrl.create({
-			component: PopoverPage,
-			event,
-		});
-		await popover.present();
-	}
+  async presentPopover(event: any) {
+    const popover = await this.popoverCtrl.create({
+      component: PopoverPage,
+      event,
+    });
+    await popover.present();
+  }
 
-	ngOnInit() {}
+  ngOnInit() {
+    this.loadingInfo = true;
+    this.getFavourites();
+    this.loadingInfo = false;
+  }
 
-	onRemoveFavourite() {}
+  async getFavourites(): Promise<void> {
+    this.countries = await this.storage.loadFavourites();
+		console.log('length:', this.countries.length)
+  }
 
-	onClearAll() {}
+  onRemoveFavourite() {}
 }

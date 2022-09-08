@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { CommonModule, Location } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
@@ -26,5 +26,6 @@ const routes: Routes = [
 	],
 	declarations: [FavouritesPage, PopoverPage],
 	entryComponents: [PopoverPage],
+	providers: [Location]
 })
 export class FavouritesPageModule {}

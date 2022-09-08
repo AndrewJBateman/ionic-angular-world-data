@@ -22,7 +22,7 @@ export class StorageService {
 
   storeData(key: string, value: string | boolean): void {
     try {
-      this._storage?.set(key, value);
+      this.storage?.set(key, value);
     } catch (err) {
       alert("Error storing data: " + err);
     }
@@ -30,20 +30,28 @@ export class StorageService {
 
   async getStoredData(key: string) {
     try {
-      return this._storage.get(key);
+      return this.storage.get(key);
     } catch (err) {
       alert("Error getting stored data: " + err);
       return null;
     }
   }
 
+  async clearStoredData(key: string) {
+    try {
+      return this.storage.remove(key);
+    } catch (err) {
+      alert("Error clearing stored data: " + err);
+      return null;
+    }
+  }
+
   // check if country to be added to favourites is already in stored data
   // if not add new country to beginning of country array then store updated array
-  async storeCountry(country: Country): Promise<Boolean> {
+  async toggleCountryStore(country: Country): Promise<Boolean> {
     let exists = false;
-
     for (const countr of this.countries) {
-      if (countr.name === country.name) {
+      if (countr.name["common"] === country.name["common"]) {
         exists = true;
         break;
       }
@@ -51,22 +59,19 @@ export class StorageService {
 
     // if country already exists in favourites then filter it out
     // else add country to favourites then store updated favourites array
-    if (exists) {
-      this.countries = this.countries.filter(
-        (countr) => countr.name == country.name
-      );
-    } else {
-      this.countries.unshift(country);
-    }
+    exists
+      ? (this.countries = this.countries.filter(
+          (countr) => countr.name["common"] !== country.name["common"]
+        ))
+      : this.countries.unshift(country);
 
-    this._storage.set("favourites", this.countries);
-    console.log("storage was set with: ", this.countries);
+    this.storage.set("favourites", this.countries);
     return !exists;
   }
 
   // load array of countries from storage to list on favourites page.
   async loadFavourites(): Promise<Country[] | []> {
-    const storedCountries = await this.storage.get("countries");
+    const storedCountries = await this.storage.get("favourites");
     this.countries = storedCountries || [];
     return this.countries;
   }
@@ -74,8 +79,9 @@ export class StorageService {
   // return true if country is in favourites, otherwise false
   async countryInFavourites(countryName: string): Promise<Boolean> {
     await this.loadFavourites();
-    const exists = this.countries.find((countr) => countr.name === countryName);
-    console.log("exists: ", exists);
+    const exists = this.countries.find(
+      (countr) => countr.name["common"] === countryName
+    );
     return exists ? true : false;
   }
 }
