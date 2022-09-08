@@ -50,7 +50,7 @@ export interface CountryDetailInterface {
   translations: { [key: string]: Translation };
   latlng:       number[];
   landlocked:   boolean;
-  borders:      string[];
+  borders:      string[] | null;
   area:         number;
   demonyms:     Demonyms;
   flag:         string;
