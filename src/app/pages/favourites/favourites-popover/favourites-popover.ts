@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { PopoverController } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
@@ -6,10 +6,13 @@ import { StorageService } from "src/app/services/storage.service";
 @Component({
   template: `
     <ion-list>
-      <ion-item button (click)="onClearFavourites()">
+      <ion-item
+        button
+        (click)="onDeleteAllFavourites()"
+      >
         <ion-label>
-          <ion-icon name="trash" size="large" color="secondary"></ion-icon>
-          Clear favourites
+          <ion-icon name="trash" size="large" color="danger"></ion-icon>
+          Delete all favourites
         </ion-label>
       </ion-item>
     </ion-list>
@@ -21,13 +24,13 @@ export class PopoverPage {
   constructor(
     public popoverCtrl: PopoverController,
     private storage: StorageService,
-		private router: Router
+    private router: Router
   ) {}
 
-  onClearFavourites() {
+  onDeleteAllFavourites() {
     this.storage.clearStoredData("favourites");
-		this.popoverCtrl.dismiss();
-		this.router.navigate(["/app/tabs/country-list"])
+    this.popoverCtrl.dismiss();
+    this.router.navigate(["/app/tabs/country-list"]);
   }
 
   openUrl(url: string) {

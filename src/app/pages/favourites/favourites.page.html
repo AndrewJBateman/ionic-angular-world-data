@@ -31,23 +31,29 @@
         offset-sm="2"
         class="ion-no-padding"
       >
-        <!--ion-card displays if favourites-->
-        <ng-container *ngIf="!loadingInfo && countries.length > 0; else noCountries">
-          <div *ngFor="let item of countries" style="padding: 2px 0">
+        <ng-container
+          *ngIf="!loadingInfo && countries.length > 0; else noCountries"
+        >
+          <!--display list of favourite countries-->
+          <div *ngFor="let country of countries" style="padding: 2px 0">
             <app-country-item
-              [country]="item"
-              (click)="onShowCountryDetail(item)"
+              *ngIf="!countryChosen"
+              [country]="country"
+              (click)="onShowCountryDetail()"
             >
             </app-country-item>
+            <!--display chosen country-->
+            <app-detail-item *ngIf="countryChosen" [country]="country">
+            </app-detail-item>
             <!-- <ion-item-options>
-                    <ion-item-option color="danger" (click)="onRemoveFavourite()">
-                      <ion-icon name="heart-dislike" slot="icon-only"></ion-icon>
-                    </ion-item-option>
-                  </ion-item-options> -->
+                      <ion-item-option color="danger" (click)="onRemoveFavourite()">
+                        <ion-icon name="heart-dislike" slot="icon-only"></ion-icon>
+                      </ion-item-option>
+                    </ion-item-options> -->
           </div>
         </ng-container>
 
-        <!--list of countries-->
+        <!--if no favourites, show this card-->
         <ng-template #noCountries>
           <ion-card>
             <div class="image-div">
