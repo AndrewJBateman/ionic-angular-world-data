@@ -4,24 +4,7 @@ import { PopoverController } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
 
 @Component({
-  template: `
-    <ion-item button (click)="onClickForInfo()">
-      <ion-label>
-        <ion-icon
-          name="information-circle"
-          size="large"
-          color="primary"
-        ></ion-icon>
-        More info.
-      </ion-label>
-    </ion-item>
-    <ion-item button (click)="onUpdateFavourites()">
-      <ion-label>
-        <ion-icon [name]="favourite" size="large" color="danger"></ion-icon>
-        Favourite
-      </ion-label>
-    </ion-item>
-  `,
+  templateUrl: "./country-popover.html",
   styleUrls: ["./country-popover.scss"],
 })
 export class PopoverPage implements OnInit {
@@ -42,16 +25,18 @@ export class PopoverPage implements OnInit {
 
   ngOnInit(): void {
     this.country = this.navParams.get("country");
-    this.countryName = this.country.name;
+    this.countryName = this.country.name["common"];
 
-    this.storage.countryInFavourites(this.countryName).then(
-      (inFavourites: Boolean) =>
-        (this.favourite = inFavourites ? "heart" : "heart-outline")
-
-      // this.favouritesText = inFavourites
-      //   ? "Remove from Favourites"
-      //   : "Add to Favourites";
-    );
+    this.storage
+      .countryInFavourites(this.countryName)
+      .then(
+        (inFavourites: Boolean) => (
+          (this.favourite = inFavourites ? "heart" : "heart-outline"),
+          (this.favouritesText = inFavourites
+            ? "Remove from favourites"
+            : "Add to favourites")
+        )
+      );
   }
 
   async presentToast(message: string) {
@@ -72,12 +57,12 @@ export class PopoverPage implements OnInit {
 
   async onUpdateFavourites(): Promise<void> {
     let message = "";
-    const exists = await this.storage.storeCountry(this.country);
-    console.log("exists: ", exists);
+    const exists = await this.storage.toggleCountryStore(this.country);
     message = exists
       ? "Country added to favourites"
       : "Country removed from favourites";
     this.favourite = exists ? "heart" : "heart-outline";
+    this.favouritesText = exists ? "Remove from favourites" : "Add to favourites";
     this.presentToast(message);
   }
 
@@ -86,7 +71,7 @@ export class PopoverPage implements OnInit {
     this.popoverCtrl.dismiss();
   }
 
-  closePopover(): void {
+  onClosePopover(event: Event): void {
     this.popoverCtrl.dismiss();
   }
 }

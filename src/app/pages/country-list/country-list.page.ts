@@ -26,8 +26,8 @@ export class CountryListPage implements OnInit {
   continents = ["all", "Africa", "Americas", "Asia", "Europe", "Oceania"];
   fullList = [];
   searchTerm: "";
-  countries: any;
-  public country: any;
+  countries: CountryListInterface[] = [];
+  public country: CountryDetailInterface;
   public continent: string;
   arrayLength: any;
   searchItems: any;
@@ -54,7 +54,7 @@ export class CountryListPage implements OnInit {
   };
 
   // fetch country detail
-  getCountryDetail(country: any) {
+  onShowCountryDetail(country: any) {
     this.loadingInfo = true;
     this.countryChosen = true;
     const countryToSearch = country.name.common;
