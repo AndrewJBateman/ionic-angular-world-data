@@ -1,50 +1,59 @@
-/// <reference types="@types/googlemaps" />
 import {
-	Component,
-	AfterViewInit,
-	ViewChild,
-	ElementRef,
-	OnChanges,
-	Input,
+  Component,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  OnChanges,
+  Input,
+  OnDestroy,
 } from "@angular/core";
+import * as Leaflet from "leaflet";
 import { ActivatedRoute, Router, Params } from "@angular/router";
-declare let google: any;
 
 @Component({
-	selector: "app-map",
-	templateUrl: "./map.page.html",
-	styleUrls: ["./map.page.scss"],
+  selector: "app-map",
+  templateUrl: "./map.page.html",
+  styleUrls: ["./map.page.scss"],
 })
-export class MapPage implements AfterViewInit {
-	countryName: string;
-	queryParams: Params;
-	@ViewChild("mapContainer", { static: false }) gmap: ElementRef;
-	map: google.maps.Map;
+export class MapPage implements OnDestroy {
+  countryName: string;
+  queryParams: Params;
+  map: Leaflet.Map;
 
-	constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
-	ngAfterViewInit() {
-		this.initMap();
-	}
+  getMapView() {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.queryParams = params;
+      this.countryName = this.queryParams.countryName;
+      console.log(
+        "coords: ",
+        this.queryParams.countryLat,
+        this.queryParams.countryLng
+      );
+      this.leafletMap(this.queryParams.countryLat, this.queryParams.countryLng);
+    });
+  }
 
-	initMap = () => {
-		this.activatedRoute.queryParams.subscribe((params) => {
-			this.queryParams = params;
-			this.countryName = this.queryParams.countryName;
-			const coordinates = new google.maps.LatLng(
-				this.queryParams.countryLat,
-				this.queryParams.countryLng
-			);
-			const mapOptions: google.maps.MapOptions = {
-				center: coordinates,
-				zoom: 5,
-			};
-			const marker = new google.maps.Marker({
-				position: coordinates,
-				map: this.map,
-			});
-			this.map = new google.maps.Map(this.gmap.nativeElement, mapOptions);
-			marker.setMap(this.map);
-		});
-	}
+  ionViewDidEnter() {
+    {
+      this.getMapView();
+    }
+  }
+
+  leafletMap(lat, lng) {
+    this.map = Leaflet.map("map", {
+      center: [lat, lng],
+      zoom: 5,
+    });
+
+    Leaflet.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "OpenStreetMap.org",
+    }).addTo(this.map);
+  }
+
+  ngOnDestroy() {
+    this.map.off();
+    this.map.remove();
+  }
 }

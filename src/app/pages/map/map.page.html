@@ -1,13 +1,13 @@
-	<ion-header>
+<ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-			<ion-menu-button></ion-menu-button>
-			<ion-button routerLink="" routerDirection="back">
+      <ion-menu-button></ion-menu-button>
+      <ion-button routerLink="" routerDirection="back">
         <ion-icon name="arrow-back-circle-outline" class="list-back-arrow">
         </ion-icon>
       </ion-button>
-		</ion-buttons>
-		
+    </ion-buttons>
+
     <!-- <ion-title class="ion-text-center">
 			<ion-icon
 				class="icon"
@@ -15,20 +15,19 @@
 				size="large">
 			</ion-icon>
 		</ion-title> -->
-		
-		<ion-title class="ion-text-center">
-			<h4 class="toolbar-header">{{ countryName | uppercase }}</h4>
-		</ion-title>
-    
-		<ion-buttons slot="end">
-			<ion-button>
-    		<ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+
+    <ion-title class="ion-text-center">
+      <h6 class="toolbar-header">{{ countryName | uppercase }}</h6>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
       </ion-button>
-		</ion-buttons>
-		
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-	<div #mapContainer id="map"></div>
+<ion-content [fullscreen]="true">
+  <div id="map"></div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { NavParams, NavController, ToastController } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
@@ -19,6 +20,7 @@ export class PopoverPage implements OnInit {
     public navCtrl: NavController,
     private navParams: NavParams,
     private popoverCtrl: PopoverController,
+    private router: Router,
     private storage: StorageService,
     public toastCtrl: ToastController
   ) {}
@@ -64,6 +66,16 @@ export class PopoverPage implements OnInit {
     this.favourite = exists ? "heart" : "heart-outline";
     this.favouritesText = exists ? "Remove from favourites" : "Add to favourites";
     this.presentToast(message);
+  }
+
+  onClickForMap(event: any) {
+    this.router.navigate(["app/tabs/map"], {
+      queryParams: {
+        countryName: this.countryName,
+        countryLat: this.country.latlng[0],
+        countryLng: this.country.latlng[1],
+      },
+    });
   }
 
   openUrl(url: string): void {

@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": ["googlemaps"]
+    "types": []
   },
   "exclude": [
     "test.ts",
