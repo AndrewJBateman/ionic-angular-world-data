@@ -1,0 +1,11 @@
+<ion-list *ngIf="!countryChosen">
+  <ion-item button (click)="onDeleteAllFavourites()">
+    <ion-label>
+      <ion-icon name="trash" size="large" color="danger"></ion-icon>
+      Delete all
+    </ion-label>
+  </ion-item>
+  <ion-button expand="full" color="secondary" (click)="onClosePopover($event)"
+    >Close</ion-button
+  >
+</ion-list>

@@ -4,22 +4,11 @@ import { PopoverController } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
 
 @Component({
-  template: `
-    <ion-list>
-      <ion-item
-        button
-        (click)="onDeleteAllFavourites()"
-      >
-        <ion-label>
-          <ion-icon name="trash" size="large" color="danger"></ion-icon>
-          Delete all favourites
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  `,
+  templateUrl: "./favourites-popover.html",
   styleUrls: ["./favourites-popover.scss"],
 })
 export class PopoverPage {
+  @Input() countryChosen: Boolean;
 
   constructor(
     public popoverCtrl: PopoverController,
@@ -36,6 +25,10 @@ export class PopoverPage {
   openUrl(url: string) {
     console.log("openUrl function clicked");
     window.open(url, "_blank");
+    this.popoverCtrl.dismiss();
+  }
+
+  onClosePopover(event: Event): void {
     this.popoverCtrl.dismiss();
   }
 }

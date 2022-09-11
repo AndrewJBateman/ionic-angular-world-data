@@ -8,7 +8,7 @@
       <ion-icon class="icon" name="heart" size="large"> </ion-icon>
     </ion-title>
 
-    <ion-buttons slot="end" *ngIf="countries.length > 0">
+    <ion-buttons slot="end" *ngIf="countries.length > 0 && !countryChosen">
       <ion-button (click)="presentPopover($event)">
         <ion-icon
           class="popover-icon"
