@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage-angular";
-import { Country } from "../interfaces/interface";
+import { CountryDetailInterface } from "../interfaces/interface";
 
 @Injectable({
   providedIn: "root",
 })
 export class StorageService {
   private _storage: Storage | null = null;
-  countries: Country[] = [];
+  countries: CountryDetailInterface[] = [];
 
   constructor(private storage: Storage) {
     this.initStorage();
@@ -48,7 +48,7 @@ export class StorageService {
 
   // check if country to be added to favourites is already in stored data
   // if not add new country to beginning of country array then store updated array
-  async toggleCountryStore(country: Country): Promise<Boolean> {
+  async toggleCountryStore(country: CountryDetailInterface): Promise<Boolean> {
     let exists = false;
     for (const countr of this.countries) {
       if (countr.name["common"] === country.name["common"]) {
@@ -70,7 +70,7 @@ export class StorageService {
   }
 
   // load array of countries from storage to list on favourites page.
-  async loadFavourites(): Promise<Country[] | []> {
+  async loadFavourites(): Promise<CountryDetailInterface[] | []> {
     const storedCountries = await this.storage.get("favourites");
     this.countries = storedCountries || [];
     return this.countries;

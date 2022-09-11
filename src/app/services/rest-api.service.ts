@@ -26,7 +26,9 @@ export class RestApiService {
     );
   }
 
-  fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
+  fetchCountryDetailData(
+    country: string
+  ): Observable<CountryDetailInterface[]> {
     return this.httpClient
       .get<CountryDetailInterface[]>(`${apiUrl}/name/${country}?fullText=true`)
       .pipe(

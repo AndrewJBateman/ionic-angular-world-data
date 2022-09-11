@@ -1,10 +1,6 @@
 <ion-item button (click)="onClickForInfo()">
   <ion-label>
-    <ion-icon
-      name="information-circle"
-      size="large"
-      color="primary"
-    ></ion-icon>
+    <ion-icon name="information-circle" size="large" color="primary"></ion-icon>
     More info.
   </ion-label>
 </ion-item>
@@ -14,4 +10,6 @@
     {{ favouritesText }}
   </ion-label>
 </ion-item>
-<ion-button expand="full" color="secondary" (click)="onClosePopover($event)">Close</ion-button>
+<ion-button expand="full" color="secondary" (click)="onClosePopover($event)"
+  >Close</ion-button
+>
