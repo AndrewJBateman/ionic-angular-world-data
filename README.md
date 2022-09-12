@@ -1,6 +1,6 @@
 # :zap: Ionic Country Data
 
-* Ionic app that displays data about countries and oceans from the [Rest Countries](https://restcountries.com/) API, a [Google Maps](https://cloud.google.com/maps-platform/maps/) API and a local json file.
+* Ionic app that displays data about countries and oceans from the [Rest Countries](https://restcountries.com/) API, Leaflet maps and a local JSON file.
 **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/ionic-angular-world-data?style=plastic)
@@ -28,8 +28,7 @@
 ## :books: General info
 
 * The [Rest Countries API v3](https://restcountries.com/) has a number of endpoints that can be used to search for info. I have used the endpoints: `All?fields=name,capital,region,flags`, Name & Region. The [API Response Example](https://restcountries.com/#api-endpoints-response-example) was useful to create my http interface class.
-* The [Google Maps](https://cloud.google.com/maps-platform/maps/) API displays an interactive map of the chosen country that the user can zoom in and out of.
-* Built using the [Ionic 5 framework](https://ionicframework.com/docs)
+* [Leaflet maps](https://leafletjs.com/) displays a map of the chosen country that the user can zoom in and out of.
 * [Angular KeyValuePipe](https://angular.io/api/common/KeyValuePipe) used to extract values from key-value pairs
 
 ## :camera: Screenshots
@@ -57,16 +56,15 @@
 ## :signal_strength: Technologies
 
 * [Ionic v6](https://ionicframework.com/)
-* [Angular v13](https://angular.io/)
+* [Angular v14](https://angular.io/)
 * [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v3](https://restcountries.com/) - v3 has a lot of breaking changes from v2
-* [Google Maps API](https://developers.google.com/chart/interactive/docs/gallery/map)
+* [Leaflet maps](https://leafletjs.com/) JS library of maps
 * [Ionic 5 open source Ionicons](https://ionicons.com/)
 
 ## :floppy_disk: Setup
 
 * Run `npm i` to install dependencies
-* Get yourself an API key for Google Cloud Maps API and add to `index.html` file
 * `ionic serve` to start the server on _localhost://8100_ type
 * To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
@@ -77,7 +75,7 @@
 * service function to fetch API country details, from `rest-api.service.ts` using the take(1) method so unsubscribing from the observable is not necessary.
 
 ```typescript
-fetchCountryDetailData(country: string) {
+fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
   return this.httpClient
     .get<CountryDetailInterface[]>(`${apiUrl}/name/${country}?fullText=true`)
     .pipe(
@@ -97,48 +95,36 @@ fetchCountryDetailData(country: string) {
 * **RxJS Observables** used to extract data asynchronously.
 * **Dark mode** switch on menu.
 * **Offline Storage**  (future) of favourite countries/oceans using Ionic Storage.
-* **Localisation using i18n** so user can select between English (default), Spanish and French.
 * **ion-grid** with fixed column size used so country content data will display ok even on a PC.
 * **search** function to search for country name with regex to only allow letters in search text.
 
 ## General/Navigation/Pages
 
-* **General:** i18n Translation part-complete
-* **TODO:**
-* Correct language check so it does revert to English when EN selected - use storage
+* **Nav side-bar:** countries, oceans, favorites, about, dark theme toggle.
 
-* **Nav side-bar:** countries, oceans, favorites, about, change language, dark theme toggle. Languages added.
-* **TODO** Add language for alert cancel?
-
-* **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country, generated using the Google Maps API.
+* **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country.
 * **TODO:**
-* Change from Google Maps to Leaflet
 * Make fab button stay inside div
 * add function (custom pipe) to insert ',' in area figures etc.
-* translate: popup continent names, card: capital region
 
 * **Oceans page** Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 
-* **Favourites** Shows an image with text below if there are no favourites
-**TODO**
-* Add code to store/clear favourites
+* **Favourites** Displays user favourites and popover allows them to be deleted. Shows an image with text below if there are no favourites
 
 * **About** Displays image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & author website contact page
 
 ## :clipboard: Status & To-do list
 
-* Status: Working, displays country list & country detail page etc. passes linting.
-* Fix favourites or replace. Fix linting, reduce API calls (use param?)
+* Status: Working
+* Add sliding single favourite delete. Fix linting, update rxjs, reduce API calls (use param?)
 
 ## :clipboard: To-do
 
-1. replace any types with models
-2. Dark theme - add storage
-3. Check translations
-4. Splash screen
-5. SqLite - use as default database?
-6. Lighthouse score?
-7. Run on simulator
+1. Dark theme - add storage
+2. Splash screen
+3. SqLite - use as default database?
+4. Lighthouse score?
+5. Run on simulator
 
 ## :clap: Inspiration
 
