@@ -9,6 +9,7 @@ import {
 } from "@angular/core";
 import * as Leaflet from "leaflet";
 import { ActivatedRoute, Router, Params } from "@angular/router";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-map",
@@ -16,32 +17,27 @@ import { ActivatedRoute, Router, Params } from "@angular/router";
   styleUrls: ["./map.page.scss"],
 })
 export class MapPage implements OnDestroy {
+  subscription: Subscription;
   countryName: string;
   queryParams: Params;
   map: Leaflet.Map;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
-  getMapView() {
-    this.activatedRoute.queryParams.subscribe((params) => {
+  loadMap() {
+    this.subscription = this.activatedRoute.queryParams.subscribe((params) => {
       this.queryParams = params;
-      this.countryName = this.queryParams.countryName;
-      console.log(
-        "coords: ",
-        this.queryParams.countryLat,
-        this.queryParams.countryLng
-      );
-      this.leafletMap(this.queryParams.countryLat, this.queryParams.countryLng);
+      this.countryName = this.queryParams.name;
+      console.log("coords: ", this.queryParams.lat, this.queryParams.lon);
+      this.leafletMap(this.queryParams.lat, this.queryParams.lon);
     });
   }
 
   ionViewDidEnter() {
-    {
-      this.getMapView();
-    }
+    this.loadMap();
   }
 
-  leafletMap(lat, lng) {
+  leafletMap(lat: number, lng: number) {
     this.map = Leaflet.map("map", {
       center: [lat, lng],
       zoom: 5,
@@ -52,7 +48,20 @@ export class MapPage implements OnDestroy {
     }).addTo(this.map);
   }
 
+  onGoBack() {
+    try {
+      this.subscription.unsubscribe();
+      this.map.off();
+      this.map.remove();
+    } catch (error) {
+      alert(error.message);
+    }
+    this.router.navigate(["app/tabs/country-list"]);
+  }
+
   ngOnDestroy() {
+    console.log("onDestroy");
+    this.subscription.unsubscribe();
     this.map.off();
     this.map.remove();
   }
