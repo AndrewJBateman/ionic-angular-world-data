@@ -121,9 +121,9 @@ export class CountryListPage implements OnInit {
   public openMap(event: any): void {
     this.router.navigate(["app/tabs/map"], {
       queryParams: {
-        countryName: this.countryName,
-        countryLat: this.country.latlng[0],
-        countryLng: this.country.latlng[1],
+        name: this.countryName,
+        lat: this.country.latlng[0],
+        lon: this.country.latlng[1],
       },
     });
   }

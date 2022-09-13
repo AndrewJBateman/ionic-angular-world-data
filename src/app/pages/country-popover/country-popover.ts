@@ -72,8 +72,8 @@ export class PopoverPage implements OnInit {
     this.router.navigate(["app/tabs/map"], {
       queryParams: {
         countryName: this.countryName,
-        countryLat: this.country.latlng[0],
-        countryLng: this.country.latlng[1],
+        lat: this.country.latlng[0],
+        lon: this.country.latlng[1],
       },
     });
   }
