@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
-import { catchError, take, tap } from "rxjs/operators";
+import { catchError, take } from "rxjs/operators";
 
 import {
   CountryListInterface,
@@ -18,7 +18,6 @@ export class RestApiService {
 
   fetchCountryListData(url: string): Observable<CountryListInterface[]> {
     return this.httpClient.get<CountryListInterface[]>(`${apiUrl}/${url}`).pipe(
-      // tap(data => console.log('data: ', data)),
       take(1),
       catchError((error) => {
         return throwError(() => console.log("Countries not found!", error));
@@ -32,7 +31,6 @@ export class RestApiService {
     return this.httpClient
       .get<CountryDetailInterface[]>(`${apiUrl}/name/${country}?fullText=true`)
       .pipe(
-        // tap((data) => console.log("data: ", data)),
         take(1),
         catchError((error) => {
           return throwError(() => console.log("Country not found!", error));
