@@ -29,7 +29,6 @@ export class CountryListPage implements OnInit {
   countries: CountryListInterface[] = [];
   public country: CountryDetailInterface;
   public continent: string;
-  arrayLength: any;
   searchItems: any;
 
   constructor(
@@ -46,53 +45,55 @@ export class CountryListPage implements OnInit {
   }
 
   // fetch full list of countries
-  getCountryList = async (url: string) => {
-    this.restApiService.fetchCountryListData(url).subscribe((data) => {
-      this.countries = data;
-      this.searchItems = this.countries;
-    });
+  getCountryList = async (url: string): Promise<any> => {
+    this.restApiService
+      .fetchCountryListData(url)
+      .subscribe((data: CountryListInterface[]) => {
+        this.countries = data;
+        this.searchItems = this.countries;
+      });
   };
 
   // fetch country detail
-  onShowCountryDetail(country: any) {
+  onShowCountryDetail(country: CountryListInterface): void {
     this.loadingInfo = true;
     this.countryChosen = true;
     const countryToSearch = country.name.common;
-    this.restApiService.fetchCountryDetailData(countryToSearch).subscribe(
-      // (data: CountryDetailInterface[]) => {
-      (data: any) => {
-        this.country = data[0];
-        this.countryName = data[0].name["common"];
+    this.restApiService.fetchCountryDetailData(countryToSearch).subscribe({
+      next: (value: CountryDetailInterface[]) => {
+        this.country = value[0];
+        console.log('country:', this.country)
+        this.countryName = value[0].name["common"];
       },
-      (error) => {
-        console.log("error fetching country detail info: ", error);
-      }
-    );
+      error: console.error,
+    });
     this.loadingInfo = false;
     this.content.scrollToTop(0);
   }
 
   // If user clicks on header back button then show country list
-  backToList(event: Event) {
+  backToList() {
     this.countryName = "";
     this.countryChosen = false;
   }
 
   // load country list data for continent selected by filtering list of countries by region
-  getContinentData(event: any) {
+  getContinentData(event: any): CountryListInterface[] {
     this.searchItems = this.countries; // reset list after each event
     return (this.searchItems =
       event.detail.value !== "all"
-        ? this.searchItems.filter((item) => {
+        ? this.searchItems.filter((item: CountryListInterface) => {
             return item.region.indexOf(event.detail.value) > -1;
           })
         : this.countries);
   }
 
   // filter array of country names to match search query (letters only using regex)
-  filterItems(event: any) {
+  filterItems(event: Event): void {
     const regExp = /^[a-zA-Z]*$/;
-    const query = event.target.value.toString().toLowerCase();
+    const element = event.target as HTMLInputElement;
+    const value = element.value;
+    const query = value.toString().toLowerCase();
     this.searchItems =
       query.length > 0 && regExp.test(query)
         ? this.searchItems.filter((item: any) => {
@@ -107,7 +108,7 @@ export class CountryListPage implements OnInit {
     this.query = null;
   }
 
-  async presentPopover(event: Event) {
+  async presentPopover(event: Event): Promise<void> {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
       componentProps: {
@@ -118,7 +119,7 @@ export class CountryListPage implements OnInit {
     await popover.present();
   }
 
-  public openMap(event: any): void {
+  public openMap(): void {
     this.router.navigate(["app/tabs/map"], {
       queryParams: {
         name: this.countryName,
