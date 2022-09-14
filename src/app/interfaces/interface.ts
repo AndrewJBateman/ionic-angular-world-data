@@ -53,7 +53,7 @@ export interface CountryDetailInterface {
   independent: boolean;
   landlocked: boolean;
   languages: Languages;
-  latlng: number[];
+  latlng: [number, number];
   maps: Maps;
   name: Name;
   population: number;
@@ -87,7 +87,7 @@ export interface Currency {
 }
 
 export interface Gini {
-  "2019": number;
+  "year": number;
 }
 
 export interface Idd {
