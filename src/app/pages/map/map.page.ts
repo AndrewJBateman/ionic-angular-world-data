@@ -28,7 +28,6 @@ export class MapPage implements OnDestroy {
     this.subscription = this.activatedRoute.queryParams.subscribe((params) => {
       this.queryParams = params;
       this.countryName = this.queryParams.name;
-      console.log("coords: ", this.queryParams.lat, this.queryParams.lon);
       this.leafletMap(this.queryParams.lat, this.queryParams.lon);
     });
   }
@@ -60,7 +59,6 @@ export class MapPage implements OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log("onDestroy");
     this.subscription.unsubscribe();
     this.map.off();
     this.map.remove();

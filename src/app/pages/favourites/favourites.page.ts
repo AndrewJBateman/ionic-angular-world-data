@@ -21,7 +21,7 @@ export class FavouritesPage implements OnInit {
     private storage: StorageService
   ) {}
 
-  async presentPopover(event: any) {
+  async presentPopover(event: any): Promise<void> {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
       event,
@@ -29,7 +29,7 @@ export class FavouritesPage implements OnInit {
     await popover.present();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadingInfo = true;
     this.getFavourites();
   }
@@ -39,7 +39,7 @@ export class FavouritesPage implements OnInit {
     this.loadingInfo = false;
   }
 
-  onShowCountryDetail() {
+  onShowCountryDetail(): void {
     this.countryChosen = true;
   }
 }

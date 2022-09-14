@@ -23,7 +23,6 @@ export class PopoverPage {
   }
 
   openUrl(url: string) {
-    console.log("openUrl function clicked");
     window.open(url, "_blank");
     this.popoverCtrl.dismiss();
   }
