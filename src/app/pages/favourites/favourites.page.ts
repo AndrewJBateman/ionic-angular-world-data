@@ -29,9 +29,9 @@ export class FavouritesPage implements OnInit {
     await popover.present();
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.loadingInfo = true;
-    this.getFavourites();
+    await this.getFavourites();
   }
 
   async getFavourites(): Promise<void> {
@@ -41,5 +41,11 @@ export class FavouritesPage implements OnInit {
 
   onShowCountryDetail(): void {
     this.countryChosen = true;
+  }
+
+  // If user clicks on header back button then show favourites list
+  backToList() {
+    // this.countryName = "";
+    this.countryChosen = false;
   }
 }

@@ -30,6 +30,11 @@ h2 {
   vertical-align: middle;
 }
 
-.popover-icon, .icon {
+.icon-center {
+  padding-right: 48px !important;
+}
+
+.popover-icon,
+.icon {
   color: var(--ion-color-primary-contrast) !important;
 }

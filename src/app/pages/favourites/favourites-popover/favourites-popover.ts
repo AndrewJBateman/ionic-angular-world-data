@@ -16,8 +16,8 @@ export class PopoverPage {
     private router: Router
   ) {}
 
-  onDeleteAllFavourites() {
-    this.storage.clearStoredData("favourites");
+  async onDeleteAllFavourites() {
+    await this.storage.clearStoredData("favourites");
     this.popoverCtrl.dismiss();
     this.router.navigate(["/app/tabs/country-list"]);
   }

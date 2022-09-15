@@ -2,14 +2,30 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
+      <ion-button *ngIf="countryChosen" (click)="backToList()">
+        <ion-icon
+          name="arrow-back-circle-outline"
+          size="large"
+          class="list-back-arrow"
+        >
+        </ion-icon>
+      </ion-button>
     </ion-buttons>
 
     <ion-title class="ion-text-center">
-      <ion-icon class="icon" name="heart" size="large"> </ion-icon>
+      <ion-icon
+        [class]="!countryChosen ? 'icon' : 'icon icon-center'"
+        name="heart"
+        size="large"
+      >
+      </ion-icon>
     </ion-title>
 
-    <ion-buttons slot="end" *ngIf="countries.length > 0 && !countryChosen">
-      <ion-button (click)="presentPopover($event)">
+    <ion-buttons slot="end">
+      <ion-button
+        *ngIf="countries.length > 0 && !countryChosen"
+        (click)="presentPopover($event)"
+      >
         <ion-icon
           class="popover-icon"
           slot="icon-only"
@@ -44,12 +60,8 @@
             </app-country-item>
             <!--display chosen country-->
             <app-detail-item *ngIf="countryChosen" [country]="country">
-            </app-detail-item>
-            <!-- <ion-item-options>
-                      <ion-item-option color="danger" (click)="onRemoveFavourite()">
-                        <ion-icon name="heart-dislike" slot="icon-only"></ion-icon>
-                      </ion-item-option>
-                    </ion-item-options> -->
+            </app-detail-item
+            ><ion-fab-button color="primary">Primary</ion-fab-button>
           </div>
         </ng-container>
 
