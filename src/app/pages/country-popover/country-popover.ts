@@ -8,7 +8,7 @@ import { StorageService } from "src/app/services/storage.service";
   templateUrl: "./country-popover.html",
   styleUrls: ["./country-popover.scss"],
 })
-export class PopoverPage implements OnInit {
+export class CountryPopoverPage implements OnInit {
   viewMap = false;
   country = null;
   countryCode: string;

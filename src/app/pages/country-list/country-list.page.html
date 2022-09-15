@@ -41,7 +41,7 @@
 				</ion-select-option>
 			</ion-select>
 
-			<!--option to open map view of country-->
+			<!--shows popover with options-->
 			<ion-buttons slot="end">
 				<ion-button *ngIf="countryChosen" (click)="presentPopover($event)">
 					<ion-icon
@@ -79,7 +79,7 @@
 					<app-progress-bar *ngIf="loadingInfo"></app-progress-bar>
 
 					<!--display list of countries in search-->
-					<div *ngIf="!countryChosen">
+					<div *ngIf="searchItems && !countryChosen">
 						<div
 							*ngFor="let item of searchItems"
 							style="padding: 2px 0"

@@ -4,7 +4,7 @@ import { IonContent } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
 
 import { RestApiService } from "./../../services/rest-api.service";
-import { PopoverPage } from "../country-popover/country-popover";
+import { CountryPopoverPage } from "../country-popover/country-popover";
 import {
   CountryListInterface,
   CountryDetailInterface,
@@ -110,7 +110,7 @@ export class CountryListPage implements OnInit {
 
   async presentPopover(event: Event): Promise<void> {
     const popover = await this.popoverCtrl.create({
-      component: PopoverPage,
+      component: CountryPopoverPage,
       componentProps: {
         country: this.country,
       },

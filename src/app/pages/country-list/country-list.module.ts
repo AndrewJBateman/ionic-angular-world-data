@@ -8,7 +8,7 @@ import { IonicModule } from "@ionic/angular";
 import { CountryListPage } from "./country-list.page";
 import { ComponentsModule } from "../../components/components.module";
 
-import { PopoverPage } from "../country-popover/country-popover";
+import { CountryPopoverPage } from "../country-popover/country-popover";
 import { StorageService } from "src/app/services/storage.service";
 
 const routes: Routes = [
@@ -26,8 +26,8 @@ const routes: Routes = [
 		RouterModule.forChild(routes),
 		ComponentsModule
 	],
-	declarations: [CountryListPage, PopoverPage],
-	entryComponents: [PopoverPage],
+	declarations: [CountryListPage, CountryPopoverPage],
+	entryComponents: [CountryPopoverPage],
 	providers: [StorageService]
 })
 export class CountryListPageModule {}
