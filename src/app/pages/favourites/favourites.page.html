@@ -55,13 +55,16 @@
             <app-country-item
               *ngIf="!countryChosen"
               [country]="country"
+              [isFavourite]="isFavourite"
               (click)="onShowCountryDetail()"
             >
             </app-country-item>
             <!--display chosen country-->
-            <app-detail-item *ngIf="countryChosen" [country]="country">
-            </app-detail-item
-            ><ion-fab-button color="primary">Primary</ion-fab-button>
+            <app-detail-item
+              *ngIf="countryChosen"
+              [country]="country"
+            >
+            </app-detail-item>
           </div>
         </ng-container>
 

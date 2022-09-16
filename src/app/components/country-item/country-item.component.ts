@@ -8,4 +8,9 @@ import { CountryListInterface } from "src/app/interfaces/interface";
 })
 export class CountryItemComponent {
   @Input() country: CountryListInterface;
+  @Input() isFavourite: Boolean;
+
+  onDeleteFavourite() {
+    console.log('remove from favourites');
+  }
 }

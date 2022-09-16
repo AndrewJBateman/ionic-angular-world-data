@@ -62,7 +62,6 @@ export class CountryListPage implements OnInit {
     this.restApiService.fetchCountryDetailData(countryToSearch).subscribe({
       next: (value: CountryDetailInterface[]) => {
         this.country = value[0];
-        console.log('country:', this.country)
         this.countryName = value[0].name["common"];
       },
       error: console.error,

@@ -15,12 +15,15 @@ export class StorageService {
   }
 
   // initialise storage DB
-  async initStorage() {
+  async initStorage(): Promise<void> {
     let storage = await this.storage.create();
     this._storage = storage;
   }
 
-  storeData(key: string, value: string | boolean): void {
+  storeData(
+    key: string,
+    value: string | Array<CountryDetailInterface> | boolean
+  ): void {
     try {
       this.storage?.set(key, value);
     } catch (err) {
@@ -28,7 +31,7 @@ export class StorageService {
     }
   }
 
-  async getStoredData(key: string) {
+  async getStoredData(key: string): Promise<any> {
     try {
       return this.storage.get(key);
     } catch (err) {
@@ -37,7 +40,7 @@ export class StorageService {
     }
   }
 
-  async clearStoredData(key: string) {
+  async clearStoredData(key: string): Promise<void> {
     try {
       return this.storage.remove(key);
     } catch (err) {

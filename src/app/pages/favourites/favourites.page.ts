@@ -13,6 +13,7 @@ import { StorageService } from "src/app/services/storage.service";
 export class FavouritesPage implements OnInit {
   loadingInfo = false;
   countryChosen = false;
+  isFavourite = false;
   countries: CountryDetailInterface[] = [];
   country: CountryDetailInterface;
 
@@ -37,6 +38,7 @@ export class FavouritesPage implements OnInit {
   async getFavourites(): Promise<void> {
     this.countries = await this.storage.loadFavourites();
     this.loadingInfo = false;
+    this.isFavourite = true;
   }
 
   onShowCountryDetail(): void {
