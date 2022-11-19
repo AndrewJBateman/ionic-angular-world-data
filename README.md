@@ -103,24 +103,25 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 * **Nav side-bar:** countries, oceans, favorites, about, dark theme toggle.
 
 * **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country.
-* **TODO:**
-* Make fab button stay inside div
-* add function (custom pipe) to insert ',' in area figures etc.
+* **TODO:** add function (custom pipe) to insert ',' in area figures etc.
 
 * **Oceans page** Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 
+* **Maps page** Displays Leaflet map of country and surrounding area with Capital in an offset tooltip
+* **TODO:** Add boundary around country.
+
 * **Favourites** Displays user favourites and popover allows them to be deleted. Shows an image with text below if there are no favourites
+* **TODO:** Add sliding single favourite delete.
 
 * **About** Displays image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & author website contact page
 
 ## :clipboard: Status & To-do list
 
 * Status: Working
-* Add sliding single favourite delete. Fix linting, update rxjs, reduce API calls (use param?)
 
 ## :clipboard: To-do
 
-1. Dark theme - add storage
+1. Fix linting
 2. Splash screen
 3. SqLite - use as default database?
 4. Lighthouse score?
