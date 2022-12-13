@@ -1,113 +1,109 @@
 <ion-header no-border>
-	<ion-toolbar color="primary">
-		<ion-buttons slot="start">
-			<ion-menu-button></ion-menu-button>
-			<ion-button *ngIf="countryChosen" (click)="backToList()">
-				<ion-icon name="arrow-back-circle-outline" class="list-back-arrow">
-				</ion-icon>
-			</ion-button>
-		</ion-buttons>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-button *ngIf="countryChosen" (click)="backToList()">
+        <ion-icon name="arrow-back-circle-outline" class="list-back-arrow">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
 
-		<ion-item class="ion-no-padding source" color="primary">
-			<ion-title class="ion-text-center toolbar-header">
-				<ion-icon
-					item-start
-					*ngIf="!countryChosen"
-					class="toolbar-icon"
-					name="earth-outline"
-					size="large"
-				></ion-icon>
-				<h6 *ngIf="countryChosen" class="toolbar-header no-border no-margin">
-					{{ countryName | uppercase }}
-				</h6>
-			</ion-title>
+    <ion-item class="ion-no-padding source" color="primary">
+      <ion-title class="ion-text-center toolbar-header">
+        <ion-icon
+          item-start
+          *ngIf="!countryChosen"
+          class="toolbar-icon"
+          name="earth-outline"
+          size="large"
+        ></ion-icon>
+        <h6 *ngIf="countryChosen" class="toolbar-header no-border no-margin">
+          {{ countryName | uppercase }}
+        </h6>
+      </ion-title>
 
-			<!--drop-down list of country regions,
+      <!--drop-down list of country regions,
         select one to change the country category
         and reload list of countries					-->
-			<ion-select
-				*ngIf="!countryChosen"
-				interface="action-sheet"
-				placeholder="Continent"
-				[(ngModel)]="continent"
-				(ionChange)="getContinentData($event)"
-				cancelText="Cancel"
-			>
-				<ion-select-option
-					*ngFor="let continent of continents"
-					value="{{ continent }}"
-				>
-					{{ continent }}
-				</ion-select-option>
-			</ion-select>
+      <ion-select
+        *ngIf="!countryChosen"
+        interface="action-sheet"
+        placeholder="Continent"
+        [(ngModel)]="continent"
+        (ionChange)="getContinentData($event)"
+        cancelText="Cancel"
+      >
+        <ion-select-option
+          *ngFor="let continent of continents"
+          value="{{ continent }}"
+        >
+          {{ continent }}
+        </ion-select-option>
+      </ion-select>
 
-			<!--shows popover with options-->
-			<ion-buttons slot="end">
-				<ion-button *ngIf="countryChosen" (click)="presentPopover($event)">
-					<ion-icon
-						slot="icon-only"
-						name="ellipsis-vertical-outline"
-						size="large"
-						color="light"
-					>
-					</ion-icon>
-				</ion-button>
-			</ion-buttons>
-		</ion-item>
-	</ion-toolbar>
-	<ion-grid class="ion-no-padding">
-		<ion-row>
-			<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
-				<ion-searchbar
-					*ngIf="!countryChosen"
-					(ionChange)="filterItems($event)"
-					(ionCancel)="onCancel()"
-					color="primary"
-					placeholder="Enter country name..."
-				>
-				</ion-searchbar>
-			</ion-col>
-		</ion-row>
-	</ion-grid>
+      <!--shows popover with options-->
+      <ion-buttons slot="end">
+        <ion-button *ngIf="countryChosen" (click)="presentPopover($event)">
+          <ion-icon
+            slot="icon-only"
+            name="ellipsis-vertical-outline"
+            size="large"
+            color="light"
+          >
+          </ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
+        <ion-searchbar
+          *ngIf="!countryChosen"
+          (ionChange)="filterItems($event)"
+          (ionCancel)="onCancel()"
+          color="primary"
+          placeholder="Enter country name..."
+        >
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content>
-	<div scrollY="true" id="scroll-list">
-		<ion-grid class="ion-no-padding">
-			<ion-row>
-				<ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
-					<app-progress-bar *ngIf="loadingInfo"></app-progress-bar>
+  <div scrollY="true" id="scroll-list">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
+          <app-progress-bar *ngIf="loadingInfo"></app-progress-bar>
+          <!--display list of countries in search-->
+          <div *ngIf="searchItems && !countryChosen">
+            <div *ngFor="let item of searchItems" style="padding: 2px 0">
+              <app-country-item
+                [country]="item"
+                (click)="onShowCountryDetail(item)"
+              >
+              </app-country-item>
+            </div>
+          </div>
 
-					<!--display list of countries in search-->
-					<div *ngIf="searchItems && !countryChosen">
-						<div
-							*ngFor="let item of searchItems"
-							style="padding: 2px 0"
-						>
-							<app-country-item
-								[country]="item"
-								(click)="onShowCountryDetail(item)"
-							>
-							</app-country-item>
-						</div>
-					</div>
-
-					<!--display chosen country in detail-->
-					<div *ngIf="countryChosen">
-						<app-detail-item [country]="country"> </app-detail-item>
-					</div>
-				</ion-col>
-			</ion-row>
-		</ion-grid>
-	</div>
-	<ion-fab
-		vertical="center"
-		horizontal="end"
-		slot="fixed"
-		*ngIf="countryChosen"
-	>
-		<ion-fab-button (click)="openMap()">
-			<ion-icon name="locate" color="secondary" size="large"></ion-icon>
-		</ion-fab-button>
-	</ion-fab>
+          <!--display chosen country in detail-->
+          <div *ngIf="countryChosen">
+            <app-detail-item [country]="country"> </app-detail-item>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-fab
+    vertical="center"
+    horizontal="end"
+    slot="fixed"
+    *ngIf="countryChosen"
+  >
+    <ion-fab-button (click)="openMap()">
+      <ion-icon name="locate" color="secondary" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
