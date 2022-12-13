@@ -11,18 +11,18 @@
 ## :page_facing_up: Table of contents
 
 * [:zap: Ionic Country Data](#zap-ionic-country-data)
-  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:page\_facing\_up: Table of contents](#page_facing_up-table-of-contents)
   * [:books: General info](#books-general-info)
   * [:camera: Screenshots](#camera-screenshots)
-  * [:signal_strength: Technologies](#signal_strength-technologies)
-  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:signal\_strength: Technologies](#signal_strength-technologies)
+  * [:floppy\_disk: Setup](#floppy_disk-setup)
   * [:computer: Code Examples](#computer-code-examples)
   * [:cool: Features](#cool-features)
   * [General/Navigation/Pages](#generalnavigationpages)
-  * [:clipboard: Status & To-do list](#clipboard-status--to-do-list)
+  * [:clipboard: Status \& To-do list](#clipboard-status--to-do-list)
   * [:clipboard: To-do](#clipboard-to-do)
   * [:clap: Inspiration](#clap-inspiration)
-  * [:file_folder: License](#file_folder-license)
+  * [:file\_folder: License](#file_folder-license)
   * [:envelope: Contact](#envelope-contact)
 
 ## :books: General info
@@ -65,7 +65,7 @@
 ## :floppy_disk: Setup
 
 * Run `npm i` to install dependencies
-* `ionic serve` to start the server on _localhost://8100_ type
+* `ionic serve` to start the server on `_localhost://8100_`
 * To run linter: `npm run lint`
 * To create a build file suitable for Firebase deployment: `ionic build --prod --release`
 * To deploy to Firebase: `firebase deploy`
@@ -121,11 +121,12 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 
 ## :clipboard: To-do
 
-1. Fix linting
-2. Splash screen
-3. SqLite - use as default database?
-4. Lighthouse score?
-5. Run on simulator
+1. Progress bar - check it is working
+2. Fix linting
+3. Splash screen
+4. SqLite - use as default database?
+5. Lighthouse score?
+6. Run on simulator
 
 ## :clap: Inspiration
 
