@@ -25,7 +25,6 @@ const routes: Routes = [
 		ComponentsModule,
 	],
 	declarations: [FavouritesPage, PopoverPage],
-	entryComponents: [PopoverPage],
 	providers: [Location]
 })
 export class FavouritesPageModule {}

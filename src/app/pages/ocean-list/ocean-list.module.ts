@@ -23,6 +23,5 @@ const routes: Routes = [
 		RouterModule.forChild(routes),
 	],
 	declarations: [OceanListPage, PopoverPage],
-	entryComponents: [PopoverPage],
 })
 export class OceanListPageModule {}

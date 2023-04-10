@@ -22,7 +22,6 @@ const routes: Routes = [
 		RouterModule.forChild(routes),
 	],
 	declarations: [AboutPage, PopoverPage],
-	entryComponents: [PopoverPage],
 	bootstrap: [AboutPage],
 })
 export class AboutPageModule {}

@@ -27,7 +27,6 @@ const routes: Routes = [
 		ComponentsModule
 	],
 	declarations: [CountryListPage, CountryPopoverPage],
-	entryComponents: [CountryPopoverPage],
 	providers: [StorageService]
 })
 export class CountryListPageModule {}
