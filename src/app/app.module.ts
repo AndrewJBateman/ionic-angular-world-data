@@ -13,7 +13,7 @@ import { AppRoutingModule } from "./app-routing.module";
 // Third party imports
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
-import { IonicStorageModule } from "@ionic/storage-angular";
+import { Storage } from "@ionic/storage-angular";
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,9 +24,9 @@ import { IonicStorageModule } from "@ionic/storage-angular";
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    IonicStorageModule.forRoot(),
   ],
   providers: [
+    Storage,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
