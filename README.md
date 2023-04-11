@@ -55,9 +55,9 @@
 
 ## :signal_strength: Technologies
 
-* [Ionic v6](https://ionicframework.com/)
-* [Angular v15](https://angular.io/)
-* [Ionic/angular v6](https://www.npmjs.com/package/@ionic/angular)
+* [Ionic v7](https://ionicframework.com/)
+* [Angular v16](https://angular.io/)
+* [Ionic/angular v7](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v3](https://restcountries.com/) - v3 has a lot of breaking changes from v2
 * [Leaflet maps](https://leafletjs.com/) JS library of maps
 * [Ionic 5 open source Ionicons](https://ionicons.com/)
