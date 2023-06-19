@@ -11,6 +11,6 @@ export class CountryItemComponent {
   @Input() isFavourite: Boolean;
 
   onDeleteFavourite() {
-    console.log('remove from favourites');
+    console.log("remove from favourites");
   }
 }
