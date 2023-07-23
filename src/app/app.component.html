@@ -36,6 +36,7 @@
               [(ngModel)]="darkMode"
               slot="end"
               [checked]="darkMode"
+              aria-label="Toggle dark mode"
               (ionChange)="themeService.changeThemeMode($event)"
             >
             </ion-toggle>
