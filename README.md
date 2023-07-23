@@ -66,8 +66,7 @@
 
 * Run `npm i` to install dependencies
 * `ionic serve` to start the server on `_localhost://8100_`
-* To run linter: `npm run lint`
-* To create a build file suitable for Firebase deployment: `ionic build --prod --release`
+* To create a build file suitable for Firebase deployment: `ionic build --release`
 * To deploy to Firebase: `firebase deploy`
 
 ## :computer: Code Examples
@@ -122,7 +121,7 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 ## :clipboard: To-do
 
 1. Progress bar - check it is working
-2. Fix linting
+2. Add eslinting - currently will not install due to rxjs version
 3. Splash screen
 4. SqLite - use as default database?
 5. Lighthouse score?
@@ -141,4 +140,4 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: `gomezbateman@yahoo.com`
