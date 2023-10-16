@@ -88,7 +88,7 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 
 ## :cool: Features
 
-* **integrated Google Chart Maps** API to show country map.
+* **integrated Leaflet Maps** API to show country map. Free.
 * **Typescript interface** used to define the expected structures of the json objects returned from the API.
 * **Separate services** page with API http fetch functions.
 * **RxJS Observables** used to extract data asynchronously.
@@ -130,7 +130,6 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 ## :clap: Inspiration
 
 * [Ionic Academy Tutorial: How to Localise Your Ionic App with ngx-translate](https://ionicacademy.com/localise-ionic-ngx-translate/) however language selected using ion-select-option dropdown list in side-menu (ie not using a popover page)
-* [Devpato article: Setup Google Map in Angular app (The pro way)](https://dev.to/devpato/setup-google-map-in-angular-app-the-pro-way-3m9p)
 * [ERROR Error: Database not created. Must call create() first](https://stackoverflow.com/questions/68378350/error-error-database-not-created-must-call-create-first)
 * [What’s New in RxJS 7: Small Bundles and Big Changes to share()](https://www.bitovi.com/blog/whats-new-in-rxjs-7-small-bundles-and-big-changes-to-share)
 

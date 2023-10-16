@@ -14,7 +14,7 @@ export class StorageService {
     this.loadFavourites();
   }
 
-  // initialise storage DB
+  // initialise storage IndexedDB/-ionicStorage/_ionickv
   async initStorage(): Promise<void> {
     let storage = await this.storage.create();
     this._storage = storage;
