@@ -9,33 +9,43 @@ import {
   CountryDetailInterface,
 } from "../interfaces/interface";
 
-const apiUrl = environment.API_URL;
-
 @Injectable({
   providedIn: "root",
 })
 export class RestApiService {
+  private apiUrl: string = environment.API_URL;
+  
   constructor(private httpClient: HttpClient) {}
 
+  /**
+   * Fetches the list of countries from the API based on the provided URL.
+   * Returns an observable of type CountryListInterface[].
+   */
   fetchCountryListData(url: string): Observable<CountryListInterface[]> {
-    return this.httpClient.get<CountryListInterface[]>(`${apiUrl}/${url}`).pipe(
+    const countryListUrl: string = `${this.apiUrl}/${url}`;
+    return this.httpClient.get<CountryListInterface[]>(countryListUrl).pipe(
       take(1),
-      catchError((error) => {
-        return throwError(() => console.log("Countries not found!", error));
+      catchError((err) => {
+        return throwError(() => err);
       })
     );
   }
 
+  /**
+   * Fetches the details of a specific country from the API based on the provided country name.
+   * Returns an observable of type CountryDetailInterface[].
+   */
   fetchCountryDetailData(
     country: string
   ): Observable<CountryDetailInterface[]> {
+    const countryDetailUrl: string = `${this.apiUrl}/name/${country}?fullText=true`;
     return this.httpClient
-      .get<CountryDetailInterface[]>(`${apiUrl}/name/${country}?fullText=true`)
+      .get<CountryDetailInterface[]>(countryDetailUrl)
       .pipe(
         take(1),
-        catchError((error) => {
-          return throwError(() => console.log("Country not found!", error));
+        catchError((err) => {
+          return throwError(() => err);
         })
-      );
+      )
   }
 }
