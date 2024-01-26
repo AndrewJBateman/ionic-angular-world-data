@@ -2,13 +2,14 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, take } from "rxjs/operators";
+import { environment } from "../../environments/environment";
 
 import {
   CountryListInterface,
   CountryDetailInterface,
 } from "../interfaces/interface";
 
-const apiUrl = "https://restcountries.com/v3.1";
+const apiUrl = environment.API_URL;
 
 @Injectable({
   providedIn: "root",
