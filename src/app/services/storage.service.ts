@@ -6,7 +6,6 @@ import { CountryDetailInterface } from "../interfaces/interface";
   providedIn: "root",
 })
 export class StorageService {
-  private _storage: Storage | null = null;
   countries: CountryDetailInterface[] = [];
 
   constructor(private storage: Storage) {
@@ -16,49 +15,30 @@ export class StorageService {
 
   // initialise storage IndexedDB/-ionicStorage/_ionickv
   async initStorage(): Promise<void> {
-    let storage = await this.storage.create();
-    this._storage = storage;
+    this.storage = await this.storage.create();
   }
 
   storeData(
     key: string,
     value: string | Array<CountryDetailInterface> | boolean
   ): void {
-    try {
-      this.storage?.set(key, value);
-    } catch (err) {
-      alert("Error storing data: " + err);
-    }
+    this.storage?.set(key, value);
   }
 
   async getStoredData(key: string): Promise<any> {
-    try {
-      return this.storage.get(key);
-    } catch (err) {
-      alert("Error getting stored data: " + err);
-      return null;
-    }
+    return this.storage.get(key);
   }
 
   async clearStoredData(key: string): Promise<void> {
-    try {
-      return this.storage.remove(key);
-    } catch (err) {
-      alert("Error clearing stored data: " + err);
-      return null;
-    }
+    return this.storage.remove(key);
   }
 
   // check if country to be added to favourites is already in stored data
   // if not add new country to beginning of country array then store updated array
   async toggleCountryStore(country: CountryDetailInterface): Promise<Boolean> {
-    let exists = false;
-    for (const countr of this.countries) {
-      if (countr.name["common"] === country.name["common"]) {
-        exists = true;
-        break;
-      }
-    }
+    const exists = this.countries.some(
+      (countr) => countr.name["common"] === country.name["common"]
+    );
 
     // if country already exists in favourites then filter it out
     // else add country to favourites then store updated favourites array
@@ -82,9 +62,9 @@ export class StorageService {
   // return true if country is in favourites, otherwise false
   async countryInFavourites(countryName: string): Promise<Boolean> {
     await this.loadFavourites();
-    const exists = this.countries.find(
+    const exists = this.countries.some(
       (countr) => countr.name["common"] === countryName
     );
-    return exists ? true : false;
+    return exists;
   }
 }
