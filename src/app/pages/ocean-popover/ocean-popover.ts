@@ -1,8 +1,10 @@
 import { Component } from "@angular/core";
 
 import oceanData from "../ocean-list/oceans.json";
+import { IonicModule } from "@ionic/angular";
+import { NgFor } from "@angular/common";
 @Component({
-	template: `
+    template: `
 		<ion-list *ngFor="let ocean of Oceans">
 			<ion-item button href="{{ ocean.wikiLink }}" target="_blank">
 				<ion-label color="secondary">
@@ -13,7 +15,9 @@ import oceanData from "../ocean-list/oceans.json";
 			</ion-item>
 		</ion-list>
 	`,
-	styleUrls: ["./ocean-popover.scss"],
+    styleUrls: ["./ocean-popover.scss"],
+    standalone: true,
+    imports: [NgFor, IonicModule],
 })
 export class PopoverPage {
 	Oceans: any = oceanData;

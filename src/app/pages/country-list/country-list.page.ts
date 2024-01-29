@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { IonContent } from "@ionic/angular";
+import { IonContent, IonicModule } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
 
 import { RestApiService } from "./../../services/rest-api.service";
@@ -9,12 +9,26 @@ import {
   CountryListInterface,
   CountryDetailInterface,
 } from "../../interfaces/interface";
+import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
+import { CountryItemComponent } from "../../components/country-item/country-item.component";
+import { FormsModule } from "@angular/forms";
+import { NgIf, NgFor, UpperCasePipe } from "@angular/common";
 
 @Component({
-  selector: "app-country-list",
-  templateUrl: "./country-list.page.html",
-  styleUrls: ["./country-list.page.scss"],
-  providers: [RestApiService],
+    selector: "app-country-list",
+    templateUrl: "./country-list.page.html",
+    styleUrls: ["./country-list.page.scss"],
+    providers: [RestApiService],
+    standalone: true,
+    imports: [
+        IonicModule,
+        NgIf,
+        FormsModule,
+        NgFor,
+        CountryItemComponent,
+        DetailItemComponent,
+        UpperCasePipe,
+    ],
 })
 export class CountryListPage implements OnInit {
   @ViewChild(IonContent, { static: true }) content: IonContent;

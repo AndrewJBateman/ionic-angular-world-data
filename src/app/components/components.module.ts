@@ -9,8 +9,7 @@ import { ProgressBarComponent } from "./progress-bar.component";
 const COMPONENTS: any[] = [CountryItemComponent, DetailItemComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS],
-  imports: [CommonModule, IonicModule, ProgressBarComponent],
-  exports: [...COMPONENTS],
+    imports: [CommonModule, IonicModule, ProgressBarComponent, ...COMPONENTS],
+    exports: [...COMPONENTS],
 })
 export class ComponentsModule {}

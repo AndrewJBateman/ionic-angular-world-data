@@ -15,13 +15,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-		CommonModule,
-		FormsModule,
-		IonicModule,
-		RouterModule.forChild(routes),
-		ComponentsModule,
-	],
-	declarations: [MapPage],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        ComponentsModule,
+        MapPage,
+    ],
 })
 export class MapPageModule {}

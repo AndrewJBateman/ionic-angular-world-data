@@ -1,14 +1,25 @@
 import { Component, OnInit } from "@angular/core";
 
-import { PopoverController } from "@ionic/angular";
+import { PopoverController, IonicModule } from "@ionic/angular";
 import { PopoverPage } from "./favourites-popover/favourites-popover";
 import { CountryDetailInterface } from "src/app/interfaces/interface";
 import { StorageService } from "src/app/services/storage.service";
+import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
+import { CountryItemComponent } from "../../components/country-item/country-item.component";
+import { NgIf, NgFor } from "@angular/common";
 
 @Component({
-  selector: "app-favourites",
-  templateUrl: "./favourites.page.html",
-  styleUrls: ["./favourites.page.scss"],
+    selector: "app-favourites",
+    templateUrl: "./favourites.page.html",
+    styleUrls: ["./favourites.page.scss"],
+    standalone: true,
+    imports: [
+        IonicModule,
+        NgIf,
+        NgFor,
+        CountryItemComponent,
+        DetailItemComponent,
+    ],
 })
 export class FavouritesPage implements OnInit {
   loadingInfo = false;

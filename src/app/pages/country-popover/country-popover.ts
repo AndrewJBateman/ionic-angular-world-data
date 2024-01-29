@@ -1,12 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { NavParams, NavController, ToastController } from "@ionic/angular";
+import { NavParams, NavController, ToastController, IonicModule } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
 
 @Component({
-  templateUrl: "./country-popover.html",
-  styleUrls: ["./country-popover.scss"],
+    templateUrl: "./country-popover.html",
+    styleUrls: ["./country-popover.scss"],
+    standalone: true,
+    imports: [IonicModule],
 })
 export class CountryPopoverPage implements OnInit {
   viewMap = false;

@@ -11,16 +11,16 @@ import { CountryListPageModule } from "../country-list/country-list.module";
 import { OceanListPageModule } from "../ocean-list/ocean-list.module";
 
 @NgModule({
-	imports: [
-		AboutPageModule,
-		CountryListPageModule,
-		FavouritesPageModule,
-		OceanListPageModule,
-		CommonModule,
-		FormsModule,
-		IonicModule,
-		TabsPageRoutingModule,
-	],
-	declarations: [TabsPage],
+    imports: [
+        AboutPageModule,
+        CountryListPageModule,
+        FavouritesPageModule,
+        OceanListPageModule,
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        TabsPageRoutingModule,
+        TabsPage,
+    ],
 })
 export class TabsPageModule {}

@@ -16,12 +16,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-		CommonModule,
-		FormsModule,
-		IonicModule,
-		RouterModule.forChild(routes),
-	],
-	declarations: [OceanListPage, PopoverPage],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        OceanListPage, PopoverPage,
+    ],
 })
 export class OceanListPageModule {}

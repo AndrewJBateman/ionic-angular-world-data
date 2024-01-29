@@ -17,14 +17,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [
-		CommonModule,
-		FormsModule,
-		IonicModule,
-		RouterModule.forChild(routes),
-		ComponentsModule,
-	],
-	declarations: [FavouritesPage, PopoverPage],
-	providers: [Location]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        ComponentsModule,
+        FavouritesPage, PopoverPage,
+    ],
+    providers: [Location]
 })
 export class FavouritesPageModule {}
