@@ -12,9 +12,9 @@ const routes: Routes = [
 				children: [
 					{
 						path: "",
-						loadChildren: () =>
-							import("../country-list/country-list.module").then(
-								(m) => m.CountryListPageModule
+						loadComponent: () =>
+							import("../country-list/country-list.page").then(
+								(m) => m.CountryListPage
 							),
 					},
 				],

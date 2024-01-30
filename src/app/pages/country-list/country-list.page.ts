@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { Router } from "@angular/router";
 import { IonContent, IonicModule } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
@@ -12,7 +12,7 @@ import {
 import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
 import { CountryItemComponent } from "../../components/country-item/country-item.component";
 import { FormsModule } from "@angular/forms";
-import { NgIf, NgFor, UpperCasePipe } from "@angular/common";
+import { UpperCasePipe } from "@angular/common";
 
 @Component({
     selector: "app-country-list",
@@ -22,19 +22,20 @@ import { NgIf, NgFor, UpperCasePipe } from "@angular/common";
     standalone: true,
     imports: [
         IonicModule,
-        NgIf,
         FormsModule,
-        NgFor,
         CountryItemComponent,
         DetailItemComponent,
         UpperCasePipe,
     ],
+    schemas: [
+      CUSTOM_ELEMENTS_SCHEMA
+    ]
 })
 export class CountryListPage implements OnInit {
   @ViewChild(IonContent, { static: true }) content: IonContent;
 
   loadingInfo = false;
-  countryChosen = false;
+  public countryChosen = false;
   query = "";
   public countryName = "";
   continents = ["all", "Africa", "Americas", "Asia", "Europe", "Oceania"];
@@ -53,13 +54,12 @@ export class CountryListPage implements OnInit {
 
   // get country info for category 'all' with just the 4 fields needed.
   ngOnInit() {
-    this.loadingInfo = true;
     this.getCountryList("all?fields=name,capital,region,flags");
-    this.loadingInfo = false;
+    this.countryChosen = false;
   }
 
   // fetch full list of countries
-  getCountryList = async (url: string): Promise<any> => {
+  getCountryList = (url: string): void => {
     this.restApiService
       .fetchCountryListData(url)
       .subscribe((data: CountryListInterface[]) => {
@@ -79,7 +79,7 @@ export class CountryListPage implements OnInit {
         this.countryName = value[0].name["common"];
       },
       error: console.error,
-    });
+    }).unsubscribe();
     this.loadingInfo = false;
     this.content.scrollToTop(0);
   }
@@ -91,14 +91,14 @@ export class CountryListPage implements OnInit {
   }
 
   // load country list data for continent selected by filtering list of countries by region
-  getContinentData(event: any): CountryListInterface[] {
+  getContinentData(event: any): void {
     this.searchItems = this.countries; // reset list after each event
-    return (this.searchItems =
+    this.searchItems =
       event.detail.value !== "all"
         ? this.searchItems.filter((item: CountryListInterface) => {
             return item.region.indexOf(event.detail.value) > -1;
           })
-        : this.countries);
+        : this.countries;
   }
 
   // filter array of country names to match search query (letters only using regex)
@@ -143,5 +143,9 @@ export class CountryListPage implements OnInit {
         capLon: this.country.capitalInfo.latlng[1]
       },
     });
+  }
+
+  public trackByName(index: number, item: CountryListInterface): string {
+    return item.name.common;
   }
 }
