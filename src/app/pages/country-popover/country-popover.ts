@@ -24,17 +24,17 @@ export class CountryPopoverPage implements OnInit {
     private popoverCtrl: PopoverController,
     private router: Router,
     private storage: StorageService,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
   ) {}
 
   ngOnInit(): void {
     this.country = this.navParams.get("country");
-    this.countryName = this.country.name["common"];
+    this.countryName = this.country.name?.common;
 
     this.storage
       .countryInFavourites(this.countryName)
       .then(
-        (inFavourites: Boolean) => (
+        (inFavourites: boolean) => (
           (this.favourite = inFavourites ? "heart" : "heart-outline"),
           (this.favouritesText = inFavourites
             ? "Remove from favourites"
@@ -53,7 +53,7 @@ export class CountryPopoverPage implements OnInit {
   }
 
   onClickForInfo(): void {
-    const countryToSearch = this.country.name.common;
+    const countryToSearch = this.country.name?.common;
     const url = `https://en.wikipedia.org/wiki/${countryToSearch}`;
     window.open(url, "_blank");
     this.popoverCtrl.dismiss();
@@ -74,11 +74,11 @@ export class CountryPopoverPage implements OnInit {
     this.router.navigate(["app/tabs/map"], {
       queryParams: {
         countryName: this.countryName,
-        capName: this.country.capital[0],
-        lat: this.country.latlng[0],
-        lon: this.country.latlng[1],
-        capLat: this.country.capitalInfo.latlng[0],
-        capLon: this.country.capitalInfo.latlng[1]
+        capName: this.country?.capital?.[0],
+        lat: this.country?.latlng?.[0],
+        lon: this.country?.latlng?.[1],
+        capLat: this.country?.capitalInfo?.latlng?.[0],
+        capLon: this.country?.capitalInfo?.latlng?.[1]
       },
     });
     this.popoverCtrl.dismiss();
