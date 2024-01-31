@@ -12,14 +12,13 @@ ion-fab-button {
   --background: var(--ion-color-light);
 }
 
-.country-card ion-card-content {
-  flex: 1 1 auto;
-  padding: 0;
-}
-
 .toolbar-icon {
   vertical-align: middle;
   color: var(--ion-color-primary-light);
+}
+
+.country-list {
+  padding: 2px 0;
 }
 
 .list-back-arrow {

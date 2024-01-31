@@ -3,22 +3,22 @@
     <ion-buttons slot="start">
       <ion-menu-button />
       @if (countryChosen) {
-        <ion-button (click)="backToList()">
-          <ion-icon name="arrow-back-circle-outline" class="list-back-arrow">
-          </ion-icon>
-        </ion-button>
+      <ion-button (click)="backToList()">
+        <ion-icon name="arrow-back-circle-outline" class="list-back-arrow">
+        </ion-icon>
+      </ion-button>
       }
     </ion-buttons>
 
     <ion-item class="ion-no-padding source" color="primary">
       <ion-title class="ion-text-center toolbar-header">
         @if (!countryChosen) {
-          <ion-icon item-start class="toolbar-icon" name="earth-outline" size="large"></ion-icon>
+        <ion-icon item-start class="toolbar-icon" name="earth-outline" size="large"></ion-icon>
         }
         @if (countryChosen) {
-          <h6 class="toolbar-header no-border no-margin">
-            {{ countryName | uppercase }}
-          </h6>
+        <h6 class="toolbar-header no-border no-margin">
+          {{ countryName | uppercase }}
+        </h6>
         }
       </ion-title>
 
@@ -26,24 +26,24 @@
       select one to change the country category
       and reload list of countries					-->
       @if (!countryChosen) {
-        <ion-select interface="action-sheet" placeholder="Continent" [(ngModel)]="continent"
-          (ionChange)="getContinentData($event)" cancelText="Cancel">
-          @for (continent of continents; track trackByName) {
-            <ion-select-option value="{{ continent }}">
-              {{ continent }}
-            </ion-select-option>
-          }
-        </ion-select>
+      <ion-select interface="action-sheet" placeholder="Continent" [(ngModel)]="continent"
+        (ionChange)="getContinentData($event)" cancelText="Cancel">
+        @for (continent of continents; track trackByName) {
+        <ion-select-option value="{{ continent }}">
+          {{ continent }}
+        </ion-select-option>
+        }
+      </ion-select>
       }
 
 
       <!--shows popover with options-->
       <ion-buttons slot="end">
         @if (countryChosen) {
-          <ion-button (click)="presentPopover($event)">
-            <ion-icon slot="icon-only" name="ellipsis-vertical-outline" size="large" color="light">
-            </ion-icon>
-          </ion-button>
+        <ion-button (click)="presentPopover($event)">
+          <ion-icon slot="icon-only" name="ellipsis-vertical-outline" size="large" color="light">
+          </ion-icon>
+        </ion-button>
         }
       </ion-buttons>
     </ion-item>
@@ -52,9 +52,9 @@
     <ion-row>
       <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
         @if (!countryChosen) {
-          <ion-searchbar (ionChange)="filterItems($event)" (ionCancel)="onCancel()" color="primary"
-            placeholder="Enter country name...">
-          </ion-searchbar>
+        <ion-searchbar (ionChange)="filterItems($event)" (ionCancel)="onCancel()" color="primary"
+          placeholder="Enter country name...">
+        </ion-searchbar>
         }
       </ion-col>
     </ion-row>
@@ -67,36 +67,34 @@
       <ion-row>
         <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2">
           @if (loadingInfo) {
-            <app-progress-bar />
+          <app-progress-bar />
           }
 
           <!--display list of countries in search-->
           @if (searchItems && !countryChosen) {
-            @for (item of searchItems; track trackByName) {
-              <div style="padding: 2px 0">
-                <app-country-item [country]="item" (click)="onShowCountryDetail(item)" />
-              </div>
-            }
+          @for (item of searchItems; track trackByName) {
+          <div class="country-list">
+            <app-country-item [country]="item" (click)="onShowCountryDetail(item)" />
+          </div>
+          }
           }
 
 
           <!--display chosen country in detail-->
           @if (countryChosen) {
-            @if (countryChosen) {
-              <div>
-                <app-detail-item [country]="country" />
-              </div>
-            }
+          <div>
+            <app-detail-item [country]="country" />
+          </div>
           }
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
   @if (countryChosen) {
-    <ion-fab vertical="center" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="openMap()">
-        <ion-icon name="locate" color="secondary" size="large"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openMap()">
+      <ion-icon name="locate" color="secondary" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   }
 </ion-content>

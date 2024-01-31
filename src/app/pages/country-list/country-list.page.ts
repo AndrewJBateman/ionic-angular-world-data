@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewChild, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  CUSTOM_ELEMENTS_SCHEMA,
+} from "@angular/core";
 import { Router } from "@angular/router";
 import { IonContent, IonicModule } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
@@ -15,21 +20,19 @@ import { FormsModule } from "@angular/forms";
 import { UpperCasePipe } from "@angular/common";
 
 @Component({
-    selector: "app-country-list",
-    templateUrl: "./country-list.page.html",
-    styleUrls: ["./country-list.page.scss"],
-    providers: [RestApiService],
-    standalone: true,
-    imports: [
-        IonicModule,
-        FormsModule,
-        CountryItemComponent,
-        DetailItemComponent,
-        UpperCasePipe,
-    ],
-    schemas: [
-      CUSTOM_ELEMENTS_SCHEMA
-    ]
+  selector: "app-country-list",
+  templateUrl: "./country-list.page.html",
+  styleUrls: ["./country-list.page.scss"],
+  providers: [RestApiService],
+  standalone: true,
+  imports: [
+    IonicModule,
+    FormsModule,
+    CountryItemComponent,
+    DetailItemComponent,
+    UpperCasePipe,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CountryListPage implements OnInit {
   @ViewChild(IonContent, { static: true }) content: IonContent;
@@ -64,7 +67,7 @@ export class CountryListPage implements OnInit {
       .fetchCountryListData(url)
       .subscribe((data: CountryListInterface[]) => {
         this.countries = data;
-        this.searchItems = this.countries;
+        this.searchItems = this.countries as CountryListInterface[];
       });
   };
 
@@ -78,7 +81,11 @@ export class CountryListPage implements OnInit {
         this.country = value[0];
         this.countryName = value[0].name["common"];
       },
-      error: console.error,
+      error: (error) => {
+        // Handle the error using a proper error handling mechanism or service
+        // For example, you can log the error, display an error message to the user, or perform any other error handling logic.
+        console.log("An error occurred:", error);
+      },
     });
     this.loadingInfo = false;
     this.content.scrollToTop(0);
@@ -92,13 +99,17 @@ export class CountryListPage implements OnInit {
 
   // load country list data for continent selected by filtering list of countries by region
   getContinentData(event: any): void {
-    this.searchItems = this.countries; // reset list after each event
+    this.resetSearchItems(); // reset list after each
     this.searchItems =
       event.detail.value !== "all"
         ? this.searchItems.filter((item: CountryListInterface) => {
-            return item.region.indexOf(event.detail.value) > -1;
+            return item.region.includes(event.detail.value);
           })
         : this.countries;
+  }
+
+  resetSearchItems(): void {
+    this.searchItems = this.countries;
   }
 
   // filter array of country names to match search query (letters only using regex)
@@ -121,15 +132,21 @@ export class CountryListPage implements OnInit {
     this.query = null;
   }
 
-  async presentPopover(event: Event): Promise<void> {
-    const popover = await this.popoverCtrl.create({
-      component: CountryPopoverPage,
-      componentProps: {
-        country: this.country,
-      },
-      event,
-    });
-    await popover.present();
+  presentPopover(event: Event): void {
+    this.popoverCtrl
+      .create({
+        component: CountryPopoverPage,
+        componentProps: {
+          country: this.country,
+        },
+        event,
+      })
+      .then((popover) => {
+        popover.present();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   public openMap(): void {
@@ -140,7 +157,7 @@ export class CountryListPage implements OnInit {
         lat: this.country.latlng[0],
         lon: this.country.latlng[1],
         capLat: this.country.capitalInfo.latlng[0],
-        capLon: this.country.capitalInfo.latlng[1]
+        capLon: this.country.capitalInfo.latlng[1],
       },
     });
   }
