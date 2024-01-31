@@ -1,116 +1,119 @@
-<ion-card *ngIf="country">
-  <div class="image-div">
-    <ion-img
-      class="mat-card-image"
-      [src]="country.flags.svg"
-      alt="flag for {{ country.name.common }}"
-    ></ion-img>
-    <div class="flag-text">
-      <span class="small-text">Official name: </span>{{ country.name.official }}
+@if (country) {
+  <ion-card>
+    <div class="image-div">
+      <ion-img
+        class="mat-card-image"
+        [src]="country.flags.svg"
+        alt="flag for {{ country.name.common }}"
+      ></ion-img>
+      <div class="flag-text">
+        <span class="small-text">Official name: </span>{{ country.name.official }}
+      </div>
     </div>
-  </div>
-
-  <ion-list class="detail-list">
-    <ion-item>
-      <ion-icon name="trail-sign-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Subregion, Region</h2>
-        <h3>{{ country.subregion }}, {{ country.region }}</h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="flag-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Capital</h2>
-        <h3>{{ country.capital }}</h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item *ngIf="country.languages">
-      <ion-icon name="language-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Languages</h2>
-        <h3 *ngFor="let i of country.languages | keyvalue">
-          {{ i.value }}
-        </h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="cash-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Currency</h2>
-        <h3 *ngFor="let i of country.currencies | keyvalue">
-          {{ i.value.name }}, {{ i.value.symbol }}
-        </h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="time-outline" slot="start"></ion-icon>
-      <ion-label class="ion-text-wrap">
-        <h2>Timezones</h2>
-        <h3>
-          {{ country.timezones }}
-        </h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="people-circle-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Population</h2>
-        <h3>{{ country.population }}</h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="expand-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Land Area</h2>
-        <h3>{{ country.area }} km<sup>2</sup></h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="desktop-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Top Level Domain</h2>
-        <h3>{{ country.tld }}</h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="map-outline" slot="start"></ion-icon>
-      <ion-label *ngIf="!country.borders">
-        <h2>Border Countries</h2>
-        <h3>None</h3>
-      </ion-label>
-      <ion-label *ngIf="country.borders">
-        <h2>Border Countries</h2>
-        <h3>
-          {{ country.borders }}
-        </h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="locate-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>GPS Location</h2>
-        <h3>Lat: {{ country.latlng[0] }}, Lng: {{ country.latlng[1] }}</h3>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name="reader-outline" slot="start"></ion-icon>
-      <ion-label>
-        <h2>Translations</h2>
-        <h3 *ngFor="let i of country.translations | keyvalue">
-          {{ i.key }}, {{ i.value.official }}
-        </h3>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-</ion-card>
+    <ion-list class="detail-list">
+      <ion-item>
+        <ion-icon name="trail-sign-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Subregion, Region</h2>
+          <h3>{{ country.subregion }}, {{ country.region }}</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="flag-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Capital</h2>
+          <h3>{{ country.capital }}</h3>
+        </ion-label>
+      </ion-item>
+      @if (country.languages) {
+        <ion-item>
+          <ion-icon name="language-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h2>Languages</h2>
+            @for (i of country.languages | keyvalue; track i) {
+              <h3>
+                {{ i.value }}
+              </h3>
+            }
+          </ion-label>
+        </ion-item>
+      }
+      <ion-item>
+        <ion-icon name="cash-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Currency</h2>
+          @for (i of country.currencies | keyvalue; track i) {
+            <h3>
+              {{ i.value.name }}, {{ i.value.symbol }}
+            </h3>
+          }
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="time-outline" slot="start"></ion-icon>
+        <ion-label class="ion-text-wrap">
+          <h2>Timezones</h2>
+          <h3>
+            {{ country.timezones }}
+          </h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="people-circle-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Population</h2>
+          <h3>{{ country.population }}</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="expand-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Land Area</h2>
+          <h3>{{ country.area }} km<sup>2</sup></h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="desktop-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Top Level Domain</h2>
+          <h3>{{ country.tld }}</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="map-outline" slot="start"></ion-icon>
+        @if (!country.borders) {
+          <ion-label>
+            <h2>Border Countries</h2>
+            <h3>None</h3>
+          </ion-label>
+        }
+        @if (country.borders) {
+          <ion-label>
+            <h2>Border Countries</h2>
+            <h3>
+              {{ country.borders }}
+            </h3>
+          </ion-label>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-icon name="locate-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>GPS Location</h2>
+          <h3>Lat: {{ country.latlng[0] }}, Lng: {{ country.latlng[1] }}</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="reader-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Translations</h2>
+          @for (i of country.translations | keyvalue; track i) {
+            <h3>
+              {{ i.key }}, {{ i.value.official }}
+            </h3>
+          }
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+}

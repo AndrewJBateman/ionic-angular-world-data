@@ -20,17 +20,16 @@
 <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col
-        size="12"
-        size-sm="8"
-        size-ms="8"
-        size-xl="6"
-        offset-sm="2"
-        class="ion-no-padding"
-        *ngFor="let ocean of Oceans"
-      >
-        <!-- <app-accordian>
-
+      @for (ocean of Oceans; track ocean) {
+        <ion-col
+          size="12"
+          size-sm="8"
+          size-ms="8"
+          size-xl="6"
+          offset-sm="2"
+          class="ion-no-padding"
+          >
+          <!-- <app-accordian>
         </app-accordian> -->
         <ion-card>
           <img [src]="ocean.urlToImage" class="detail-img" />
@@ -39,7 +38,6 @@
               {{ ocean.name }} Ocean
             </ion-card-title>
           </ion-card-header>
-
           <ion-card-content>
             <p>
               <span class="small-text">Bounded by: </span>{{ ocean.boundedBy}}
@@ -55,13 +53,14 @@
             </p>
             <p>
               <span class="small-text">Area: </span>{{ ocean.areaKm2}} km<sup
-                >2</sup
+              >2</sup
               >
               ({{ ocean.areaMile2 }} miles<sup>2</sup>)
             </p>
           </ion-card-content>
         </ion-card>
       </ion-col>
-    </ion-row>
-  </ion-grid>
+    }
+  </ion-row>
+</ion-grid>
 </ion-content>

@@ -79,7 +79,7 @@ export class CountryListPage implements OnInit {
         this.countryName = value[0].name["common"];
       },
       error: console.error,
-    }).unsubscribe();
+    });
     this.loadingInfo = false;
     this.content.scrollToTop(0);
   }

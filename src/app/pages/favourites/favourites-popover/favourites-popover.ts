@@ -2,13 +2,13 @@ import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { PopoverController, IonicModule } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
-import { NgIf } from "@angular/common";
+
 
 @Component({
     templateUrl: "./favourites-popover.html",
     styleUrls: ["./favourites-popover.scss"],
     standalone: true,
-    imports: [NgIf, IonicModule],
+    imports: [IonicModule],
 })
 export class PopoverPage {
   @Input() countryChosen: Boolean;

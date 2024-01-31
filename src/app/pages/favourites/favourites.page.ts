@@ -6,7 +6,7 @@ import { CountryDetailInterface } from "src/app/interfaces/interface";
 import { StorageService } from "src/app/services/storage.service";
 import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
 import { CountryItemComponent } from "../../components/country-item/country-item.component";
-import { NgIf, NgFor } from "@angular/common";
+
 
 @Component({
     selector: "app-favourites",
@@ -14,12 +14,10 @@ import { NgIf, NgFor } from "@angular/common";
     styleUrls: ["./favourites.page.scss"],
     standalone: true,
     imports: [
-        IonicModule,
-        NgIf,
-        NgFor,
-        CountryItemComponent,
-        DetailItemComponent,
-    ],
+    IonicModule,
+    CountryItemComponent,
+    DetailItemComponent
+],
 })
 export class FavouritesPage implements OnInit {
   loadingInfo = false;
