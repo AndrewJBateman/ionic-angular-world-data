@@ -13,7 +13,7 @@ import { CountryPopoverPage } from "../country-popover/country-popover";
 import {
   CountryListInterface,
   CountryDetailInterface,
-} from "../../interfaces/interface";
+} from "../../interfaces/country";
 import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
 import { CountryItemComponent } from "../../components/country-item/country-item.component";
 import { FormsModule } from "@angular/forms";

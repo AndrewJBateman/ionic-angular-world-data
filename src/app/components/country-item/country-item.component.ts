@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { CountryListInterface } from "src/app/interfaces/interface";
+import { CountryListInterface } from "src/app/interfaces/country";
 import { UpperCasePipe } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
 
