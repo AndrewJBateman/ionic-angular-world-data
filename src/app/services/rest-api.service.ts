@@ -7,7 +7,7 @@ import { environment } from "../../environments/environment";
 import {
   CountryListInterface,
   CountryDetailInterface,
-} from "../interfaces/interface";
+} from "../interfaces/country";
 
 @Injectable({
   providedIn: "root",

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage-angular";
-import { CountryDetailInterface } from "../interfaces/interface";
+import { CountryDetailInterface } from "../interfaces/country";
 
 @Injectable({
   providedIn: "root",
