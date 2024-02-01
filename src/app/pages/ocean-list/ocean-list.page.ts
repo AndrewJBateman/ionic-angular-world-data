@@ -16,6 +16,7 @@
 import { Component, inject } from "@angular/core";
 import { PopoverController, IonicModule } from "@ionic/angular";
 import { PopoverPage } from "../ocean-popover/ocean-popover";
+import { OceanItemComponent } from "../../components/ocean-item/ocean-item.component";
 import { Ocean } from "../../interfaces/ocean";
 import oceanData from "./oceans.json";
 
@@ -24,7 +25,7 @@ import oceanData from "./oceans.json";
   templateUrl: "./ocean-list.page.html",
   styleUrls: ["./ocean-list.page.scss"],
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, OceanItemComponent],
 })
 export class OceanListPage {
   private popoverCtrl = inject(PopoverController);

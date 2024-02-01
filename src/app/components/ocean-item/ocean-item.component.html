@@ -1,0 +1,26 @@
+<ion-card>
+  <img [src]="ocean.urlToImage" class="detail-img" alt="{{ocean.name}} ocean" />
+  <ion-card-header>
+    <ion-card-title color="secondary" class="ion-text-center">
+      {{ ocean.name }} Ocean
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>
+      <span class="small-text">Bounded by: </span>{{ ocean.boundedBy}}
+    </p>
+    <p><span class="small-text">Ridges: </span>{{ ocean.ridges}}</p>
+    <p>
+      <span class="small-text">Largest Basins: </span>{{
+      ocean.largestBasins}}
+    </p>
+    <p>
+      <span class="small-text">Deepest Trenches: </span>{{
+      ocean.deepestTrenches}}
+    </p>
+    <p>
+      <span class="small-text">Area: </span>{{ ocean.areaKm2}} km<sup>2</sup>
+      ({{ ocean.areaMile2 }} miles<sup>2</sup>)
+    </p>
+  </ion-card-content>
+</ion-card>
