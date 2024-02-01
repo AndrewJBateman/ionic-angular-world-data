@@ -20,7 +20,7 @@
 <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      @for (ocean of Oceans; track ocean) {
+      @for (ocean of oceans; track ocean) {
         <ion-col
           size="12"
           size-sm="8"
@@ -32,7 +32,7 @@
           <!-- <app-accordian>
         </app-accordian> -->
         <ion-card>
-          <img [src]="ocean.urlToImage" class="detail-img" />
+          <img [src]="ocean.urlToImage" class="detail-img" alt="Image of {{ocean.name}} ocean"/>
           <ion-card-header>
             <ion-card-title color="secondary" class="ion-text-center">
               {{ ocean.name }} Ocean

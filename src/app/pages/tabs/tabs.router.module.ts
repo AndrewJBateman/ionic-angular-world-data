@@ -24,9 +24,9 @@ const routes: Routes = [
 				children: [
 					{
 						path: "",
-						loadChildren: () =>
-							import("../ocean-list/ocean-list.module").then(
-								(m) => m.OceanListPageModule
+						loadComponent: () =>
+							import("../ocean-list/ocean-list.page").then(
+								(m) => m.OceanListPage
 							),
 					},
 				],
