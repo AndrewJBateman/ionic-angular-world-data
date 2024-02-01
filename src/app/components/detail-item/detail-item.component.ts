@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { CountryDetailInterface } from "src/app/interfaces/country";
+import { CountryDetail } from "src/app/interfaces/country";
 import { IonicModule } from "@ionic/angular";
 import { KeyValuePipe } from "@angular/common";
 
@@ -14,5 +14,5 @@ import { KeyValuePipe } from "@angular/common";
 ],
 })
 export class DetailItemComponent {
-  @Input() country: CountryDetailInterface;
+  @Input() country: CountryDetail;
 }

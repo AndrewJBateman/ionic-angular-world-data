@@ -11,8 +11,8 @@ import { PopoverController } from "@ionic/angular";
 import { RestApiService } from "./../../services/rest-api.service";
 import { CountryPopoverPage } from "../country-popover/country-popover";
 import {
-  CountryListInterface,
-  CountryDetailInterface,
+  CountryList,
+  CountryDetail,
 } from "../../interfaces/country";
 import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
 import { CountryItemComponent } from "../../components/country-item/country-item.component";
@@ -44,8 +44,8 @@ export class CountryListPage implements OnInit {
   continents = ["all", "Africa", "Americas", "Asia", "Europe", "Oceania"];
   fullList = [];
   searchTerm: "";
-  countries: CountryListInterface[] = [];
-  public country: CountryDetailInterface;
+  countries: CountryList[] = [];
+  public country: CountryDetail;
   public continent: string;
   searchItems: any;
 
@@ -65,19 +65,19 @@ export class CountryListPage implements OnInit {
   getCountryList = (url: string): void => {
     this.restApiService
       .fetchCountryListData(url)
-      .subscribe((data: CountryListInterface[]) => {
+      .subscribe((data: CountryList[]) => {
         this.countries = data;
-        this.searchItems = this.countries as CountryListInterface[];
+        this.searchItems = this.countries as CountryList[];
       });
   };
 
   // fetch country detail
-  onShowCountryDetail(country: CountryListInterface): void {
+  onShowCountryDetail(country: CountryList): void {
     this.loadingInfo = true;
     this.countryChosen = true;
     const countryToSearch = country.name.common;
     this.restApiService.fetchCountryDetailData(countryToSearch).subscribe({
-      next: (value: CountryDetailInterface[]) => {
+      next: (value: CountryDetail[]) => {
         this.country = value[0];
         this.countryName = value[0].name["common"];
       },
@@ -102,7 +102,7 @@ export class CountryListPage implements OnInit {
     this.resetSearchItems(); // reset list after each
     this.searchItems =
       event.detail.value !== "all"
-        ? this.searchItems.filter((item: CountryListInterface) => {
+        ? this.searchItems.filter((item: CountryList) => {
             return item.region.includes(event.detail.value);
           })
         : this.countries;
@@ -162,7 +162,7 @@ export class CountryListPage implements OnInit {
     });
   }
 
-  public trackByName(index: number, item: CountryListInterface): string {
+  public trackByName(index: number, item: CountryList): string {
     return item.name.common;
   }
 }

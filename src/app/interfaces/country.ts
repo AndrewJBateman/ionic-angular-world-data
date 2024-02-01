@@ -1,5 +1,5 @@
 // format of initial response with only 4 fields to be fetched from API
-export interface CountryListInterface {
+export interface CountryList {
   name: Name;
   capital: string;
   region: string;
@@ -27,7 +27,7 @@ export interface Flags {
 }
 
 // format of response from Rest Countries API
-export interface CountryDetailInterface {
+export interface CountryDetail {
   altSpellings: string[];
   area: number;
   borders: string[] | null;

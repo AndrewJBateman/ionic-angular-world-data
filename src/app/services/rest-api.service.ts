@@ -5,8 +5,8 @@ import { catchError, take } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 
 import {
-  CountryListInterface,
-  CountryDetailInterface,
+  CountryList,
+  CountryDetail,
 } from "../interfaces/country";
 
 @Injectable({
@@ -21,9 +21,9 @@ export class RestApiService {
    * Fetches the list of countries from the API based on the provided URL.
    * Returns an observable of type CountryListInterface[].
    */
-  fetchCountryListData(url: string): Observable<CountryListInterface[]> {
+  fetchCountryListData(url: string): Observable<CountryList[]> {
     const countryListUrl: string = `${this.apiUrl}/${url}`;
-    return this.httpClient.get<CountryListInterface[]>(countryListUrl).pipe(
+    return this.httpClient.get<CountryList[]>(countryListUrl).pipe(
       take(1),
       catchError((err) => {
         return throwError(() => err);
@@ -37,10 +37,10 @@ export class RestApiService {
    */
   fetchCountryDetailData(
     country: string
-  ): Observable<CountryDetailInterface[]> {
+  ): Observable<CountryDetail[]> {
     const countryDetailUrl: string = `${this.apiUrl}/name/${country}?fullText=true`;
     return this.httpClient
-      .get<CountryDetailInterface[]>(countryDetailUrl)
+      .get<CountryDetail[]>(countryDetailUrl)
       .pipe(
         take(1),
         catchError((err) => {
