@@ -5,33 +5,42 @@ import { Subscription } from "rxjs";
 import { UpperCasePipe } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
 
+import { Map } from "../../interfaces/map";
+
 @Component({
-    selector: "app-map",
-    templateUrl: "./map.page.html",
-    styleUrls: ["./map.page.scss"],
-    standalone: true,
-    imports: [IonicModule, UpperCasePipe],
+  selector: "app-map",
+  templateUrl: "./map.page.html",
+  styleUrls: ["./map.page.scss"],
+  standalone: true,
+  imports: [IonicModule, UpperCasePipe],
 })
 export class MapPage implements OnDestroy {
   subscription: Subscription;
   countryName: string;
   queryParams: Params;
+  mapParams: Map;
   map: Leaflet.Map;
+
+  mapIcon = Leaflet.icon({
+    iconUrl: "assets/icon/marker-icon.png",
+    shadowUrl: "assets/icon/marker-shadow.png",
+  });
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   loadMap() {
-    this.subscription = this.activatedRoute.queryParams.subscribe((params) => {
-      this.queryParams = params;
-      this.countryName = this.queryParams.name;
-      this.leafletMap(
-        this.queryParams.capName,
-        parseFloat(this.queryParams.lat),
-        parseFloat(this.queryParams.lon),
-        parseFloat(this.queryParams.capLat),
-        parseFloat(this.queryParams.capLon)
-      );
-    });
+    this.subscription = this.activatedRoute.queryParams.subscribe(
+      (mapParams: Map) => {
+        this.countryName = mapParams.countryName;
+        this.leafletMap(
+          mapParams.capName,
+          parseFloat(mapParams.lat),
+          parseFloat(mapParams.lon),
+          parseFloat(mapParams.capLat),
+          parseFloat(mapParams.capLon)
+        );
+      }
+    );
   }
 
   ionViewDidEnter() {
@@ -45,13 +54,8 @@ export class MapPage implements OnDestroy {
     capLat: number,
     capLon: number
   ) {
-    const mapIcon = Leaflet.icon({
-      iconUrl: "assets/icon/marker-icon.png",
-      shadowUrl: "assets/icon/marker-shadow.png",
-    });
-
     this.map = Leaflet.map("map", {
-      center: [+lat, +lng],
+      center: [Number(lat), Number(lng)],
       zoom: 5,
     });
 
@@ -60,7 +64,7 @@ export class MapPage implements OnDestroy {
     }).addTo(this.map);
 
     Leaflet.marker([capLat, capLon], {
-      icon: mapIcon,
+      icon: this.mapIcon,
     })
       .bindTooltip(`Capital: ${capName}`, {
         permanent: true,

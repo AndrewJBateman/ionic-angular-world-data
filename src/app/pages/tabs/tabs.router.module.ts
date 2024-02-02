@@ -58,8 +58,8 @@ const routes: Routes = [
 				children: [
 					{
 						path: "",
-						loadChildren: () =>
-							import("../map/map.module").then((m) => m.MapPageModule),
+						loadComponent: () =>
+							import("../map/map.page").then((m) => m.MapPage),
 					},
 				],
 			},
