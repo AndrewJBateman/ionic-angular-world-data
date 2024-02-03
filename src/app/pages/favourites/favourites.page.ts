@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Location } from "@angular/common";
 
 import { PopoverController, IonicModule } from "@ionic/angular";
 import { PopoverPage } from "./favourites-popover/favourites-popover";
@@ -7,17 +8,18 @@ import { StorageService } from "src/app/services/storage.service";
 import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
 import { CountryItemComponent } from "../../components/country-item/country-item.component";
 
-
 @Component({
-    selector: "app-favourites",
-    templateUrl: "./favourites.page.html",
-    styleUrls: ["./favourites.page.scss"],
-    standalone: true,
-    imports: [
+  selector: "app-favourites",
+  templateUrl: "./favourites.page.html",
+  styleUrls: ["./favourites.page.scss"],
+  standalone: true,
+  imports: [
     IonicModule,
     CountryItemComponent,
-    DetailItemComponent
-],
+    DetailItemComponent,
+    PopoverPage,
+  ],
+  providers: [Location],
 })
 export class FavouritesPage implements OnInit {
   loadingInfo = false;
@@ -45,8 +47,11 @@ export class FavouritesPage implements OnInit {
   }
 
   async getFavourites(): Promise<void> {
-    this.countries = await this.storage.loadFavourites();
-    this.loadingInfo = false;
+    try {
+      this.countries = await this.storage.loadFavourites();
+    } finally {
+      this.loadingInfo = false;
+    }
     this.isFavourite = true;
   }
 
@@ -58,5 +63,6 @@ export class FavouritesPage implements OnInit {
   backToList() {
     // this.countryName = "";
     this.countryChosen = false;
+    this.isFavourite = true;
   }
 }
