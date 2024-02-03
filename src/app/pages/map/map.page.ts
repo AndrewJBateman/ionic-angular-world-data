@@ -1,3 +1,11 @@
+/**
+ * Represents the MapPage component.
+ * This component is responsible for displaying a map with a marker representing a specific location.
+ * It uses the Leaflet library for map rendering and navigation.
+ * The map is loaded based on the query parameters received from the ActivatedRoute.
+ * The component also provides a method to navigate back to the country list page.
+ * Implements the OnDestroy interface to handle component destruction.
+ */
 import { Component, OnDestroy } from "@angular/core";
 import * as Leaflet from "leaflet";
 import { ActivatedRoute, Router, Params } from "@angular/router";
