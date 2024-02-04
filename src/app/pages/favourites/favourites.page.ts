@@ -1,3 +1,11 @@
+/**
+ * FavouritesPage class represents a page component for displaying a list of favourite countries.
+ * It is responsible for loading and displaying the favourite countries, as well as handling user interactions.
+ *
+ * @constructor
+ * @param {PopoverController} popoverCtrl - The popover controller for displaying a popover page.
+ * @param {StorageService} storage - The storage service for loading the favourite countries.
+ */
 import { Component, OnInit } from "@angular/core";
 import { Location } from "@angular/common";
 

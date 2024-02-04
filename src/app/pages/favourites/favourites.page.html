@@ -1,3 +1,11 @@
+<!--This includes an ion-header with a toolbar, ion-buttons, and ion-title.
+  The ion-content section contains an ion-grid with ion-row and ion-col elements.
+  Inside the ion-col, there is a loop that displays a list of country cards based
+  on the countries array. Each country card can be either a regular country item or 
+  a detail item, depending on the value of the countryChosen variable.
+  If there are no countries in the favorites list, a message card is displayed.
+  The code also includes some conditional rendering based on the values of countryChosen
+  and loadingInfo variables.-->
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
@@ -53,7 +61,7 @@
         @if (!loadingInfo && countries.length > 0) {
           <!--display list of favourite countries-->
           @for (country of countries; track country) {
-            <div style="padding: 2px 0">
+            <div class="country-card">
               @if (!countryChosen) {
                 <app-country-item
                   [country]="country"
