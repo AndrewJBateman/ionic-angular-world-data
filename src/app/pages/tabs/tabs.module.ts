@@ -5,11 +5,9 @@ import { IonicModule } from "@ionic/angular";
 
 import { TabsPage } from "./tabs.page";
 import { TabsPageRoutingModule } from "./tabs.router.module";
-import { AboutPageModule } from "../about/about.module";
 
 @NgModule({
     imports: [
-        AboutPageModule,
         CommonModule,
         FormsModule,
         IonicModule,

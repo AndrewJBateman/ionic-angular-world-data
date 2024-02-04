@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { IonicModule } from "@ionic/angular";
+
 import { PopoverController } from "@ionic/angular";
 
 import { PopoverPage } from "../about-popover/about-popover";
@@ -7,6 +9,8 @@ import { PopoverPage } from "../about-popover/about-popover";
 	selector: "app-about",
 	templateUrl: "./about.page.html",
 	styleUrls: ["./about.page.scss"],
+	standalone: true,
+	imports: [IonicModule]
 })
 export class AboutPage {
 	constructor(public popoverCtrl: PopoverController) {}
