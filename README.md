@@ -30,6 +30,7 @@
 * The [Rest Countries API v3](https://restcountries.com/) has a number of endpoints that can be used to search for info. I have used the endpoints: `All?fields=name,capital,region,flags`, Name & Region. The [API Response Example](https://restcountries.com/#api-endpoints-response-example) was useful to create my http interface class.
 * [Leaflet maps](https://leafletjs.com/) displays a map of the chosen country that the user can zoom in and out of.
 * [Angular KeyValuePipe](https://angular.io/api/common/KeyValuePipe) used to extract values from key-value pairs
+* Latest Angular flow control template syntax used - @for and @if.
 
 ## :camera: Screenshots
 
@@ -55,12 +56,11 @@
 
 ## :signal_strength: Technologies
 
-* [Ionic v7](https://ionicframework.com/)
-* [Angular v16](https://angular.io/)
+* [Angular v17](https://angular.io/)
 * [Ionic/angular v7](https://www.npmjs.com/package/@ionic/angular)
 * [Rest Countries API v3](https://restcountries.com/) - v3 has a lot of breaking changes from v2
-* [Leaflet maps](https://leafletjs.com/) JS library of maps
-* [Ionic 5 open source Ionicons](https://ionicons.com/)
+* [Leaflet maps](https://leafletjs.com/) free JS library of maps
+* [open source Ionicons](https://ionicons.com/)
 
 ## :floppy_disk: Setup
 
@@ -74,9 +74,9 @@
 * service function to fetch API country details, from `rest-api.service.ts` using the take(1) method so unsubscribing from the observable is not necessary.
 
 ```typescript
-fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
+fetchCountryDetailData(country: string): Observable<CountryDetail[]> {
   return this.httpClient
-    .get<CountryDetailInterface[]>(`${apiUrl}/name/${country}?fullText=true`)
+    .get<CountryDetail[]>(`${apiUrl}/name/${country}?fullText=true`)
     .pipe(
       take(1),
       catchError((error) => {
@@ -101,16 +101,13 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 
 * **Nav side-bar:** countries, oceans, favorites, about, dark theme toggle.
 
-* **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using *ngIf in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country.
-* **TODO:** add function (custom pipe) to insert ',' in area figures etc.
+* **Countries page:** Displays mat-card list of countries, displaying country flag, title, capital and region, for 'all' and 5 region sub-categories. Clicking on a country list item will show the country detail (no routing required - all done using @if in the html content :-)). Country searchbar to search by country name. Fab icon link to map of country.
 
 * **Oceans page** Displays a mat-card for each ocean using data from a local json file and an *ngFor loop. Menu popover with links to further info for each ocean. It was decided not to add 'favourites functionality' as there are only 5 oceans and they are easy to find.
 
 * **Maps page** Displays Leaflet map of country and surrounding area with Capital in an offset tooltip
-* **TODO:** Add boundary around country.
 
 * **Favourites** Displays user favourites and popover allows them to be deleted. Shows an image with text below if there are no favourites
-* **TODO:** Add sliding single favourite delete.
 
 * **About** Displays image with author credit and short info about the app with links to APIs used. Header includes popover with working links to Author Website, Github Repo & author website contact page
 
@@ -120,12 +117,13 @@ fetchCountryDetailData(country: string): Observable<CountryDetailInterface[]> {
 
 ## :clipboard: To-do
 
-1. Progress bar - check it is working
-2. Add eslinting - currently will not install due to rxjs version
-3. Splash screen
-4. SqLite - use as default database?
-5. Lighthouse score?
-6. Run on simulator
+1. Separate error handling service to handle errors from http requests.
+2. Progress bar - check it is working
+3. Add eslinting - currently will not install due to rxjs version
+4. Splash screen
+5. SqLite - use as default database?
+6. Lighthouse score?
+7. Run on simulator
 
 ## :clap: Inspiration
 
