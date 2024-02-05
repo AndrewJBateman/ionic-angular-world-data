@@ -1,3 +1,16 @@
+<!--This code snippet represents an HTML template for an Ionic app with a side menu.
+It consists of an `ion-app` element that contains an `ion-split-pane` element.
+The `ion-split-pane` is used to create a split view layout with a side menu and the main content.
+The side menu is defined within the `ion-menu` element.
+It has a header with a title and a content area.
+The content area contains two `ion-list` elements.
+The first `ion-list` is used to display a list of pages using an `ngFor` loop.
+Each page item is wrapped in an `ion-menu-toggle` element, which allows the menu to automatically
+hide when a page is selected. The page item consists of an `ion-item` with an icon, a label,
+and a router link. The second `ion-list` contains a toggle switch for enabling or disabling dark mode.
+
+The main content is rendered using the `ion-router-outlet` element, which is assigned the id "menu-content".
+-->
 <ion-app>
   <ion-split-pane contentId="menu-content">
     <!--Side menu-->
@@ -12,7 +25,7 @@
         <ion-list>
           @for (p of appPages; track p; let i = $index) {
             <ion-menu-toggle
-              auto-hide="false"
+              auto-hide="true"
               >
               <ion-item
                 [routerLink]="p.url"
@@ -36,7 +49,6 @@
             <ion-toggle
               [(ngModel)]="darkMode"
               slot="end"
-              [checked]="darkMode"
               aria-label="Toggle dark mode"
               (ionChange)="themeService.changeThemeMode($event)"
               >
