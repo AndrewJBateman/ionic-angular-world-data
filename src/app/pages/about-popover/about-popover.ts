@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { PopoverController, IonicModule } from "@ionic/angular";
 import { Router } from "@angular/router";
 
@@ -9,7 +9,8 @@ import { Router } from "@angular/router";
     imports: [IonicModule],
 })
 export class PopoverPage {
-	constructor(private router: Router, public popoverCtrl: PopoverController) {}
+	private router = inject(Router);
+	public popoverCtrl = inject(PopoverController);
 
 	openContactForm() {
 		this.router.navigate(["app/tabs/contact"]);

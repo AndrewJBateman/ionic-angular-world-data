@@ -6,7 +6,7 @@
  * @param {PopoverController} popoverCtrl - The popover controller for displaying a popover page.
  * @param {StorageService} storage - The storage service for loading the favourite countries.
  */
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, inject } from "@angular/core";
 import { Location } from "@angular/common";
 
 import { PopoverController, IonicModule } from "@ionic/angular";
@@ -30,16 +30,14 @@ import { CountryItemComponent } from "../../components/country-item/country-item
   providers: [Location],
 })
 export class FavouritesPage implements OnInit {
+  public popoverCtrl = inject(PopoverController);
+  private storage = inject(StorageService);
+  
   loadingInfo = false;
   countryChosen = false;
   isFavourite = false;
   countries: CountryDetail[] = [];
   country: CountryDetail;
-
-  constructor(
-    public popoverCtrl: PopoverController,
-    private storage: StorageService
-  ) {}
 
   async presentPopover(event: any): Promise<void> {
     const popover = await this.popoverCtrl.create({

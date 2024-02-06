@@ -6,7 +6,7 @@
  * The component also provides a method to navigate back to the country list page.
  * Implements the OnDestroy interface to handle component destruction.
  */
-import { Component, OnDestroy } from "@angular/core";
+import { Component, OnDestroy, inject } from "@angular/core";
 import * as Leaflet from "leaflet";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { Subscription } from "rxjs";
@@ -23,6 +23,9 @@ import { Map } from "../../interfaces/map";
   imports: [IonicModule, UpperCasePipe],
 })
 export class MapPage implements OnDestroy {
+  private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
+
   subscription: Subscription;
   countryName: string;
   queryParams: Params;
@@ -33,8 +36,6 @@ export class MapPage implements OnDestroy {
     iconUrl: "assets/icon/marker-icon.png",
     shadowUrl: "assets/icon/marker-shadow.png",
   });
-
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   loadMap() {
     this.subscription = this.activatedRoute.queryParams.subscribe(

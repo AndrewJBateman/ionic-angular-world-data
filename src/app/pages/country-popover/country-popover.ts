@@ -3,11 +3,11 @@ import { Router } from "@angular/router";
 import {
   NavParams,
   NavController,
-  ToastController,
   IonicModule,
 } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
+import { ToastService } from "../../services/toast.service";
 
 @Component({
   templateUrl: "./country-popover.html",
@@ -21,7 +21,7 @@ export class CountryPopoverPage implements OnInit {
   private popoverCtrl = inject(PopoverController);
   private router = inject(Router);
   private storage = inject(StorageService);
-  public toastCtrl = inject(ToastController);
+  private toastService = inject(ToastService);
 
   viewMap = false;
   country = null;
@@ -46,15 +46,6 @@ export class CountryPopoverPage implements OnInit {
       );
   }
 
-  async presentToast(message: string) {
-    const toast = await this.toastCtrl.create({
-      message,
-      position: "middle",
-      duration: 2000,
-    });
-    toast.present();
-  }
-
   dismissPopover(): void {
     this.popoverCtrl.dismiss();
   }
@@ -76,7 +67,7 @@ export class CountryPopoverPage implements OnInit {
     this.favouritesText = exists
       ? "Remove from favourites"
       : "Add to favourites";
-    this.presentToast(message);
+    this.toastService.presentSuccessToast(message);
     this.dismissPopover();
   }
 

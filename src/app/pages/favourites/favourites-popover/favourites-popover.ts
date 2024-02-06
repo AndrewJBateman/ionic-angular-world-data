@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { PopoverController, IonicModule } from "@ionic/angular";
 import { StorageService } from "src/app/services/storage.service";
@@ -11,13 +11,11 @@ import { StorageService } from "src/app/services/storage.service";
     imports: [IonicModule],
 })
 export class PopoverPage {
-  @Input() countryChosen: Boolean;
+  public popoverCtrl = inject(PopoverController);
+  private storage = inject(StorageService);
+  private router = inject(Router);
 
-  constructor(
-    public popoverCtrl: PopoverController,
-    private storage: StorageService,
-    private router: Router
-  ) {}
+  @Input() countryChosen: Boolean;
 
   async onDeleteAllFavourites() {
     await this.storage.clearStoredData("favourites");

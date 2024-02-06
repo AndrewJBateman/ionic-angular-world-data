@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { IonicModule } from "@ionic/angular";
 
 import { PopoverController } from "@ionic/angular";
 
+import { ToastService } from "src/app/services/toast.service";
 import { PopoverPage } from "../about-popover/about-popover";
 
 @Component({
@@ -13,7 +14,8 @@ import { PopoverPage } from "../about-popover/about-popover";
   imports: [IonicModule],
 })
 export class AboutPage {
-  constructor(private popoverCtrl: PopoverController) {}
+  private popoverCtrl = inject(PopoverController)
+  private toastService = inject(ToastService);
 
   async presentPopover(event: Event): Promise<void> {
     try {
@@ -22,9 +24,11 @@ export class AboutPage {
         event,
       });
       await popover.present();
-    } catch (err: unknown) {
-      console.error("Error presenting popover:", err);
-      // Handle the error or display an error message to the user
+    } catch (error: any) {
+      this.toastService.presentErrorToast(
+        `An error occurred: "${error.message}". Please try again later.`
+      );
+      throw error(error);
     }
   }
 }

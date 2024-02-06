@@ -3,17 +3,16 @@ import {
   OnInit,
   ViewChild,
   CUSTOM_ELEMENTS_SCHEMA,
+  inject,
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { IonContent, IonicModule } from "@ionic/angular";
 import { PopoverController } from "@ionic/angular";
 
 import { RestApiService } from "./../../services/rest-api.service";
+import { ToastService } from "src/app/services/toast.service";
 import { CountryPopoverPage } from "../country-popover/country-popover";
-import {
-  CountryList,
-  CountryDetail,
-} from "../../interfaces/country";
+import { CountryList, CountryDetail } from "../../interfaces/country";
 import { DetailItemComponent } from "../../components/detail-item/detail-item.component";
 import { CountryItemComponent } from "../../components/country-item/country-item.component";
 import { FormsModule } from "@angular/forms";
@@ -36,6 +35,10 @@ import { UpperCasePipe } from "@angular/common";
 })
 export class CountryListPage implements OnInit {
   @ViewChild(IonContent, { static: true }) content: IonContent;
+  private restApiService = inject(RestApiService);
+  private router = inject(Router);
+  public popoverCtrl = inject(PopoverController);
+  private toastService = inject(ToastService);
 
   loadingInfo = false;
   public countryChosen = false;
@@ -48,12 +51,6 @@ export class CountryListPage implements OnInit {
   public country: CountryDetail;
   public continent: string;
   searchItems: any;
-
-  constructor(
-    private restApiService: RestApiService,
-    private router: Router,
-    public popoverCtrl: PopoverController
-  ) {}
 
   // get country info for category 'all' with just the 4 fields needed.
   ngOnInit() {
@@ -82,12 +79,13 @@ export class CountryListPage implements OnInit {
         this.countryName = value[0].name["common"];
       },
       error: (error) => {
-        // Handle the error using a proper error handling mechanism or service
-        // For example, you can log the error, display an error message to the user, or perform any other error handling logic.
-        console.log("An error occurred:", error);
+        this.toastService.presentErrorToast(
+          `An error occurred: "${error.message}". Please try again later.`
+        );
+        throw error(error);
+        this.loadingInfo = false;
       },
     });
-    this.loadingInfo = false;
     this.content.scrollToTop(0);
   }
 
@@ -145,7 +143,10 @@ export class CountryListPage implements OnInit {
         popover.present();
       })
       .catch((error) => {
-        console.error(error);
+        this.toastService.presentErrorToast(
+          `An error occurred: "${error.message}". Please try again later.`
+        );
+        throw error(error);
       });
   }
 
