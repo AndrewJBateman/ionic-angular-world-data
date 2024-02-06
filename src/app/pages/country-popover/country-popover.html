@@ -1,13 +1,13 @@
 <ion-item button (click)="onClickForInfo()">
-  <ion-icon name="information-circle" size="large" color="primary"></ion-icon>
+  <ion-icon class="popover-icon" name="information-circle" size="small" color="primary"></ion-icon>
   <ion-text>More info.</ion-text>
 </ion-item>
 <ion-item button (click)="onClickForMap($event)">
-  <ion-icon name="locate-outline" size="large" color="secondary"></ion-icon>
+  <ion-icon class="popover-icon" name="locate-outline" size="small" color="secondary"></ion-icon>
   <ion-text>View on map</ion-text>
 </ion-item>
 <ion-item button (click)="onUpdateFavourites()">
-  <ion-icon [name]="favourite" size="large" color="danger"></ion-icon>
+  <ion-icon class="popover-icon" [name]="favourite" size="small" color="danger"></ion-icon>
   <ion-text>{{ favouritesText }}</ion-text>
 </ion-item>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
