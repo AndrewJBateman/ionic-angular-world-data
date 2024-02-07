@@ -13,8 +13,4 @@ import { IonicModule } from "@ionic/angular";
 export class CountryItemComponent {
   @Input() country: CountryList;
   @Input() isFavourite: Boolean;
-
-  onDeleteFavourite() {
-    console.log("remove from favourites");
-  }
 }

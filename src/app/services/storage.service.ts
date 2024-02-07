@@ -29,7 +29,7 @@ export class StorageService {
     return this.storage.get(key);
   }
 
-  async clearStoredData(key: string): Promise<void> {
+  async clearStoredData(key: string): Promise<boolean> {
     return this.storage.remove(key);
   }
 

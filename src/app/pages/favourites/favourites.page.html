@@ -11,37 +11,23 @@
     <ion-buttons slot="start">
       <ion-menu-button />
       @if (countryChosen) {
-        <ion-button (click)="backToList()">
-          <ion-icon
-            name="arrow-back-circle-outline"
-            size="large"
-            class="list-back-arrow"
-            >
-          </ion-icon>
-        </ion-button>
+      <ion-button (click)="backToList()">
+        <ion-icon name="arrow-back-circle-outline" size="large" class="list-back-arrow">
+        </ion-icon>
+      </ion-button>
       }
     </ion-buttons>
 
     <ion-title class="ion-text-center">
-      <ion-icon
-        [class]="!countryChosen ? 'icon' : 'icon icon-center'"
-        name="heart"
-        size="large"
-        >
+      <ion-icon [class]="!countryChosen ? 'icon' : 'icon icon-center'" name="heart" size="large">
       </ion-icon>
     </ion-title>
 
     <ion-buttons slot="end">
       @if (countries.length > 0 && !countryChosen) {
-        <ion-button
-          (click)="presentPopover($event)"
-          >
-          <ion-icon
-            class="popover-icon"
-            slot="icon-only"
-            name="ellipsis-vertical-outline"
-          ></ion-icon>
-        </ion-button>
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon class="popover-icon" slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
       }
     </ion-buttons>
   </ion-toolbar>
@@ -50,55 +36,40 @@
 <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col
-        size="12"
-        size-sm="8"
-        size-ms="8"
-        size-xl="6"
-        offset-sm="2"
-        class="ion-no-padding"
-        >
+      <ion-col size="12" size-sm="8" size-ms="8" size-xl="6" offset-sm="2" class="ion-no-padding">
         @if (!loadingInfo && countries.length > 0) {
-          <!--display list of favourite countries-->
-          @for (country of countries; track country) {
-            <div class="country-card">
-              @if (!countryChosen) {
-                <app-country-item
-                  [country]="country"
-                  [isFavourite]="isFavourite"
-                  (click)="onShowCountryDetail()"
-                  >
-                </app-country-item>
-              }
-              <!--display chosen country-->
-              @if (countryChosen) {
-                <app-detail-item
-                  [country]="country"
-                  >
-                </app-detail-item>
-              }
-            </div>
+        <!--display list of favourite countries-->
+        @for (country of countries; track country) {
+        <div class="country-card">
+          @if (!countryChosen) {
+          <app-country-item [country]="country" [isFavourite]="isFavourite" (click)="onShowCountryDetail()">
+          </app-country-item>
           }
-        } @else {
-          <ion-card>
-            <div class="image-div">
-              <img
-                class="mat-card-image"
-                src="../../../assets/imgs/world.jpg"
-                alt="image of the world"
-                />
-                <div class="photo-credit">Image from https://www.onlygfx.com</div>
-              </div>
-              <ion-card-content>
-                <h2 class="ion-text-center">
-                  There are no countries listed in Favourites
-                </h2>
-              </ion-card-content>
-            </ion-card>
+          <!--display chosen country-->
+          @if (countryChosen) {
+          <app-detail-item [country]="country">
+          </app-detail-item>
           }
+        </div>
+        }
+        }
 
-          <!--if no favourites, show this card-->
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
+        @if (!countries.length) {
+        <ion-card>
+          <div class="image-div">
+            <img class="mat-card-image" src="../../../assets/imgs/world.jpg" alt="world map view" />
+            <div class="photo-credit">Image from https://www.onlygfx.com</div>
+          </div>
+          <ion-card-content>
+            <h2 class="ion-text-center">
+              There are no countries listed in Favourites
+            </h2>
+          </ion-card-content>
+        </ion-card>
+        }
+
+        <!--if no favourites, show this card-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
