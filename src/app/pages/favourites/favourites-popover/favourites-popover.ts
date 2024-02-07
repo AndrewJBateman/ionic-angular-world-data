@@ -18,9 +18,11 @@ export class PopoverPage {
   @Input() countryChosen: Boolean;
 
   async onDeleteAllFavourites() {
+    console.log('delete all favourites');
     await this.storage.clearStoredData("favourites");
     this.popoverCtrl.dismiss();
-    this.router.navigate(["/app/tabs/country-list"]);
+    this.router.navigate(["/app/tabs/favourites"]);
+    window.location.reload();
   }
 
   openUrl(url: string) {
