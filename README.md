@@ -18,7 +18,7 @@
   * [:floppy\_disk: Setup](#floppy_disk-setup)
   * [:computer: Code Examples](#computer-code-examples)
   * [:cool: Features](#cool-features)
-  * [General/Navigation/Pages](#generalnavigationpages)
+  * [:clipboard: General/Navigation/Pages](#clipboard-generalnavigationpages)
   * [:clipboard: Status \& To-do list](#clipboard-status--to-do-list)
   * [:clipboard: To-do](#clipboard-to-do)
   * [:clap: Inspiration](#clap-inspiration)
@@ -97,7 +97,7 @@ fetchCountryDetailData(country: string): Observable<CountryDetail[]> {
 * **ion-grid** with fixed column size used so country content data will display ok even on a PC.
 * **search** function to search for country name with regex to only allow letters in search text.
 
-## General/Navigation/Pages
+## :clipboard: General/Navigation/Pages
 
 * **Nav side-bar:** countries, oceans, favorites, about, dark theme toggle.
 
@@ -117,7 +117,7 @@ fetchCountryDetailData(country: string): Observable<CountryDetail[]> {
 
 ## :clipboard: To-do
 
-1. Separate error handling service to handle errors from http requests.
+1. Add delete from favourites from individual country card - show heart red or hollow
 2. Progress bar - check it is working
 3. Add eslinting - currently will not install due to rxjs version
 4. Splash screen
