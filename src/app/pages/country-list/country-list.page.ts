@@ -64,7 +64,9 @@ export class CountryListPage implements OnInit {
       .fetchCountryListData(url)
       .subscribe((data: CountryList[]) => {
         this.countries = data;
-        this.searchItems = this.countries as CountryList[];
+        this.searchItems = this.countries.sort(
+          (a, b) => a.name.common.charCodeAt(0) - b.name.common.charCodeAt(0)
+        ) as CountryList[];
       });
   };
 
